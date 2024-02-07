@@ -1,0 +1,29 @@
+@import "src/styles/colors.scss";
+
+a {
+	color: $red-primary;
+	text-decoration: none !important;
+}
+
+ul {
+	list-style: none;
+	padding: unset;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: $bg-primary;
+	font-family: "General Sans", sans-serif;
+	padding: 3rem;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.satoshi {
+	font-family: "Satoshi", sans-serif;
+}

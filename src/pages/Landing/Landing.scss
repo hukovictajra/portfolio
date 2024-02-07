@@ -1,0 +1,12 @@
+@import "src/styles/colors.scss";
+
+#landing-page {
+	background-color: $bg-primary;
+	font-family: "General Sans", sans-serif;
+	padding: 3rem;
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+}

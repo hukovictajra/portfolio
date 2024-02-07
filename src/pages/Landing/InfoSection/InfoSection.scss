@@ -1,0 +1,164 @@
+@import "/src/styles/colors.scss";
+
+.info-section {
+	position: relative;
+	color: $red-primary;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 45%;
+}
+
+.info-section-content {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+.info-title-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-bottom: 4rem;
+}
+
+.info-section h1 {
+	font-size: 4rem;
+	font-weight: 500;
+	margin: 0;
+	line-height: 3.8rem;
+}
+
+.info-portfolio-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-bottom: 12rem;
+}
+
+.info-portfolio-item-icon {
+	font-weight: bold;
+	color: $red-primary;
+}
+
+.info-portfolio-item {
+	display: inline-flex;
+	justify-content: flex-start;
+	gap: 0.5rem;
+	align-items: center;
+	position: relative;
+
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-right: auto;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: 0.107rem;
+	font-size: 1.14rem;
+}
+
+.underline-effect {
+	position: relative;
+	padding: 0.2em 0;
+}
+
+.underline-effect::after {
+	position: absolute;
+	content: "";
+	background: $red-primary;
+	bottom: 0;
+	right: 0;
+	height: 2px;
+	width: 0%;
+	transition: 300ms ease-in-out;
+}
+
+.underline-effect:hover::after {
+	width: 100%;
+	left: 0;
+}
+
+.info-work-with-me-button {
+	margin: 1.5rem 0;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 1.5rem 2rem;
+	width: 16rem;
+	font-size: 1rem;
+	text-align: center;
+	justify-content: center;
+	inset: 0px;
+	align-items: center;
+	border-radius: 999em;
+	text-decoration: none;
+	background-color: $red-primary;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 500;
+	border: 1px solid $red-primary;
+	transition: 0.5s background-color, 0.5s border-color, 0.5s color, 0.5s fill;
+	color: $bg-primary;
+	letter-spacing: 0.17rem;
+}
+
+.info-work-with-me-button:hover {
+	background-color: $bg-primary;
+	color: $red-primary;
+}
+
+.info-quick-links {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.info-quick-link-item {
+	text-transform: uppercase;
+	display: inline-flex;
+	font-weight: 500;
+	cursor: pointer;
+	text-align: center;
+	align-items: center;
+}
+
+.info-quick-link-item span {
+	text-align: center;
+}
+
+.info-quick-link-item-icon {
+	height: 3rem;
+	width: 3rem;
+	color: $red-primary;
+	transition: color 0.5s;
+}
+
+.info-quick-link-item-icon span {
+	line-height: 100%;
+}
+
+.info-quick-link-icon-list {
+	display: flex;
+	justify-content: flex-start;
+	gap: 2rem;
+}
+
+.info-map-pin-icon {
+	height: 1.3rem;
+	width: 1.3rem;
+	margin-right: 0.5rem;
+	color: $red-primary;
+	transition: 0.5s, color;
+}
+
+.info-instagram-icon:hover {
+	color: #e1306c;
+}
+
+.info-linkedin-icon:hover {
+	color: $linkedin-primary;
+}
+
+.info-pinterest-icon:hover {
+	color: $pinterest-primary;
+}
