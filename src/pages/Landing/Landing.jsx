@@ -5,11 +5,11 @@ import ImageSection from "./ImageSection/ImageSection";
 
 import "./Landing.scss";
 
-export const Landing = () => {
+export function Landing() {
 	return (
 		<div id="landing-page">
 			<InfoSection />
 			<ImageSection />
 		</div>
 	);
-};
+}

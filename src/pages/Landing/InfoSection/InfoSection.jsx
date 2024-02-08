@@ -1,39 +1,45 @@
 import React from "react";
-import Icon from "../../../elements/Icon/Icon";
-import MapPin from "../../../assets/svg/map_pin.svg";
-import ItemArrowIcon from "../../../assets/svg/arrow.svg";
-import LinkedinIcon from "../../../assets/svg/social/linkedin.svg";
-import InstagramIcon from "../../../assets/svg/social/instagram.svg";
-import PinterestIcon from "../../../assets/svg/social/pinterest.svg";
+import Icon from "@elements/Icon/Icon";
+import MapPin from "@icons/map_pin.svg";
+import ItemArrowIcon from "@icons/arrow.svg";
+import GithubIcon from "@icons/social/github.svg";
+import LinkedinIcon from "@icons/social/linkedin.svg";
+import PinterestIcon from "@icons/social/pinterest.svg";
 
 import "./InfoSection.scss";
+import WorkWithMe from "@elements/WorkWithMe/WorkWithMe";
 
 export default function InfoSection() {
 	return (
 		<div className="info-section">
 			<div className="info-section-content">
-				<div className="info-title-wrapper">
-					<h1 className="info-title satoshi">Tajra Huković</h1>
-					<h3 className="info-subtitle satoshi">UX/UI Designer, Photographer</h3>
+				<div className="info-section-title-wrapper">
+					<h1 className="info-section-title satoshi">Tajra Huković</h1>
+					<h3 className="info-section-subtitle satoshi">UX/UI Designer, Photographer</h3>
 				</div>
 
 				<div className="info-portfolio-wrapper">
-					<div className="info-portfolio-item">
-						<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
-						<span className="info-portfolio-item-text underline-effect">Projects</span>
-					</div>
-					<div className="info-portfolio-item">
-						<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
-						<span className="info-portfolio-item-text underline-effect">Services</span>
+					<div className="info-portfolio-items">
+						<a className="info-portfolio-item">
+							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
+							<span className="info-portfolio-item-text underline-effect">Projects</span>
+						</a>
+						<a className="info-portfolio-item">
+							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
+							<span className="info-portfolio-item-text underline-effect">Gallery</span>
+						</a>
+						<a className="info-portfolio-item">
+							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
+							<span className="info-portfolio-item-text underline-effect">Résumé</span>
+						</a>
 					</div>
 
-					<a className="info-work-with-me-button" aria-label="Get in touch">
-						Work with me
-					</a>
+					<WorkWithMe id="info-section-wwm-button" />
 				</div>
 
-				<div className="info-quick-links">
+				<div className="info-quick-links-wrapper">
 					<a
+						id="info-quick-link-item-location"
 						className="info-quick-link-item"
 						href="https://www.google.com/maps/place/Sarajevo/@43.8936937,18.3005915,12z/data=!3m1!4b1!4m6!3m5!1s0x4758cbb1ed719bd1:0x562ecda6de87b33e!8m2!3d43.8562586!4d18.4130763!16zL20vMDZuOGo?entry=ttu"
 						target="_blank"
@@ -41,7 +47,8 @@ export default function InfoSection() {
 						<Icon src={MapPin} alt="Map Pin" className="info-map-pin-icon" />
 						<span className="underline-effect"> Sarajevo, Bosnia and Herzegovina</span>
 					</a>
-					<ul className="info-quick-link-icon-list">
+
+					<ul className="info-quick-link-list">
 						<li className="info-quick-link-list-item">
 							<a className="info-quick-link-item" href="https://www.pinterest.com/PawPix94/" target="_blank">
 								<Icon
@@ -59,12 +66,8 @@ export default function InfoSection() {
 						</li>
 
 						<li className="info-quick-link-list-item">
-							<a className="info-quick-link-item" href="https://www.pinterest.com/PawPix94/" target="_blank">
-								<Icon
-									src={InstagramIcon}
-									alt="Instagram Logo"
-									className="info-quick-link-item-icon info-instagram-icon"
-								/>
+							<a className="info-quick-link-item" href="https://github.com/hukovictajra" target="_blank">
+								<Icon src={GithubIcon} alt="GitHub Logo" className="info-quick-link-item-icon info-github-icon" />
 							</a>
 						</li>
 					</ul>

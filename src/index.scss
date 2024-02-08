@@ -14,7 +14,7 @@ code {
 }
 
 a {
-	color: $red-primary;
+	color: var(--theme-primary, $primary);
 	text-decoration: none !important;
 }
 
@@ -31,4 +31,25 @@ html,
 
 .satoshi {
 	font-family: "Satoshi", sans-serif;
+}
+
+.underline-effect {
+	position: relative;
+	padding: 0.2em 0;
+}
+
+.underline-effect::after {
+	position: absolute;
+	content: "";
+	background: var(--theme-primary, $primary);
+	bottom: 0;
+	right: 0;
+	height: 2px;
+	width: 0%;
+	transition: 300ms ease-in-out;
+}
+
+.underline-effect:hover::after {
+	width: 100%;
+	left: 0;
 }

@@ -1,23 +1,38 @@
 @import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
 
-.img-section {
-	width: 65%;
+.image-section {
+	position: relative;
+	margin: 4rem 6rem;
+	flex: 50%;
+	overflow-y: scroll;
+
+	&:hover #scroll-indicator {
+		opacity: 1;
+	}
+
+	@media (max-width: $md) {
+		padding: unset;
+		flex: 60%;
+		margin: 2rem;
+	}
 }
 
-.img-wrapper {
+.image-wrapper {
 	position: relative;
 	font-size: 20px;
 	display: flex;
 	flex-direction: column;
-}
 
-.img-wrapper img {
-	position: relative;
-	margin-bottom: 1rem;
-	height: 100%;
-	cursor: pointer;
-}
+	@media (max-width: $md) {
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 2rem;
+	}
 
-.img-wrapper img:hover {
-	background-color: black;
+	@media (max-width: $sm) {
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2rem;
+	}
 }
