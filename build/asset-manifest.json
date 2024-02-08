@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.56ed5311.css",
+    "main.js": "/portfolio/static/js/main.4cb8aa33.js",
+    "static/media/final-postcard.png": "/portfolio/static/media/final-postcard.5ad77b2d01bd2a99c680.png",
+    "static/media/weekly-planner.png": "/portfolio/static/media/weekly-planner.9fed9d950e7da16435ce.png",
+    "static/media/showcase.png": "/portfolio/static/media/showcase.12f1e54e0fc4fc793b79.png",
+    "static/media/artists-torba.png": "/portfolio/static/media/artists-torba.faafcee4d95e86e94fa6.png",
+    "static/media/contra.svg": "/portfolio/static/media/contra.e01dac1229dc860cf6e8027712a6e9fb.svg",
+    "static/media/github.svg": "/portfolio/static/media/github.fab161dc3adec91b2e5797a412e29d81.svg",
+    "static/media/map_pin.svg": "/portfolio/static/media/map_pin.c2479d396405fcfb4fb59b139c67856c.svg",
+    "static/media/pinterest.svg": "/portfolio/static/media/pinterest.b8d19e3380075fc7d7b7de6eafaf5127.svg",
+    "static/media/linkedin.svg": "/portfolio/static/media/linkedin.ab17754437c914e5ef4147310b09b0a8.svg",
+    "index.html": "/portfolio/index.html",
+    "static/media/arrow.svg": "/portfolio/static/media/arrow.60ad2fc559cc2fa045ec89ee28300b32.svg",
+    "main.56ed5311.css.map": "/portfolio/static/css/main.56ed5311.css.map",
+    "main.4cb8aa33.js.map": "/portfolio/static/js/main.4cb8aa33.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56ed5311.css",
+    "static/js/main.4cb8aa33.js"
+  ]
+}
