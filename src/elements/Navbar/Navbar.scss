@@ -1,0 +1,104 @@
+@import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
+
+#navbar {
+	position: sticky;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 4rem;
+	background-color: var(--theme-bg-navbar, $bg-navbar);
+	box-sizing: border-box;
+	width: 100vw;
+	z-index: 5;
+
+	@media (max-width: $xs) {
+		padding: 1rem 2rem;
+	}
+
+	a:not(:last-child) {
+		color: var(--theme-primary, $primary);
+	}
+
+	.navbar-heading {
+		font-size: 2.7rem;
+		color: var(--theme-primary, $primary);
+		transform-origin: 0 0;
+		font-weight: bold;
+		cursor: pointer;
+
+		@media (max-width: $sm) {
+			font-size: 2rem;
+		}
+
+		@media (max-width: $xs) {
+			font-size: 1.3rem;
+		}
+	}
+
+	.navbar-heading-down-animation {
+		animation-name: scaleDown;
+	}
+
+	.navbar-heading-up-animation {
+		animation-name: scaleUp;
+	}
+
+	.navbar-submenu {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 40%;
+		letter-spacing: 0.107rem;
+
+		@media (max-width: $lg) {
+			width: 50%;
+		}
+
+		@media (max-width: $sm) {
+			display: none;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		.nav-wwm-button a {
+			width: 12.5rem;
+			padding: 1.35rem;
+			font-size: 1rem;
+			margin: 0;
+			letter-spacing: 0.1rem;
+			font-weight: 500;
+		}
+	}
+
+	.navbar-hamburger-menu {
+		display: none;
+
+		@media (max-width: $sm) {
+			display: block;
+		}
+	}
+}
+
+@keyframes scaleDown {
+	from {
+		font-size: 2.7rem;
+	}
+	to {
+		font-size: 2rem;
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		font-size: 2rem;
+	}
+	to {
+		font-size: 2.7rem;
+	}
+}

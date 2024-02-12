@@ -1,0 +1,216 @@
+@import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
+
+#resume {
+	position: relative;
+	background-color: $bg-primary;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem;
+	font-family: "General Sans", sans-serif;
+	color: $primary;
+	width: 100%;
+	box-sizing: border-box;
+	gap: 2rem;
+
+	@media (max-width: $md) {
+		padding: 1rem;
+	}
+
+	@media (max-width: $xs) {
+		padding: 0;
+	}
+
+	.resume-go-back-button {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 2rem;
+		cursor: pointer;
+		align-self: flex-start;
+
+		.resume-go-back-button-icon {
+			transform: rotate(180deg);
+		}
+
+		@media (max-width: $md) {
+			padding: 1rem;
+		}
+	}
+
+	.resume-content {
+		font-size: 1.25rem;
+
+		@media (max-width: $lg) {
+			padding-top: 6rem;
+		}
+
+		@media (max-width: $md) {
+			font-size: 1rem;
+			padding: 0;
+		}
+
+		@media (max-width: $xs) {
+			font-size: 0.75rem;
+			width: 100%;
+		}
+
+		.resume-navigation-controls {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			width: 714px;
+
+			@media (max-width: $lg) {
+				width: 650px;
+			}
+
+			@media (max-width: $md) {
+				width: 100%;
+			}
+
+			.resume-navigation-toggle {
+				height: 1rem;
+				width: 1rem;
+			}
+
+			.resume-navigation-pagination {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 500;
+				gap: 1rem;
+
+				@media (max-width: $xs) {
+					font-size: 0.75rem;
+				}
+
+				.navigation-icon-md {
+					display: none;
+					height: 1.25rem;
+					width: 1.25rem;
+					cursor: pointer;
+					font-weight: bold;
+
+					@media (max-width: $md) {
+						display: block;
+					}
+
+					@media (max-width: $md) {
+						font-size: 1rem;
+					}
+				}
+
+				.navigation-icon-next {
+					transform: rotate(180deg);
+				}
+			}
+
+			.resume-navigation-download {
+				display: inline-flex;
+				align-items: center;
+				font-weight: 500;
+				cursor: pointer;
+
+				.resume-navigation-download-icon {
+					height: 1.5rem;
+					width: 2rem;
+				}
+
+				@media (max-width: $md) {
+					font-size: 1.25rem;
+				}
+
+				@media (max-width: $md) {
+					font-size: 1rem;
+				}
+			}
+
+			.resume-navigation-disabled {
+				color: gray !important;
+				cursor: not-allowed !important;
+			}
+		}
+
+		.resume-iframe {
+			position: relative;
+			width: 100%;
+			height: 900px;
+		}
+
+		.resume-pdf-document-wrapper {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@media (max-width: $xs) {
+				width: 100%;
+			}
+
+			.resume-pdf-document {
+				overflow: scroll;
+				height: 842px;
+
+				.resume-pdf-loader {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 595px;
+					height: 842px;
+				}
+
+				.resume-pdf-page {
+					height: 842px;
+				}
+			}
+
+			.resume-navigation {
+				position: absolute;
+				padding: 0 3rem;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: space-between;
+
+				@media (max-width: $xs) {
+					display: none;
+				}
+
+				@media (max-width: $md) {
+					display: none;
+				}
+
+				.resume-navigation-disabled {
+					background: gray !important;
+					cursor: not-allowed !important;
+				}
+
+				.resume-page-button {
+					position: absolute;
+					height: 4rem;
+					width: 4rem;
+					border-radius: 50%;
+					cursor: pointer;
+					background-color: $primary;
+					color: $bg-primary;
+					top: 50%;
+				}
+
+				.resume-previous-page {
+					left: 0;
+					margin-left: -3rem;
+				}
+
+				.resume-next-page {
+					right: 0;
+					transform: rotate(180deg);
+					margin-right: -3rem;
+				}
+			}
+		}
+	}
+}

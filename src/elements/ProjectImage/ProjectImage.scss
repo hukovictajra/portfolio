@@ -1,0 +1,96 @@
+@import "/src/styles/colors.scss";
+@import "/src/styles/constants.scss";
+
+.project-image-container {
+	position: relative;
+	margin-bottom: 1rem;
+	height: 100%;
+	cursor: pointer;
+	overflow: hidden;
+
+	img {
+		position: relative;
+		transform-origin: 0 0;
+		width: 100%;
+		height: 600px;
+		transform-origin: center;
+		transition: transform $animation-length ease;
+
+		@media (max-width: $lg) {
+			height: 400px;
+			width: 100%;
+			object-fit: cover;
+			object-position: left center;
+		}
+
+		@media (max-width: $md) {
+			height: 400px;
+		}
+
+		@media (max-width: $xs) {
+			height: 250px;
+		}
+
+		&.project-image-animated {
+			animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+			animation-fill-mode: forwards;
+		}
+	}
+
+	&:hover img {
+		transform: scale(1.25);
+	}
+
+	.project-image-overlay {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: var(--theme-primary, $primary);
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		transition: $animation-length opacity ease;
+		opacity: 0;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		@media (max-width: $xs) {
+			box-sizing: border-box;
+			padding: 1rem;
+		}
+	}
+
+	&:hover .project-image-overlay {
+		opacity: 1;
+	}
+
+	.project-image-title {
+		font-weight: 500;
+		font-size: 2.7rem;
+		margin: 0;
+		margin-bottom: 1rem;
+		color: white;
+
+		@media (max-width: $md) {
+			font-size: 1.5rem;
+		}
+
+		@media (max-width: $xs) {
+			font-size: 1.25rem;
+			margin-bottom: 0;
+		}
+	}
+
+	.subtitle-prefix {
+		color: white !important;
+	}
+
+	.subtitle-content {
+		color: white !important;
+	}
+}

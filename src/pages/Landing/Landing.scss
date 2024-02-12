@@ -1,0 +1,23 @@
+@import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
+
+#landing-page {
+	background-color: var(--theme-bg-primary, $bg-primary);
+	font-family: "General Sans", sans-serif;
+	height: 100vh;
+
+	display: flex;
+	justify-content: space-between;
+
+	@media (max-width: $md) {
+		height: unset;
+		padding: 2rem;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	@media (max-width: $xs) {
+		gap: 5rem;
+	}
+}

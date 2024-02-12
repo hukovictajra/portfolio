@@ -1,0 +1,68 @@
+@import "src/styles/colors.scss";
+
+:root {
+	--mouse-height: 5rem;
+	--mouse-width: calc(var(--mouse-height) * 0.6);
+	--scroll-size: 5px;
+}
+
+#scroll-indicator {
+	position: absolute;
+	left: 50%;
+	bottom: 15%;
+	opacity: 0;
+	transition: 0.3s opacity ease;
+}
+
+#scroll-mouse {
+	position: relative;
+	width: var(--mouse-width);
+	height: var(--mouse-height);
+	border: 2px solid var(--theme-bg-primary, $bg-primary);
+	border-radius: calc(var(--mouse-height) / 2);
+	animation: move-down 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#scroll-mouse:after {
+	content: "";
+	width: var(--scroll-size);
+	height: var(--scroll-size);
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	left: calc(var(--mouse-width) / 2 - var(--scroll-size) / 2);
+	background-color: var(--theme-bg-primary, $bg-primary);
+	animation: scroll-down 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes move-down {
+	0% {
+		top: 0;
+	}
+	70% {
+		top: calc(var(--mouse-height) * 0.1);
+	}
+	90% {
+		top: 0;
+	}
+	100% {
+		top: 0;
+	}
+}
+@keyframes scroll-down {
+	0% {
+		top: calc(var(--mouse-width) / 2 - var(--scroll-size) / 2);
+		opacity: 1;
+	}
+	70% {
+		top: calc(var(--mouse-height) - var(--mouse-height) * 0.1);
+		opacity: 0;
+	}
+	90% {
+		top: calc(var(--mouse-width) / 2 - var(--scroll-size) / 2);
+		opacity: 0;
+	}
+	100% {
+		top: calc(var(--mouse-width) / 2 - var(--scroll-size) / 2);
+		opacity: 1;
+	}
+}
