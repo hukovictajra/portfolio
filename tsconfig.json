@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@assets/*": ["src/assets/*"],
+			"@images/*": ["src/assets/images/*"],
+			"@icons/*": ["src/assets/icons/*"],
+			"@data/*": ["src/data/*"],
+			"@elements/*": ["src/elements/*"],
+			"@pages/*": ["src/pages/*"],
+			"@styles/*": ["src/styles/*"],
+			"@files/*": ["src/assets/files/*"],
+			"@videos/*": ["src/assets/videos/*"],
+			"@utils/*": ["src/utils/*"],
+			"@models/*": ["src/data/models/*"]
+		},
+		"jsx": "react-jsx",
+		"esModuleInterop": true
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}

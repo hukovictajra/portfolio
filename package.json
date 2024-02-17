@@ -8,6 +8,7 @@
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
+		"@types/react-image-gallery": "^1.2.4",
 		"gh-pages": "^6.1.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -24,7 +25,8 @@
 		"deploy": "gh-pages -b main -d build",
 		"build": "craco build",
 		"start": "craco start",
-		"eject": "craco eject"
+		"eject": "craco eject",
+		"convertIcons": "npx @svgr/cli src/assets/icons/raw --out-dir src/assets/icons --typescript"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -45,6 +47,7 @@
 		]
 	},
 	"devDependencies": {
+		"@svgr/cli": "^8.1.0",
 		"node-sass": "^7.0.3",
 		"react-app-rewired": "^2.2.1"
 	}

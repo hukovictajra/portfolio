@@ -15,6 +15,7 @@ module.exports = {
 			"@files": resolve("src/assets/files"),
 			"@videos": resolve("src/assets/videos"),
 			"@utils": resolve("src/utils"),
+			"@models": resolve("data/models"),
 		},
 	},
 };

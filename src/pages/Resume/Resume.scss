@@ -72,17 +72,13 @@
 				width: 100%;
 			}
 
-			.resume-navigation-toggle {
-				height: 1rem;
-				width: 1rem;
-			}
-
 			.resume-navigation-pagination {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				font-weight: 500;
 				gap: 1rem;
+				font-size: 1.2rem;
 
 				@media (max-width: $xs) {
 					font-size: 0.75rem;
@@ -90,8 +86,8 @@
 
 				.navigation-icon-md {
 					display: none;
-					height: 1.25rem;
-					width: 1.25rem;
+					height: 1.5rem;
+					width: 1.5rem;
 					cursor: pointer;
 					font-weight: bold;
 
@@ -114,9 +110,10 @@
 				align-items: center;
 				font-weight: 500;
 				cursor: pointer;
+				gap: 0.5rem;
 
 				.resume-navigation-download-icon {
-					height: 1.5rem;
+					height: 2rem;
 					width: 2rem;
 				}
 
