@@ -9,7 +9,7 @@ export interface BlogImageSectionProps {
 
 export function BlogImageSection({ image }: BlogImageSectionProps) {
 	return (
-		<div className="blog-image-wrapper">
+		<div className="flex flex-col items-center justify-center text-center gap-4 w-full blog-image-wrapper">
 			{image.type === BlogImageType.Single ? (
 				<SingleImageSection imageStyle={image.imageStyle} source={image.source} />
 			) : image.type === BlogImageType.Group ? (

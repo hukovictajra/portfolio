@@ -1,5 +1,9 @@
 @import "src/styles/colors.scss";
 
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 a {
 	color: var(--theme-primary, $primary);
 	text-decoration: none !important;

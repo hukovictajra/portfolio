@@ -5,7 +5,7 @@ import "./BlogSection.scss";
 
 export function BlogSection({ title, text, list, style, image, type, video }) {
 	return (
-		<div className="blog-section" style={style || {}}>
+		<div className="flex flex-col mb-4" style={style || {}}>
 			{title && <h3 className="blog-section-title">{title}</h3>}
 			{typeof text === "string" ? (
 				<p className="blog-section-text">{text}</p>

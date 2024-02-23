@@ -70,7 +70,10 @@ export const blogs: Blog[] = [
 				text: "Moving into visual design, I selected color schemes, typography, and imagery to capture the essence of Metro Sweets. High-fidelity mockups were crafted to showcase the final look and feel. Responsive design was a key consideration, ensuring a seamless experience across devices. In the initial step, I immersed myself in brainstorming and ideation, generating a diverse range of concepts and features for the design. Prioritizing visual appeal, I conceptualized ideas aimed at enhancing the overall aesthetic while ensuring seamless functionality.",
 				image: {
 					type: BlogImageType.Single,
-					source: "@images/blogs/metro-sweets-bakery/brainstorming.png",
+					source: {
+						caption: "Testni kepsn",
+						url: "@images/blogs/metro-sweets-bakery/brainstorming.png",
+					},
 					imageStyle: {
 						width: "85%",
 						lg: {

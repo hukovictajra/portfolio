@@ -17,14 +17,16 @@
 		"react-pdf": "^7.7.0",
 		"react-player": "^2.14.1",
 		"react-router-dom": "^6.22.0",
+		"react-scripts": "^5.0.1",
 		"react-tooltip": "^5.26.0",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
 		"predeploy": "craco build",
 		"deploy": "gh-pages -b main -d build",
+		"start": "concurrently \"npm run start:css\" \"craco start\"",
+		"start:css": "tailwindcss -o src/index.scss --watch",
 		"build": "craco build",
-		"start": "craco start",
 		"eject": "craco eject",
 		"convertIcons": "npx @svgr/cli src/assets/icons/raw --out-dir src/assets/icons --typescript"
 	},
@@ -48,7 +50,16 @@
 	},
 	"devDependencies": {
 		"@svgr/cli": "^8.1.0",
+		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"@tailwindcss/forms": "^0.5.7",
+		"@tailwindcss/line-clamp": "^0.4.4",
+		"@tailwindcss/typography": "^0.5.10",
+		"@types/autoprefixer": "^10.2.0",
+		"autoprefixer": "^10.4.17",
 		"node-sass": "^7.0.3",
-		"react-app-rewired": "^2.2.1"
+		"postcss": "^8.4.35",
+		"postcss-import": "^16.0.1",
+		"postcss-nesting": "^12.0.3",
+		"tailwindcss": "^3.4.1"
 	}
 }

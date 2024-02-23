@@ -3,6 +3,11 @@ const path = require(`path`);
 const resolve = (dir) => path.resolve(__dirname, dir);
 
 module.exports = {
+	style: {
+		postcss: {
+			mode: "file",
+		},
+	},
 	webpack: {
 		alias: {
 			"@assets": resolve("src/assets/"),

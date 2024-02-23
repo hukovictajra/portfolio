@@ -15,8 +15,6 @@ export function GalleryImageSection({ containerStyle, source }: GalleryImageSect
 
 	let processedContainerStyle: CSSProperties = useStyleResizeHandler(containerStyle);
 
-	console.log(source);
-
 	return (
 		<div style={processedContainerStyle}>
 			<ImageGallery

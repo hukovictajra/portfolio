@@ -43,7 +43,7 @@ export function SingleImageSection({ imageStyle, source }: SingleImageSectionPro
 				}}
 				items={sources}
 			/>
-			{caption && <span className="blog-image-caption">{caption}</span>}
+			{caption && <span className="text-lg tracking-wide font-medium">{caption}</span>}
 		</div>
 	);
 }

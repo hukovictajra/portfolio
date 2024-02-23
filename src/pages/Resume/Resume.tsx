@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import "react-pdf/dist/esm/Page/TextLayer.css";
 import Toggle from "../../elements/Toggle/Toggle";
 import { Document, Page, pdfjs } from "react-pdf";
-
-import "./Resume.scss";
 import { ItemArrowIcon, LoaderIcon, PaginationArrowIcon, DownloadIcon, ArrowRoundedIcon } from "@assets/icons";
+
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import "./Resume.scss";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 

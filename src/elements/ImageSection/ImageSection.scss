@@ -3,21 +3,8 @@
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 .blog-image-wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	gap: 1rem;
-	width: 100%;
 	animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	animation-delay: $animation-delay + 0.3s;
-
-	.blog-image-caption {
-		font-size: 1rem;
-		letter-spacing: 0.1rem;
-		font-weight: 500;
-	}
 
 	.image-gallery-fullscreen-button {
 		color: var(--theme-primary, $primary);

@@ -7,14 +7,9 @@
 	margin-bottom: 2rem;
 
 	.blog-section-title {
-		font-weight: 600;
-		font-size: 2rem;
-		margin: 0;
-		animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+		@apply font-semibold text-2xl my-0 sm:text-center;
 
-		@media (max-width: $sm) {
-			text-align: center;
-		}
+		animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	}
 
 	p {
