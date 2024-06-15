@@ -9,8 +9,8 @@
 /coverage
 
 # production
-/build
-gh-pages
+/dist
+/gh-pages
 
 # misc
 .DS_Store

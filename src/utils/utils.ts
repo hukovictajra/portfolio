@@ -1,25 +1,26 @@
 import { CSSStyle } from "@data/models";
 import { CSSProperties } from "react";
 
-export function isTextColorVisible(bgColor, textColor) {
+export function isTextColorVisible(bgColor: string, textColor: string): boolean {
 	const rgbText = textColor.slice(1);
 	const rgbBg = bgColor.slice(1);
 
 	const [rText, gText, bText] = [
 		parseInt(rgbText.substr(0, 2), 16),
 		parseInt(rgbText.substr(2, 2), 16),
-		parseInt(rgbText.substr(4, 2), 16),
+		parseInt(rgbText.substr(4, 2), 16)
 	];
 	const [rBg, gBg, bBg] = [
 		parseInt(rgbBg.substr(0, 2), 16),
 		parseInt(rgbBg.substr(2, 2), 16),
-		parseInt(rgbBg.substr(4, 2), 16),
+		parseInt(rgbBg.substr(4, 2), 16)
 	];
 
 	const luminanceText = 0.2126 * rText + 0.7152 * gText + 0.0722 * bText;
 	const luminanceBg = 0.2126 * rBg + 0.7152 * gBg + 0.0722 * bBg;
 
-	const contrastRatio = (Math.max(luminanceText, luminanceBg) + 0.05) / (Math.min(luminanceText, luminanceBg) + 0.05);
+	const contrastRatio =
+		(Math.max(luminanceText, luminanceBg) + 0.05) / (Math.min(luminanceText, luminanceBg) + 0.05);
 	return contrastRatio >= 3.0;
 }
 
@@ -50,20 +51,20 @@ export function parseStyles(style: CSSStyle): CSSProperties {
 	return rootStyles;
 }
 
-function getRootStyle(obj) {
-	const nonObjectFields = {};
+function getRootStyle(style: CSSStyle): React.CSSProperties {
+	const nonObjectFields: React.CSSProperties = {};
 
-	for (let key in obj) {
-		if (typeof obj[key] !== "object") {
-			nonObjectFields[key] = obj[key];
+	for (const key in style) {
+		if (typeof style[key] !== "object") {
+			nonObjectFields[key] = style[key];
 		}
 	}
 
 	return nonObjectFields;
 }
 
-function mergeStyles(baseStyles, newStyles) {
-	for (let key in newStyles) {
+function mergeStyles(baseStyles: CSSStyle, newStyles: CSSStyle) {
+	for (const key in newStyles) {
 		if (typeof newStyles[key] === "object" && !Array.isArray(newStyles[key])) {
 			baseStyles[key] = mergeStyles(baseStyles[key] || {}, newStyles[key]);
 		} else {
@@ -71,4 +72,12 @@ function mergeStyles(baseStyles, newStyles) {
 		}
 	}
 	return baseStyles;
+}
+
+export function getImageURL(name: string): URL {
+	return new URL(`../assets/${name.replace("@", "")}`, import.meta.url);
+}
+
+export function getVideoURL(name: string): URL {
+	return new URL(`../assets/${name.replace("@", "")}`, import.meta.url);
 }

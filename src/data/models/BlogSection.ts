@@ -2,27 +2,28 @@ import { CSSStyle } from "./Blog";
 import { BlogImage } from "./BlogImage";
 import { BlogVideo } from "./BlogVideo";
 
-export type BlogSection = BlogParagraph | BlogListSection;
+export type BlogSection = BlogParagraphSection | BlogListSection;
 export enum BlogSectionType {
 	Paragraph,
 	List,
 }
 
-export interface BlogParagraph {
+export interface BlogParagraphSection {
 	type: BlogSectionType.Paragraph;
 	title?: string;
 	text?: BlogTextContent | string;
-	image?: BlogImage | string;
-	video?: BlogVideo | string;
+	image?: BlogImage;
+	video?: BlogVideo;
 	style?: CSSStyle;
 }
 
 export interface BlogListSection {
 	type: BlogSectionType.List;
+	style?: CSSStyle;
 	title?: string;
 	items?: (BlogListContent | string)[];
-	image?: BlogImage | string;
-	video?: BlogVideo | string;
+	image?: BlogImage;
+	video?: BlogVideo;
 }
 
 export interface BlogTextContent {

@@ -1,0 +1,21 @@
+# Default formatter -https://www.npmjs.com/package/prettier
+
+experimentalTernaries: false
+printWidth: 100
+tabWidth: 2
+useTabs: true
+semicolons: true
+singleQuote: false
+quoteProps: consistent
+jsxSingleQuote: false
+trailingComma: none
+bracketSpacing: true
+bracketSameLine: false
+arrowParens: always
+requirePragma: false
+insertPragma: false
+proseWrap: preserve
+htmlWhitespaceSensitivity: css
+endOfLine: lf
+embeddedLanguageFormatting: auto
+singleAttributePerLine: false

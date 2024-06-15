@@ -1,5 +1,4 @@
 export { default as ArrowRoundedIcon } from "./ArrowRoundedIcon";
-export { default as ContraIcon } from "./social/ContraIcon";
 export { default as DownloadIcon } from "./DownloadIcon";
 export { default as FullscreenCloseIcon } from "./FullscreenCloseIcon";
 export { default as FullscreenOpenIcon } from "./FullscreenOpenIcon";

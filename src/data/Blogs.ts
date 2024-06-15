@@ -7,49 +7,49 @@ export const blogs: Blog[] = [
 		position: 0,
 		showOnLanding: true,
 		title: "Metro Sweets App 🥐",
-		image: "@images/blogs/metro-sweets-bakery/showcase.png",
+		image: "@images/blogs/metro-sweets-bakery/showcase.jpg",
 		colors: {
 			navbar: "#9D8C82",
 			background: "#9D8C82",
 			primary: "#4F392C",
-			secondary: "#8B7364",
+			secondary: "#8B7364"
 		},
 		subtitles: [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["UX/UI Design", "Graphic Design"],
+				items: ["UX/UI Design", "Graphic Design"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Figma", "Canva", "Adobe Photoshop"],
+				items: ["Figma", "Canva", "Adobe Photoshop"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@background",
 					Primary: "@primary",
-					Secondary: "@secondary",
-				},
-			},
+					Secondary: "@secondary"
+				}
+			}
 		],
 		sections: [
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Overview 🥐",
-				text: 'Metro Sweets, led by baker Olivia Reed, is a vibrant NYC bakery known for its diverse pastries like the iconic "Cityscape Croissant." As a community hub, it hosts events and workshops, creating a warm atmosphere. To enhance their services, a website is needed for displaying their offerings and facilitating online orders. This will streamline their catering business, providing customers with a convenient option to order their delightful treats online.\n Recognizing the need to improve services, the bakery is gearing up for a website launch. This digital upgrade will not only showcase their offerings but also allow customers to conveniently order delightful treats online.',
+				text: 'Metro Sweets, led by baker Olivia Reed, is a vibrant NYC bakery known for its diverse pastries like the iconic "Cityscape Croissant." As a community hub, it hosts events and workshops, creating a warm atmosphere. To enhance their services, a website is needed for displaying their offerings and facilitating online orders. This will streamline their catering business, providing customers with a convenient option to order their delightful treats online.\n Recognizing the need to improve services, the bakery is gearing up for a website launch. This digital upgrade will not only showcase their offerings but also allow customers to conveniently order delightful treats online.'
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Problem Statement 🗒️",
-				text: "Recently, challenges like overbooking orders and human errors in phone orders have underscored the need for a reliable online platform. The proposed website aims to tackle these issues by offering a systematic and error-resistant ordering process. This technological upgrade is designed to enhance customer satisfaction and optimize bakery operations, ensuring a smoother and more efficient experience.",
+				text: "Recently, challenges like overbooking orders and human errors in phone orders have underscored the need for a reliable online platform. The proposed website aims to tackle these issues by offering a systematic and error-resistant ordering process. This technological upgrade is designed to enhance customer satisfaction and optimize bakery operations, ensuring a smoother and more efficient experience."
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Project Goal",
-				text: "The online platform will be especially useful for handling big orders, from corporate events to birthday parties. While catering to online demands, Metro Sweets remains rooted in its physical locations. Real shops still stand, welcoming customers to walk in and enjoy the bakery's offerings just like a traditional bakery experience.",
+				text: "The online platform will be especially useful for handling big orders, from corporate events to birthday parties. While catering to online demands, Metro Sweets remains rooted in its physical locations. Real shops still stand, welcoming customers to walk in and enjoy the bakery's offerings just like a traditional bakery experience."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -58,11 +58,11 @@ export const blogs: Blog[] = [
 						fontStyle: "italic",
 						fontSize: "1.2rem",
 						fontWeight: 500,
-						margin: 0,
+						margin: 0
 					},
 					content:
-						"It's important to note that this narrative is a fabricated story created for the purpose of practicing UX and UI design skills.",
-				},
+						"It's important to note that this narrative is a fabricated story created for the purpose of practicing UX and UI design skills."
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -72,23 +72,23 @@ export const blogs: Blog[] = [
 					type: BlogImageType.Single,
 					source: {
 						caption: "Testni kepsn",
-						url: "@images/blogs/metro-sweets-bakery/brainstorming.png",
+						url: "@images/blogs/metro-sweets-bakery/brainstorming.png"
 					},
 					imageStyle: {
 						width: "85%",
 						lg: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				text: "Incorporating real-life elements from the bakery, like splattered flour and egg yellow accents, infused the online experience with the bakery's vibe. These touches added visual interest and a warm, inviting feel, making the digital space reflect the bustling energy of Metro Sweets.",
 				video: {
 					type: BlogVideoType.Single,
-					source: "@videos/blogs/metro-sweets-bakery/welcome-page.mp4",
-				},
+					source: "@videos/blogs/metro-sweets-bakery/welcome-page.mp4"
+				}
 			},
 
 			{
@@ -99,14 +99,14 @@ export const blogs: Blog[] = [
 					source: [
 						{
 							original: "@images/blogs/metro-sweets-bakery/figma-layout.png",
-							thumbnail: "@images/blogs/metro-sweets-bakery/figma-layout.png",
+							thumbnail: "@images/blogs/metro-sweets-bakery/figma-layout.png"
 						},
 						{
 							original: "@images/blogs/metro-sweets-bakery/figma-layout-relationships.png",
-							thumbnail: "@images/blogs/metro-sweets-bakery/figma-layout-relationships.png",
-						},
-					],
-				},
+							thumbnail: "@images/blogs/metro-sweets-bakery/figma-layout-relationships.png"
+						}
+					]
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -119,20 +119,20 @@ export const blogs: Blog[] = [
 						md: {
 							gap: "2rem",
 							flexDirection: "column",
-							alignItems: "center",
+							alignItems: "center"
 						},
 						xs: {
-							gap: "1rem",
-						},
+							gap: "1rem"
+						}
 					},
 					videoStyle: {
-						height: "100%",
+						height: "100%"
 					},
 					source: [
 						{ url: "@videos/blogs/metro-sweets-bakery/checkout.mp4" },
-						{ url: "@videos/blogs/metro-sweets-bakery/contact-us.mp4" },
-					],
-				},
+						{ url: "@videos/blogs/metro-sweets-bakery/contact-us.mp4" }
+					]
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -140,8 +140,8 @@ export const blogs: Blog[] = [
 				text: "Recognizing the challenge of overbooking, we implemented a strategic solution. Through a dynamic ordering system, item availability became contingent on the limits set for a specific date and the total quantity ordered. This not only prevented overbooking but also ensured a smoother order management process for Metro Sweets.",
 				video: {
 					type: BlogVideoType.Single,
-					source: "@videos/blogs/metro-sweets-bakery/item-selection.mp4",
-				},
+					source: "@videos/blogs/metro-sweets-bakery/item-selection.mp4"
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -150,11 +150,11 @@ export const blogs: Blog[] = [
 					type: BlogImageType.Single,
 					source: "@images/blogs/metro-sweets-bakery/app-on-phone.png",
 					imageStyle: {
-						width: "90%",
-					},
-				},
-			},
-		],
+						width: "90%"
+					}
+				}
+			}
+		]
 	},
 	{
 		id: "rajvosa-concept-store",
@@ -169,27 +169,27 @@ export const blogs: Blog[] = [
 			secondary: "#e1c7c7",
 			artworkBackground: "#bb3f14",
 			artworkPrimary: "#0a0a0a",
-			artworkSecondary: "#dddddd",
+			artworkSecondary: "#dddddd"
 		},
 		subtitles: [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["UX/UI Design", "Graphic Design"],
+				items: ["UX/UI Design", "Graphic Design"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Figma", "Canva", "Adobe Photoshop"],
+				items: ["Figma", "Canva", "Adobe Photoshop"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@artworkBackground",
 					Primary: "@artworkPrimary",
-					Secondary: "@artworkSecondary",
-				},
+					Secondary: "@artworkSecondary"
+				}
 			},
 			{
 				type: BlogSubtitleType.Link,
@@ -198,25 +198,25 @@ export const blogs: Blog[] = [
 				items: [
 					{
 						text: "Figma",
-						url: "https://www.figma.com/file/n4WbWWZG7yR8FuwGpPj3aX/Untitled?type=design&node-id=0%3A1&mode=design&t=jnhEpX3A8s9IXIN3-1",
-					},
-				],
-			},
+						url: "https://www.figma.com/file/n4WbWWZG7yR8FuwGpPj3aX/Untitled?type=design&node-id=0%3A1&mode=design&t=jnhEpX3A8s9IXIN3-1"
+					}
+				]
+			}
 		],
 		sections: [
 			{
 				type: BlogSectionType.Paragraph,
-				text: "This project began with a simple idea sparked by finding an old 1984 Olympics postcard. It got me thinking about our city's history and pride as a past Olympics host. I realized we could do more to showcase our city's charm and help tourists explore it better.",
+				text: "This project began with a simple idea sparked by finding an old 1984 Olympics postcard. It got me thinking about our city's history and pride as a past Olympics host. I realized we could do more to showcase our city's charm and help tourists explore it better."
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Problem Statement 🗒️",
-				text: "Finding information about local attractions is a bit of a hassle. Review blogs aren't always reliable, and there's no central place to discover what our city has to offer. So, I set out to create a front page for a website that makes it easy for people to find fun stuff to do here.",
+				text: "Finding information about local attractions is a bit of a hassle. Review blogs aren't always reliable, and there's no central place to discover what our city has to offer. So, I set out to create a front page for a website that makes it easy for people to find fun stuff to do here."
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Research and Ideation",
-				text: "I looked at popular travel websites for inspiration and kept things straightforward. The front page had to be easy to use and look good. I decided to highlight four main categories: food, landmarks, local brands, and events, to give users a taste of what's available.",
+				text: "I looked at popular travel websites for inspiration and kept things straightforward. The front page had to be easy to use and look good. I decided to highlight four main categories: food, landmarks, local brands, and events, to give users a taste of what's available."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -224,8 +224,8 @@ export const blogs: Blog[] = [
 				text: "Using Figma, I kept the design clean and simple. A short blurb welcomes visitors, and big buttons guide them to different categories. It's all about making it inviting and easy to explore.",
 				image: {
 					type: BlogImageType.Single,
-					source: "@images/blogs/rajvosa-concept-store/sketch.png",
-				},
+					source: "@images/blogs/rajvosa-concept-store/sketch.png"
+				}
 			},
 
 			{
@@ -237,18 +237,18 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "75%",
 						sm: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				text: "I chose a color scheme of orange, black, and white because they are clean shades that complement the logo without overshadowing it. The orange hue was borrowed from the '84 Olympics, tying the design back to its roots. These three colors blend seamlessly and enhance the overall aesthetic without detracting from the text.",
 				video: {
 					type: BlogVideoType.Single,
-					source: "@videos/blogs/rajvosa-concept-store/walkthrough.mp4",
-				},
+					source: "@videos/blogs/rajvosa-concept-store/walkthrough.mp4"
+				}
 			},
 
 			{
@@ -261,15 +261,15 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "60%",
 						sm: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Future Enhancements",
-				text: "I'm excited to add more features like user reviews and partnerships with local businesses. The goal is to make the website a go-to resource for both tourists and locals.",
+				text: "I'm excited to add more features like user reviews and partnerships with local businesses. The goal is to make the website a go-to resource for both tourists and locals."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -281,12 +281,12 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "90%",
 						sm: {
-							width: "100%",
-						},
-					},
-				},
-			},
-		],
+							width: "100%"
+						}
+					}
+				}
+			}
+		]
 	},
 	{
 		id: "my-tribute-to-the-1984-winter-olympics",
@@ -298,39 +298,39 @@ export const blogs: Blog[] = [
 			navbar: "#6b8478",
 			background: "#567565",
 			primary: "#ebebe6",
-			secondary: "#2e2d2d",
+			secondary: "#2e2d2d"
 		},
 		subtitles: [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["Graphic Design", "Photography"],
+				items: ["Graphic Design", "Photography"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Adobe Photoshop", "Canva", "Canon 2000D"],
+				items: ["Adobe Photoshop", "Canva", "Canon 2000D"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@background",
 					Primary: "@primary",
-					Secondary: "@secondary",
-				},
-			},
+					Secondary: "@secondary"
+				}
+			}
 		],
 		sections: [
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Description 📝",
-				text: "I took a recent photo of Sarajevo and infused it with elements from a vintage postcard of the Sarajevo Olympics. It's a humble attempt to juxtapose the city's past and present in a nostalgic manner.",
+				text: "I took a recent photo of Sarajevo and infused it with elements from a vintage postcard of the Sarajevo Olympics. It's a humble attempt to juxtapose the city's past and present in a nostalgic manner."
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Inspiration 🧠",
-				text: "Sarajevo's rich history, especially its role as an Olympic host, inspired me to create this piece. I wanted to capture the essence of both eras and create a bridge between them.",
+				text: "Sarajevo's rich history, especially its role as an Olympic host, inspired me to create this piece. I wanted to capture the essence of both eras and create a bridge between them."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -339,20 +339,23 @@ export const blogs: Blog[] = [
 				image: {
 					type: BlogImageType.Gallery,
 					containerStyle: {
-						width: "100%",
+						width: "100%"
 					},
 					source: [
 						{
 							original: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-original.png",
+							thumbnail: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-original.png"
 						},
 						{
 							original: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-b-w.png",
+							thumbnail: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-b-w.png"
 						},
 						{
 							original: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-vucko.png",
-						},
-					],
-				},
+							thumbnail: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-vucko.png"
+						}
+					]
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -364,15 +367,15 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						height: "40%",
 						sm: {
-							width: "100%",
+							width: "100%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
-			},
-		],
+							width: "100%"
+						}
+					}
+				}
+			}
+		]
 	},
 	{
 		id: "melodic-mix-a-custom-print-collaboration",
@@ -386,7 +389,7 @@ export const blogs: Blog[] = [
 			secondary: "#f5f3f0",
 			artworkBackground: "#293137",
 			artworkPrimary: "#f5f3f0",
-			artworkSecondary: "#d1d1d1",
+			artworkSecondary: "#d1d1d1"
 		},
 		style: {
 			// hr: {
@@ -397,22 +400,22 @@ export const blogs: Blog[] = [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["Graphic Design", "Print Design"],
+				items: ["Graphic Design", "Print Design"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+				items: ["Adobe Photoshop", "Adobe Illustrator", "Canva"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@artworkBackground",
 					Primary: "@artworkPrimary",
-					Secondary: "@artworkSecondary",
-				},
-			},
+					Secondary: "@artworkSecondary"
+				}
+			}
 		],
 		image: "@images/blogs/melodic-mix-a-custom-print-collaboration/showcase.png",
 		sections: [
@@ -423,7 +426,7 @@ export const blogs: Blog[] = [
 					"Designed a custom print for a tote bag and hoodie featuring Billie Eilish, Taylor Swift, Olivia Rodrigo, and The Weeknd.Utilized Photoshop to merge images of the artists in a pop art style with vibrant colors.Incorporated iconic lyrics from each artist into the background of the design.Produced a bold and captivating print that personalized the client's love for their favorite musicians.",
 					"Utilized Photoshop to merge images of the artists in a pop art style with vibrant colors.",
 					"Incorporated iconic lyrics from each artist into the background of the design.",
-					"Produced a bold and captivating print that personalized the client's love for their favorite musicians.",
+					"Produced a bold and captivating print that personalized the client's love for their favorite musicians."
 				],
 				image: {
 					type: BlogImageType.Single,
@@ -431,18 +434,18 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "80%",
 						sm: {
-							width: "100%",
+							width: "100%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Project Description 🎙️",
-				text: "For this project, I was commissioned to create a custom print for a client who is a huge fan of Billie Eilish, Taylor Swift, Olivia Rodrigo, and The Weeknd. The client wanted the print to be featured on a tote bag and hoodie, showcasing all four artists in a unique and visually striking manner.",
+				text: "For this project, I was commissioned to create a custom print for a client who is a huge fan of Billie Eilish, Taylor Swift, Olivia Rodrigo, and The Weeknd. The client wanted the print to be featured on a tote bag and hoodie, showcasing all four artists in a unique and visually striking manner."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -452,23 +455,23 @@ export const blogs: Blog[] = [
 					type: BlogImageType.Single,
 					source: {
 						url: "@images/blogs/melodic-mix-a-custom-print-collaboration/brainstorming.png",
-						caption: "Original sketch and ideas",
+						caption: "Original sketch and ideas"
 					},
 					imageStyle: {
 						width: "80%",
 						sm: {
-							width: "100%",
+							width: "100%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Utilizing Photoshop for Image Merging and Editing ⌨️",
-				text: "To bring this vision to life, I utilized Photoshop to merge elements from each artist's iconic imagery. I began by selecting high-quality images of Billie Eilish, Taylor Swift, Olivia Rodrigo, and The Weeknd. Then, I carefully cut out each artist from their respective images, ensuring precision and detail in the process.",
+				text: "To bring this vision to life, I utilized Photoshop to merge elements from each artist's iconic imagery. I began by selecting high-quality images of Billie Eilish, Taylor Swift, Olivia Rodrigo, and The Weeknd. Then, I carefully cut out each artist from their respective images, ensuring precision and detail in the process."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -480,13 +483,13 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "80%",
 						sm: {
-							width: "100%",
+							width: "100%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -498,26 +501,29 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "80%",
 						sm: {
-							width: "100%",
+							width: "100%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Finalizing the Layout for Tote Bag and Hoodie Design",
 				text: "After refining the layout and composition, I carefully arranged the four artist cutouts and background elements into a cohesive design for both the tote bag and hoodie. The result was a bold and captivating print that celebrated the client's love for their favorite musicians in a unique and personalized way.",
-				image: "@images/blogs/melodic-mix-a-custom-print-collaboration/hoodie.png",
+				image: {
+					type: BlogImageType.Single,
+					source: "@images/blogs/melodic-mix-a-custom-print-collaboration/hoodie.png"
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Conclusion ✅",
-				text: "In conclusion, the project resulted in a personalized print that reflects the client's appreciation for their favorite musicians. Through thoughtful design decisions, the final product serves as a unique expression of the client's passion for music, featured on a tote bag and hoodie.",
-			},
-		],
+				text: "In conclusion, the project resulted in a personalized print that reflects the client's appreciation for their favorite musicians. Through thoughtful design decisions, the final product serves as a unique expression of the client's passion for music, featured on a tote bag and hoodie."
+			}
+		]
 	},
 	{
 		id: "sunflower-postcard",
@@ -528,7 +534,7 @@ export const blogs: Blog[] = [
 			navbar: "#A49689",
 			background: "#c2b1a1",
 			primary: "#413736",
-			secondary: "#e7ae00",
+			secondary: "#e7ae00"
 		},
 		style: {
 			// hr: {
@@ -539,22 +545,22 @@ export const blogs: Blog[] = [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["Graphic Design", "Print Design", "Photography"],
+				items: ["Graphic Design", "Print Design", "Photography"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Adobe Photoshop", "Adobe Illustrator", "Canon 2000D"],
+				items: ["Adobe Photoshop", "Adobe Illustrator", "Canon 2000D"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@background",
 					Primary: "@primary",
-					Secondary: "@secondary",
-				},
-			},
+					Secondary: "@secondary"
+				}
+			}
 		],
 		image: "@images/blogs/sunflower-postcard/showcase.png",
 		sections: [
@@ -566,22 +572,22 @@ export const blogs: Blog[] = [
 					imageStyle: {
 						width: "60%",
 						md: {
-							width: "80%",
+							width: "80%"
 						},
 						xs: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				text: {
 					style: {
-						marginTop: 0,
+						marginTop: 0
 					},
 					content:
-						"This postcard holds a special place in my heart as it's a personal project created with love for her, a dear friend who shares a passion for travel and adores sunflowers. Inspired by her adventurous spirit and love for nature's beauty, I crafted this design to evoke the warmth of sunny days and the joy of exploring new horizons. It's a heartfelt reminder of the sunshine she brings into my life and the endless possibilities that await her on her journey.",
+						"This postcard holds a special place in my heart as it's a personal project created with love for her, a dear friend who shares a passion for travel and adores sunflowers. Inspired by her adventurous spirit and love for nature's beauty, I crafted this design to evoke the warmth of sunny days and the joy of exploring new horizons. It's a heartfelt reminder of the sunshine she brings into my life and the endless possibilities that await her on her journey."
 				},
 				image: {
 					type: BlogImageType.Group,
@@ -590,14 +596,14 @@ export const blogs: Blog[] = [
 						justifyContent: "space-between",
 						gap: "5rem",
 						md: {
-							gap: "1rem",
-						},
+							gap: "1rem"
+						}
 					},
 					source: [
 						"@images/blogs/sunflower-postcard/postcard-front.png",
-						"@images/blogs/sunflower-postcard/postcard-back.png",
-					],
-				},
+						"@images/blogs/sunflower-postcard/postcard-back.png"
+					]
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -607,15 +613,15 @@ export const blogs: Blog[] = [
 					source: "@images/blogs/sunflower-postcard/showcase.png",
 					imageStyle: {
 						lg: {
-							width: "70%",
+							width: "70%"
 						},
 						sm: {
-							width: "100%",
-						},
-					},
-				},
-			},
-		],
+							width: "100%"
+						}
+					}
+				}
+			}
+		]
 	},
 	{
 		id: "custom-week-planner-project",
@@ -629,34 +635,34 @@ export const blogs: Blog[] = [
 			secondary: "#8d786f",
 			artworkBackground: "#cce1e8",
 			artworkPrimary: "#c5805e",
-			artworkSecondary: "#c9b6b4",
+			artworkSecondary: "#c9b6b4"
 		},
 		subtitles: [
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Skills:",
-				items: ["Graphic Design", "Print Design"],
+				items: ["Graphic Design", "Print Design"]
 			},
 			{
 				type: BlogSubtitleType.Text,
 				prefix: "Tools:",
-				items: ["Adobe Photoshop", "Canva", "Adobe Illustrator"],
+				items: ["Adobe Photoshop", "Canva", "Adobe Illustrator"]
 			},
 			{
 				type: BlogSubtitleType.Color,
 				prefix: "Theme:",
-				chips: {
+				items: {
 					Background: "@artworkBackground",
 					Primary: "@artworkPrimary",
-					Secondary: "@artworkSecondary",
-				},
-			},
+					Secondary: "@artworkSecondary"
+				}
+			}
 		],
 		image: {
 			url: "@images/blogs/custom-weekly-planner/showcase.png",
 			style: {
-				transform: "translateY(10%)",
-			},
+				transform: "translateY(10%)"
+			}
 		},
 		sections: [
 			{
@@ -666,9 +672,9 @@ export const blogs: Blog[] = [
 					source: "@images/blogs/custom-weekly-planner/banner.png",
 					imageStyle: {
 						width: "100%",
-						height: "100%",
-					},
-				},
+						height: "100%"
+					}
+				}
 			},
 			{
 				type: BlogSectionType.List,
@@ -677,13 +683,13 @@ export const blogs: Blog[] = [
 					"Developed a custom week planner for a client seeking a professional design with playful animal characters and a light blue color scheme.Utilized Photoshop and Canva to curate charming design elements and adjust details.Maintained constant communication with the client, regularly sharing progress updates and seeking feedback.Collaborated with the client to refine the design until it met their expectations.",
 					"Utilized Photoshop and Canva to curate charming design elements and adjust details.",
 					"Maintained constant communication with the client, regularly sharing progress updates and seeking feedback.",
-					"Collaborated with the client to refine the design until it met their expectations.",
-				],
+					"Collaborated with the client to refine the design until it met their expectations."
+				]
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Project Description ✍🏼",
-				text: "The task assigned to me was to develop a custom week planner for a client who desired a professional yet engaging design. Their specific requirements included incorporating playful animal characters and a light blue color scheme to emphasize a relaxed ambiance.",
+				text: "The task assigned to me was to develop a custom week planner for a client who desired a professional yet engaging design. Their specific requirements included incorporating playful animal characters and a light blue color scheme to emphasize a relaxed ambiance."
 			},
 			{
 				type: BlogSectionType.Paragraph,
@@ -696,21 +702,21 @@ export const blogs: Blog[] = [
 						width: "80%",
 						height: "80%",
 						sm: {
-							width: "100%",
-						},
-					},
-				},
+							width: "100%"
+						}
+					}
+				}
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Communication with client 💬",
-				text: "Throughout the project, I maintained constant communication with the client, regularly sharing progress updates and seeking feedback to ensure the project remained on track. Through collaborative refinement, we iteratively adjusted elements until we reached a final design that exceeded the client's expectations.",
+				text: "Throughout the project, I maintained constant communication with the client, regularly sharing progress updates and seeking feedback to ensure the project remained on track. Through collaborative refinement, we iteratively adjusted elements until we reached a final design that exceeded the client's expectations."
 			},
 			{
 				type: BlogSectionType.Paragraph,
 				title: "Conclusion ✍🏼",
-				text: "Ultimately, the completed week planner successfully balanced professionalism with creativity, providing a visually appealing and functional organizational tool. ",
-			},
-		],
-	},
+				text: "Ultimately, the completed week planner successfully balanced professionalism with creativity, providing a visually appealing and functional organizational tool. "
+			}
+		]
+	}
 ];

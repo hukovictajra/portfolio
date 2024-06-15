@@ -2,12 +2,12 @@ import { CSSProperties, useEffect, useState } from "react";
 import { parseStyles } from "./utils";
 import { CSSStyle } from "@data/models";
 
-export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | null => {
-	const [parsedStyles, setParsedStyles] = useState(style ? parseStyles(style) : {});
+export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | Object => {
+	const [parsedStyles, setParsedStyles] = useState({});
 
 	useEffect(() => {
 		const handleResize = () => {
-			setParsedStyles(style ? parseStyles(style) : null);
+			setParsedStyles(parseStyles(style));
 		};
 
 		window.addEventListener("resize", handleResize);

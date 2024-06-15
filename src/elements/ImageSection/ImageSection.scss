@@ -1,6 +1,12 @@
 @import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+@import "react-image-gallery/styles/css/image-gallery.css";
+
+.blog-section-image {
+	align-self: center;
+	cursor: pointer;
+}
 
 .blog-image-wrapper {
 	animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;

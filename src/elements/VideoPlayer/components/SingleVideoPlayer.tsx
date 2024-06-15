@@ -1,33 +1,37 @@
 import { CSSProperties } from "react";
 import ReactPlayer from "react-player";
-import { parseStyles } from "@utils/utils";
+import { getVideoURL, parseStyles } from "@utils/utils";
 import { useStyleResizeHandler } from "@utils/hooks";
 import { BlogVideoSource, CSSStyle } from "@data/models";
 
 export interface SingleVideoPlayerProps {
-	videoStyle: CSSStyle;
+	videoStyle?: CSSStyle;
 	source: BlogVideoSource | string;
 }
 
 export function SingleVideoPlayer({ videoStyle, source }: SingleVideoPlayerProps) {
-	const compositeVideoStyles: CSSProperties = useStyleResizeHandler(videoStyle);
+	let parsedVideoStyle: CSSProperties = {};
 
-	let url: string = null;
-	let title: string = null;
-	let style: CSSProperties = null;
+	if (videoStyle) {
+		parsedVideoStyle = useStyleResizeHandler(videoStyle);
+	}
+
+	let url: string | undefined;
+	let title: string | undefined;
+	let style: CSSProperties | undefined;
 
 	if (typeof source === "object") {
 		url = source.url;
-		style = source.style ? parseStyles(source.style) : null;
+		style = source.style ? parseStyles(source.style) : undefined;
 		title = source.caption;
 	} else {
 		url = source;
-		style = null;
-		title = null;
+		style = undefined;
+		title = undefined;
 	}
 
 	return (
-		<div className="blog-video-player-container" style={compositeVideoStyles}>
+		<div className="blog-video-player-container" style={parsedVideoStyle}>
 			<ReactPlayer
 				style={style}
 				className="blog-video-player"
@@ -36,7 +40,7 @@ export function SingleVideoPlayer({ videoStyle, source }: SingleVideoPlayerProps
 				volume={0}
 				muted={true}
 				controls
-				url={require(`../../../assets/${url.replace("@", "")}`)}
+				url={getVideoURL(url).href}
 			/>
 			{source && <span className="blog-image-caption">{title}</span>}
 		</div>

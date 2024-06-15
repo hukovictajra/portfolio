@@ -2,6 +2,7 @@ import { CSSStyle } from "./Blog";
 import { ReactImageGalleryItem } from "react-image-gallery";
 
 export type BlogImage = SingleBlogImage | GroupBlogImage | BlogImageGallery;
+
 export enum BlogImageType {
 	Single,
 	Group,

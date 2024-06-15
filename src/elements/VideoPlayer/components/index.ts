@@ -1,2 +1,2 @@
-export * from './GroupVideoPlayer';
-export * from './SingleVideoPlayer';
+export * from "./GroupVideoPlayer";
+export * from "./SingleVideoPlayer";

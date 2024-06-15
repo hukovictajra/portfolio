@@ -3,7 +3,11 @@ import { HamburgerCrossIcon, HamburgerIcon } from "@assets/icons";
 
 import "./HamburgerMenu.scss";
 
-export function HamburgerMenu({ className }) {
+export interface HamburgerMenuProps {
+	className?: string;
+}
+
+export function HamburgerMenu({ className }: HamburgerMenuProps) {
 	const [isMenuOpen, setMenuOpen] = useState(false);
 
 	return (
@@ -15,7 +19,7 @@ export function HamburgerMenu({ className }) {
 			<HamburgerCrossIcon className="hamburger-menu-close-icon hamburger-menu-icon" />
 
 			<div className="menu-items">
-				<ul className="menu-items-list">
+				<ul className="flex flex-col gap-8">
 					<li>
 						<a href="#/">Homepage</a>
 					</li>

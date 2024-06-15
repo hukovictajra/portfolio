@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./ScrollIndicator.scss";
 
 export default function ScrollIndicator() {

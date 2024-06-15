@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 
 import { blogs } from "@data/Blogs";
 import { useParams } from "react-router-dom";
+import { Footer } from "@elements/Footer/Footer";
 import { Navbar } from "@elements/Navbar/Navbar";
-import { Footer } from "../../elements/Footer/Footer";
-import { Subtitles } from "../../elements/Subtitle/Subtitle";
-import { BlogSection } from "@elements/BlogSection/BlogSection";
+import { Subtitles } from "@elements/Subtitle/Subtitle";
+import { Blog, BlogSection, BlogSectionType } from "@data/models";
+import { ListSection } from "@elements/BlogSection/ListSection/ListSection";
+import { ParagraphSection } from "@elements/BlogSection/ParagraphSection/ParagraphSection";
 
-import "./Blog.scss";
+import "./BlogPage.scss";
 
-export function Blog() {
-	const [blog, setBlog] = useState(null);
+export function BlogPage() {
+	const [blog, setBlog] = useState({} as Blog);
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -50,26 +52,21 @@ export function Blog() {
 					</div>
 				</div> */}
 
-				{blog ? (
+				{blog && Object.keys(blog).length !== 0 ? (
 					<div className="blog-content-wrapper">
 						<div className="blog-content">
-							<h1 className="blog-title satoshi">{blog.title}</h1>
+							<h1 className="text-6xl font-semibold  m-0 mb-4 satoshi">{blog.title}</h1>
 							<Subtitles subtitles={blog.subtitles} colors={blog.colors} />
 
-							<div className="hr" style={blog.style?.hr || {}} />
+							<div className="hr" />
 
-							{blog.sections.map((section, i) => (
-								<BlogSection
-									key={i}
-									type={section.type}
-									title={section.title}
-									text={section.text}
-									image={section.image}
-									list={section.list}
-									style={section.style}
-									video={section.video}
-								/>
-							))}
+							{blog.sections.map((section: BlogSection, i: number) =>
+								section.type === BlogSectionType.Paragraph ? (
+									<ParagraphSection key={i} section={section} />
+								) : (
+									<ListSection key={i} section={section} />
+								)
+							)}
 						</div>
 					</div>
 				) : (

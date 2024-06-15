@@ -13,7 +13,7 @@ export function Landing() {
 	}, []);
 
 	return (
-		<div id="landing-page">
+		<div id="landing-page" className="">
 			<InfoSection />
 			<ImageSection />
 		</div>

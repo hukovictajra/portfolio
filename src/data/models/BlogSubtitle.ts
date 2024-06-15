@@ -1,10 +1,11 @@
 import { CSSStyle } from "./Blog";
 
 export type BlogSubtitle = BlogTextSubtitle | BlogColorSubtitle | BlogLinkSubtitle;
+
 export enum BlogSubtitleType {
 	Text,
 	Color,
-	Link,
+	Link
 }
 
 export interface GenericBlogSubtitle {
@@ -21,7 +22,7 @@ export interface BlogTextSubtitle extends GenericBlogSubtitle {
 
 export interface BlogColorSubtitle extends GenericBlogSubtitle {
 	type: BlogSubtitleType.Color;
-	chips?: { [key: string]: string };
+	items: { [key: string]: string };
 }
 
 export interface BlogLinkSubtitle extends GenericBlogSubtitle {

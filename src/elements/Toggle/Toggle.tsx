@@ -1,6 +1,13 @@
 import "./Toggle.scss";
 
-export default function Toggle({ className, onLabel, offLabel, onClick }) {
+export interface ToggleProps {
+	className?: string;
+	onLabel: string;
+	offLabel: string;
+	onClick: () => void;
+}
+
+export default function Toggle({ className, onLabel, offLabel, onClick }: ToggleProps) {
 	return (
 		<label className={`toggle ${className}`}>
 			<input type="checkbox" onClick={onClick} />

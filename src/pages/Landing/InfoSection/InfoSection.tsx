@@ -1,31 +1,36 @@
 import { MapPinIcon, ItemArrowIcon } from "@assets/icons";
-import { GithubIcon, LinkedinIcon, PinterestIcon } from "@assets/icons/social";
 import { WorkWithMe } from "@elements/WorkWithMe/WorkWithMe";
+import {
+	InstagramIcon,
+	InstagramIconHover,
+	LinkedinIcon,
+	PinterestIcon
+} from "@assets/icons/social";
 
 import "./InfoSection.scss";
 
 export default function InfoSection() {
 	return (
-		<div className="info-section">
-			<div className="info-section-content">
-				<div className="info-section-title-wrapper">
-					<h1 className="info-section-title satoshi">Tajra Huković</h1>
-					<h3 className="info-section-subtitle satoshi">Graphic Designer, UX/UI Designer, Photographer</h3>
+		<div id="info-section">
+			<div id="info-section-content">
+				<div id="info-section-title-wrapper">
+					<h1 id="info-section-title">Tajra Huković</h1>
+					<h3 id="info-section-subtitle">Graphic Designer, UX/UI Designer, Photographer</h3>
 				</div>
 
-				<div className="info-portfolio-wrapper">
-					<div className="info-portfolio-items">
+				<div id="info-portfolio-wrapper">
+					<div id="info-portfolio-items">
 						{/* <a className="info-portfolio-item">
 							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Projects</span>
 						</a> */}
-						{/* <a className="info-portfolio-item">
-							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
-							<span className="info-portfolio-item-text underline-effect">Gallery</span>
-						</a> */}
 						<a className="info-portfolio-item" href="#/resume">
 							<ItemArrowIcon className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Résumé</span>
+						</a>
+						<a className="info-portfolio-item">
+							<ItemArrowIcon className="info-portfolio-item-icon" />
+							<span className="info-portfolio-item-text underline-effect">Get to know me!</span>
 						</a>
 					</div>
 
@@ -70,11 +75,20 @@ export default function InfoSection() {
 						<li className="info-quick-link-list-item">
 							<a
 								className="info-quick-link-item"
-								href="https://github.com/hukovictajra"
+								href="https://www.instagram.com/pawpix101/"
 								target="_blank"
 								rel="noreferrer"
 							>
-								<GithubIcon className="info-quick-link-item-icon info-github-icon" />
+								<InstagramIcon className="info-quick-link-item-icon info-instagram-icon" />
+
+								<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+									<defs>
+										<linearGradient id="mygradient" x1="80.86%" x2="19.14%" y1="0%" y2="100%">
+											<stop offset="0%" stop-color="#cc208e" />
+											<stop offset="100%" stop-color="#6713d2" />
+										</linearGradient>
+									</defs>
+								</svg>
 							</a>
 						</li>
 					</ul>

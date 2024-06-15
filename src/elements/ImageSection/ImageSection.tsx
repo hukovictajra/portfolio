@@ -13,7 +13,11 @@ export function BlogImageSection({ image }: BlogImageSectionProps) {
 			{image.type === BlogImageType.Single ? (
 				<SingleImageSection imageStyle={image.imageStyle} source={image.source} />
 			) : image.type === BlogImageType.Group ? (
-				<GroupImageSection containerStyle={image.containerStyle} imageStyle={image.imageStyle} source={image.source} />
+				<GroupImageSection
+					containerStyle={image.containerStyle}
+					imageStyle={image.imageStyle}
+					source={image.source}
+				/>
 			) : image.type === BlogImageType.Gallery ? (
 				<GalleryImageSection containerStyle={image.containerStyle} source={image.source} />
 			) : (

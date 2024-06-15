@@ -11,7 +11,13 @@ export function Navbar() {
 	const scrollFunction = () => {
 		const scrollTop = document.documentElement.scrollTop;
 
-		if (scrollTop >= 0 && scrollTop < 120 && window.innerWidth > 576) {
+		if (
+			headingRef.current &&
+			navbarRef.current &&
+			scrollTop >= 0 &&
+			scrollTop < 120 &&
+			window.innerWidth > 576
+		) {
 			const scrollDirection = window.scrollY > 120 ? "up" : "down";
 
 			if (scrollDirection === "down") {
@@ -27,7 +33,9 @@ export function Navbar() {
 			navbarRef.current.classList.remove("navbar-in-sticky");
 		}
 
-		navbarRef.current.style["background-color"] = navbarRef.current.style["background-color"].replace(
+		navbarRef.current.style["background-color"] = navbarRef.current.style[
+			"background-color"
+		].replace(
 			/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*\d*\.?\d+)?\)/,
 			`rgba($1, $2, $3, ${scrollTop / 140})`
 		);
@@ -43,7 +51,7 @@ export function Navbar() {
 
 	return (
 		<nav id="navbar" ref={navbarRef}>
-			<a className={`navbar-heading satoshi`} ref={headingRef} href={"#/"}>
+			<a className="navbar-heading satoshi" ref={headingRef} href={"#/"}>
 				Tajra Huković
 			</a>
 

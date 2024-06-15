@@ -1,8 +1,14 @@
 import { blogs } from "@data/Blogs";
+import { Blog } from "@data/models";
+import { getImageURL } from "@utils/utils";
 
 import "./MoreProjects.scss";
 
-export function MoreProjects({ currentBlog }) {
+export interface MoreProjectsProps {
+	currentBlog: Blog;
+}
+
+export function MoreProjects({ currentBlog }: MoreProjectsProps) {
 	if (!currentBlog) {
 		return;
 	}
@@ -19,10 +25,7 @@ export function MoreProjects({ currentBlog }) {
 						<a key={i} className="more-projects-card" href={`#/blog/${blog.id}`}>
 							<div className="more-projects-card-overlay">Click to view</div>
 							<img
-								src={require(`../../assets/${(typeof blog.image === "object" ? blog.image.url : blog.image).replace(
-									"@",
-									""
-								)}`)}
+								src={getImageURL(typeof blog.image === "object" ? blog.image.url : blog.image).href}
 							/>
 							<span className="more-projects-caption">{blog.title}</span>
 						</a>

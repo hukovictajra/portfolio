@@ -5,6 +5,7 @@ import { useStyleResizeHandler } from "@utils/hooks";
 import { CSSProperties, useRef, useState } from "react";
 
 import "./ProjectImage.scss";
+import { getImageURL } from "@utils/utils";
 
 export interface ProjectImageProps {
 	blog: Blog;
@@ -16,8 +17,13 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 	const projectImageOverlay = useRef(null);
 	const [isFocused, setIsFocuses] = useState(false);
 
-	let url: string = typeof blog.image === "object" ? blog.image.url : blog.image;
-	let style: CSSProperties = useStyleResizeHandler(typeof blog.image === "object" ? blog.image.style : {});
+	const url: string = typeof blog.image === "object" ? blog.image.url : blog.image;
+
+	let processedStyle: CSSProperties = {};
+
+	if (typeof blog.image === "object" && blog.image.style) {
+		processedStyle = useStyleResizeHandler(blog.image.style);
+	}
 
 	const navigate = useNavigate();
 
@@ -42,14 +48,12 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 		}
 	};
 
-	console.log(blog);
-
 	return (
 		<div className="project-image-container" onClick={onClickHandler} ref={projectImage}>
 			<img
-				src={require(`../../assets/${url.replace("@", "")}`)}
+				src={getImageURL(url).href}
 				alt={blog.title}
-				style={style}
+				style={processedStyle}
 				className={`${className} project-image-animated`}
 			/>
 			<div className="project-image-overlay" ref={projectImageOverlay}>

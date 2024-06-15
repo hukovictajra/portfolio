@@ -15,20 +15,11 @@
 	}
 
 	.menu-items {
-		position: absolute;
-		display: flex;
-		top: 0;
-		left: 0;
-		height: 100vh;
-		width: 100%;
+		@apply absolute top-0 left-0  h-screen w-full z-10 visible
+		flex items-center justify-center 
+		font-medium text-center uppercase;
+
 		background-color: var(--theme-bg-primary, $bg-primary);
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		text-transform: uppercase;
-		font-weight: 500;
-		z-index: 3;
-		visibility: visible;
 		animation: fadeColor 0.5s alternate ease-in-out;
 
 		@keyframes fadeColor {
@@ -41,12 +32,7 @@
 			}
 		}
 
-		.menu-items-list {
-			display: flex;
-
-			flex-direction: column;
-			gap: 2rem;
-
+		ul {
 			li {
 				animation-delay: 0;
 			}

@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import Toggle from "../../elements/Toggle/Toggle";
 import { Document, Page, pdfjs } from "react-pdf";
-import { ItemArrowIcon, LoaderIcon, PaginationArrowIcon, DownloadIcon, ArrowRoundedIcon } from "@assets/icons";
+import {
+	ItemArrowIcon,
+	LoaderIcon,
+	PaginationArrowIcon,
+	DownloadIcon,
+	ArrowRoundedIcon
+} from "@assets/icons";
+import resumeFile from "@assets/files/pdf/resume.pdf";
 
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./Resume.scss";
@@ -14,9 +21,7 @@ export function Resume() {
 	const [showIframe, setShowIframe] = useState(false);
 	const [scale, setScale] = useState(getScale(document.documentElement.clientWidth));
 
-	const resumeFile = require("../../assets/files/pdf/resume.pdf");
-
-	function onDocumentLoadSuccess({ numPages }) {
+	function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
 		setTotalPages(numPages);
 	}
 
@@ -32,7 +37,7 @@ export function Resume() {
 		setPageNumber((prevPageNumber) => Math.min(prevPageNumber + 1, totalPages));
 	}
 
-	function getScale(windowWidth) {
+	function getScale(windowWidth: number) {
 		if (windowWidth <= 576) {
 			return 0.5;
 		} else if (windowWidth <= 768) {
@@ -48,7 +53,7 @@ export function Resume() {
 
 	function downloadPDF() {
 		if (!showIframe) {
-			var anchorElement = document.createElement("a");
+			const anchorElement = document.createElement("a");
 			anchorElement.href = resumeFile;
 			anchorElement.download = "tajra_hukovic_resume_2024.pdf";
 			anchorElement.click();
@@ -83,7 +88,9 @@ export function Resume() {
 						onClick={() => setShowIframe(!showIframe)}
 					/>
 
-					<span className={`resume-navigation-pagination ${showIframe && "resume-navigation-disabled"}`}>
+					<span
+						className={`resume-navigation-pagination ${showIframe && "resume-navigation-disabled"}`}
+					>
 						<span
 							className={`navigation-icon-md navigation-icon-previous ${
 								pageNumber <= 1 && "resume-navigation-disabled"
@@ -127,13 +134,20 @@ export function Resume() {
 								</div>
 							}
 						>
-							<Page pageNumber={pageNumber} scale={scale} className="resume-pdf-page" renderAnnotationLayer={false} />
+							<Page
+								pageNumber={pageNumber}
+								scale={scale}
+								className="resume-pdf-page"
+								renderAnnotationLayer={false}
+							/>
 						</Document>
 
 						<div className="resume-navigation">
 							<div
 								onClick={goToPreviousPage}
-								className={`resume-page-button resume-previous-page ${pageNumber <= 1 && "resume-navigation-disabled"}`}
+								className={`resume-page-button resume-previous-page ${
+									pageNumber <= 1 && "resume-navigation-disabled"
+								}`}
 							>
 								<ArrowRoundedIcon />
 							</div>

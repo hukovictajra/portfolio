@@ -10,12 +10,16 @@ export interface GroupImageSectionProps {
 }
 
 export function GroupImageSection({ containerStyle, imageStyle, source }: GroupImageSectionProps) {
-	let processedContainerStyle: CSSProperties = useStyleResizeHandler(containerStyle);
+	let processedContainerStyle: CSSProperties = {};
+
+	if (containerStyle) {
+		processedContainerStyle = useStyleResizeHandler(containerStyle);
+	}
 
 	return (
 		<div style={processedContainerStyle}>
-			{source.map((src: BlogImageSource | string) => (
-				<SingleImageSection imageStyle={imageStyle} source={src} />
+			{source.map((src: BlogImageSource | string, i: number) => (
+				<SingleImageSection key={i} imageStyle={imageStyle} source={src} />
 			))}
 		</div>
 	);

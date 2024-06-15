@@ -1,4 +1,4 @@
-import { parseStyles } from "@utils/utils";
+import { getImageURL, parseStyles } from "@utils/utils";
 import { useState, CSSProperties } from "react";
 import { FullscreenButton } from "./FullscreenButton";
 import { BlogImageSource, CSSStyle } from "@data/models";
@@ -13,32 +13,34 @@ export function SingleImageSection({ imageStyle, source }: SingleImageSectionPro
 	const [isFullscreen, setFullScreen] = useState(false);
 
 	let sources: ReactImageGalleryItem[];
-	let caption: string = null;
-	let processedImageStyle: CSSProperties = imageStyle;
+	let caption: string | undefined = undefined;
+	let processedImageStyle: CSSProperties | undefined = imageStyle;
 
 	if (typeof source === "object") {
-		sources = [{ original: require(`../../../assets/${source.url.replace("@", "")}`) }];
+		sources = [{ original: getImageURL(source.url).href }];
 		caption = source.caption;
 
 		if (source.style) {
 			processedImageStyle = parseStyles(source.style);
 		}
 	} else {
-		sources = [{ original: require(`../../../assets/${source.replace("@", "")}`) }];
+		sources = [{ original: getImageURL(source).href }];
 	}
 
 	return (
 		<div style={processedImageStyle}>
 			<ImageGallery
 				showFullscreenButton
-				renderFullscreenButton={(onClick, isFullscreen) => FullscreenButton(onClick, isFullscreen, setFullScreen)}
+				renderFullscreenButton={(onClick, isFullscreen) =>
+					FullscreenButton(onClick, isFullscreen, setFullScreen)
+				}
 				thumbnailPosition={isFullscreen ? "left" : "bottom"}
-				additionalClass={`"blog-section-image`}
+				additionalClass="blog-section-image"
 				useBrowserFullscreen={false}
 				showPlayButton={false}
 				showNav={false}
 				showThumbnails={false}
-				onClick={(e) => {
+				onClick={() => {
 					// e.target.querySelector(".image-gallery-fullscreen-button").click();
 				}}
 				items={sources}

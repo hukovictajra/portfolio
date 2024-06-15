@@ -9,7 +9,11 @@ export function VideoPlayerSection({ video }: VideoPlayerSectionProps) {
 	return video.type === BlogVideoType.Single ? (
 		<SingleVideoPlayer videoStyle={video.videoStyle} source={video.source} />
 	) : video.type === BlogVideoType.Group ? (
-		<GroupVideoPlayer containerStyle={video.containerStyle} videoStyle={video.videoStyle} source={video.source} />
+		<GroupVideoPlayer
+			containerStyle={video.containerStyle}
+			videoStyle={video.videoStyle}
+			source={video.source}
+		/>
 	) : (
 		<div>Implementation for {video} does not exist!</div>
 	);
