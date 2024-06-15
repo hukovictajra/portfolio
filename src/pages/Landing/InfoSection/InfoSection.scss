@@ -2,21 +2,15 @@
 @import "src/styles/constants.scss";
 
 #info-section {
-	@apply relative text-primary flex justify-start items-start flex-[50%];
-	@apply lg:flex-[55%];
-	@apply md:justify-center md:p-0 md:flex-[100%];
+	@apply relative text-primary w-full
+	flex items-center justify-center;
+
+	@screen md {
+		@apply justify-center;
+	}
 
 	#info-section-content {
-		@apply flex flex-col gap-12
-		fixed h-full px-36 py-48;
-
-		@screen xl {
-			@apply p-20;
-		}
-
-		@screen lg {
-			@apply px-[2rem] pr-0;
-		}
+		@apply flex flex-col justify-center gap-12;
 
 		@screen md {
 			@apply relative justify-center p-0 gap-[2rem];
@@ -30,41 +24,29 @@
 			@apply flex flex-col items-start gap-4;
 
 			@screen md {
-				@apply items-center;
+				@apply items-center gap-2;
 			}
 
 			#info-section-title {
 				animation: slide-in-left $animation-length both;
-				@apply text-6xl font-medium m-0 leading-tight text-center
+				@apply text-6xl font-medium m-0 leading-tight 
 				tracking-wider;
 
-				@screen lg {
-					@apply text-2xl;
-				}
-
-				@screen xs {
-					@apply gap-4;
+				@screen md {
+					@apply text-4xl;
 				}
 			}
 
 			#info-section-subtitle {
 				animation: slide-in-left $animation-length both;
-				@apply text-2xl m-0 font-medium text-center;
-
-				@screen lg {
-					@apply text-2xl;
-				}
+				@apply text-2xl m-0 font-medium text-left;
 
 				@screen md {
-					@apply text-xl;
-				}
-
-				@screen sm {
-					@apply text-xl;
+					@apply text-xl text-center;
 				}
 
 				@screen xs {
-					@apply text-lg;
+					@apply text-base;
 				}
 			}
 		}
@@ -77,15 +59,14 @@
 			}
 
 			#info-portfolio-items {
-				@apply flex flex-col gap-8;
+				@apply flex flex-col gap-4;
 
 				@screen md {
-					@apply items-center;
+					@apply gap-4;
 				}
 
 				@screen sm {
 					@apply items-start;
-					@apply gap-4;
 				}
 
 				@screen xxs {
@@ -124,6 +105,10 @@
 					@apply text-base w-[14rem] px-4 py-6;
 				}
 
+				@screen md {
+					@apply py-4 text-base;
+				}
+
 				@screen sm {
 					@apply px-4 py-4 text-sm;
 				}
@@ -135,18 +120,17 @@
 		}
 
 		.info-quick-links-wrapper {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
+			@apply flex flex-col gap-4;
 
-			@media (max-width: $md) {
-				align-items: center;
+			@screen lg {
+				@apply items-center;
 			}
 
 			#info-quick-link-item-location {
 				animation: slide-in-left $animation-length both;
 				display: inline-flex;
 				align-items: center;
+				text-align: center;
 				gap: 0.5rem;
 				font-size: 1.25rem;
 
@@ -167,22 +151,17 @@
 			}
 
 			.info-quick-link-list {
-				display: flex;
-				justify-content: flex-start;
-				gap: 2rem;
+				@apply flex justify-start gap-8;
 
-				@media (max-width: $md) {
-					justify-content: space-between;
+				@screen md {
+					@apply justify-between;
 				}
 
 				.info-quick-link-list-item {
-					display: flex;
-					align-items: flex-end;
-					font-weight: 500;
-					cursor: pointer;
-					text-transform: uppercase;
+					@apply flex justify-end font-medium cursor-pointer;
 
 					span {
+						@apply text-center;
 						text-align: center;
 					}
 

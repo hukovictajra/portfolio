@@ -2,7 +2,7 @@ import { JSX } from "react/jsx-runtime";
 import { Tooltip } from "react-tooltip";
 import { isTextColorVisible } from "@utils/utils";
 import { BlogColors, BlogSubtitle, BlogSubtitleType } from "@data/models";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { SubtitleLink } from "../../data/models/BlogSubtitle";
 
 import "./Subtitle.scss";
@@ -104,6 +104,7 @@ const renderSubtitle = (
 			className={`subtitle ${subtitle.type === BlogSubtitleType.Color && "subtitle-colors"}`}
 		>
 			<span className="subtitle-prefix">{subtitle.prefix}</span>
+			{}
 			{subtitleContent}
 		</h4>
 	);

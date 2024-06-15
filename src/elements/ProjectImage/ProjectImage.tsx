@@ -2,10 +2,10 @@ import { Blog } from "@data/models";
 import { useNavigate } from "react-router-dom";
 import { Subtitles } from "../Subtitle/Subtitle";
 import { useStyleResizeHandler } from "@utils/hooks";
-import { CSSProperties, useRef, useState } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
+import { getImageURL } from "@utils/utils";
 
 import "./ProjectImage.scss";
-import { getImageURL } from "@utils/utils";
 
 export interface ProjectImageProps {
 	blog: Blog;
@@ -48,6 +48,22 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 		}
 	};
 
+	const [isSubtitleDisplayed, setSubtitleDisplayed] = useState(
+		document.documentElement.clientWidth > 576
+	);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setSubtitleDisplayed(document.documentElement.clientWidth > 576);
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
 	return (
 		<div className="project-image-container" onClick={onClickHandler} ref={projectImage}>
 			<img
@@ -58,7 +74,9 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 			/>
 			<div className="project-image-overlay" ref={projectImageOverlay}>
 				<h3 className="project-image-title">{blog.title}</h3>
-				<Subtitles subtitles={blog.subtitles} colors={blog.colors} overview onPrimary />
+				{isSubtitleDisplayed && (
+					<Subtitles subtitles={blog.subtitles} colors={blog.colors} overview onPrimary />
+				)}
 			</div>
 		</div>
 	);

@@ -1,11 +1,6 @@
 import { MapPinIcon, ItemArrowIcon } from "@assets/icons";
 import { WorkWithMe } from "@elements/WorkWithMe/WorkWithMe";
-import {
-	InstagramIcon,
-	InstagramIconHover,
-	LinkedinIcon,
-	PinterestIcon
-} from "@assets/icons/social";
+import { InstagramIcon, LinkedinIcon, PinterestIcon } from "@assets/icons/social";
 
 import "./InfoSection.scss";
 
