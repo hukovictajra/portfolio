@@ -2,42 +2,25 @@
 @import "src/styles/constants.scss";
 
 #footer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
+	@apply flex flex-col items-center p-4;
 
 	.footer-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		width: 20%;
+		@apply flex flex-col items-center justify-between gap-4;
 	}
 
 	.footer-quick-links {
-		display: flex;
-		justify-content: space-around;
-		gap: 2rem;
+		@apply flex justify-around gap-4;
 
 		li {
-			font-weight: 500;
-			font-size: 1rem;
-			line-height: 1.4rem;
-			text-transform: uppercase;
-			cursor: pointer;
+			@apply font-medium text-base uppercase cursor-pointer;
 		}
 	}
 
 	.footer-external-quick-links {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
+		@apply flex justify-between gap-4;
 
 		.footer-external-quick-link-item {
-			font-weight: 500;
-			cursor: pointer;
+			@apply font-medium cursor-pointer;
 
 			.footer-external-quick-link-icon {
 				height: 2.5rem;
@@ -94,9 +77,7 @@
 	}
 
 	.footer-inspired-by {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.2rem;
+		@apply inline-flex items-center gap-1;
 	}
 
 	.footer-developed-by {

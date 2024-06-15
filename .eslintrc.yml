@@ -1,0 +1,49 @@
+root: true
+env:
+  browser: true
+  es2020: true
+  es2021: true
+extends:
+  - "eslint:recommended"
+  - "plugin:@typescript-eslint/recommended"
+  - "plugin:react-hooks/recommended"
+  - "plugin:tailwindcss/recommended"
+  - "plugin:react/recommended"
+ignorePatterns:
+  - "dist"
+  - ".eslintrc.cjs"
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - "react-refresh"
+  - "@typescript-eslint"
+  - react
+rules:
+  indent:
+    - error
+    - tab
+    - ignoredNodes:
+        - "ConditionalExpression > ConditionalExpression"
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - double
+    - avoidEscape: true
+  semi:
+    - error
+    - always
+  react/react-in-jsx-scope: off
+  react/jsx-uses-react: off
+  no-restricted-syntax: off
+  react-refresh/only-export-components:
+    - warn
+    - allowConstantExport: true
+settings:
+  import/resolver:
+    node:
+      paths:
+        - src

@@ -115,6 +115,7 @@
 				text-align: center;
 				animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;
 				animation-delay: $animation-delay + 0.2s;
+				text-wrap: pretty;
 
 				@media (max-width: $sm) {
 					min-width: 8rem;

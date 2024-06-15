@@ -4,7 +4,7 @@
 .image-section {
 	position: relative;
 	padding: 4rem 4rem;
-	flex: 60%;
+	flex: 50%;
 	overflow-y: scroll;
 
 	@media (max-width: $lg) {
@@ -34,6 +34,7 @@
 	font-size: 20px;
 	display: flex;
 	flex-direction: column;
+	@apply gap-8;
 	animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
 	@media (max-width: $md) {
