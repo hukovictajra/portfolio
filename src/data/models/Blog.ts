@@ -23,7 +23,6 @@ export interface ResponsiveInlineStyle {
 	sm: React.CSSProperties;
 	xs: React.CSSProperties;
 }
-
 export interface BlogColors {
 	[key: string]: string;
 }

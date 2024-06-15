@@ -7,6 +7,7 @@ export default defineConfig({
 	server: {
 		port: 3000
 	},
+	base: "/portfolio/",
 	plugins: [react()],
 	resolve: {
 		alias: {
@@ -21,6 +22,15 @@ export default defineConfig({
 			"@videos": path.resolve(__dirname, "src/assets/videos/"),
 			"@utils": path.resolve(__dirname, "src/utils/"),
 			"@models": path.resolve(__dirname, "data/models/")
+		}
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				entryFileNames: `assets/[name].js`,
+				chunkFileNames: `assets/[name].js`,
+				assetFileNames: `assets/[name].[ext]`
+			}
 		}
 	}
 });
