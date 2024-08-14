@@ -1,0 +1,87 @@
+@import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
+
+.subtitle-wrapper {
+	@apply flex flex-col gap-4;
+
+  @screen sm {
+		@apply hidden;
+	}
+
+
+	.subtitle-colors {
+		@screen xs {
+			flex: 1 0 100% !important;
+		}
+	}
+
+	.subtitle {
+		@apply text-lg uppercase m-0 flex gap-4;
+
+		@screen md {
+			@apply text-base justify-start whitespace-nowrap break-words;
+		}
+
+		@screen xs {
+			@apply flex-col gap-1;
+		}
+
+		.subtitle-prefix {
+			color: var(--theme-primary, $primary);
+			animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;
+			animation-delay: $animation-delay;
+
+			@apply min-w-16 max-w-16 self-center font-medium;
+
+			@screen xs {
+				@apply mb-2;
+			}
+		}
+
+		.subtitle-content {
+			color: var(--theme-primary, $primary);
+			@apply flex gap-4 text-center;
+
+			@screen md {
+				@apply flex-row;
+			}
+
+			
+
+			.subtitle-content-item {
+				@apply inline-flex items-center;
+			}
+
+			.subtitle-content-dot {
+				@apply text-base;
+			}
+
+			.subtitle-content-pill {
+				border: 1px solid var(--theme-primary, $primary);
+				animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;
+				animation-delay: $animation-delay + 0.2s;
+
+				@apply p-3 font-medium text-xs border rounded-2xl
+					cursor-pointer min-w-40 max-w-40 text-center
+					text-wrap;				
+
+				@screen xs {
+					@apply min-w-16 max-w-16;
+				}
+			}
+
+			.subtitle-content-pill-link {
+				transition: 0.5s background-color, 0.5s border-color, 0.5s color, 0.5s fill;
+			}
+
+			.subtitle-content-pill-link:hover {
+				background-color: var(--theme-primary, $primary);
+				color: var(--theme-bg-primary, $bg-primary);
+			}
+
+			.subtitle-content-pill-on-primary {
+				border: 1px solid $bg-primary;
+			}
+		}
+	}
+}

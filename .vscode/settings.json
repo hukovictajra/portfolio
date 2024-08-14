@@ -5,5 +5,12 @@
 		"strings": true
 	},
 	"css.validate": false,
-	"scss.lint.unknownAtRules": "ignore"
+	"scss.lint.unknownAtRules": "ignore",
+	"editor.formatOnSaveMode": "modifications",
+	"editor.formatOnType": false,
+	"tailwindCSS.experimental.classRegex": [
+		["*.ClassName \\=([^;]*);", "'([^']*)'"],
+		["*.ClassName \\=([^;]*);", "\"([^\"]*)\""],
+		["*.ClassName \\=([^;]*);", "\\`([^\\`]*)\\`"]
+	]
 }

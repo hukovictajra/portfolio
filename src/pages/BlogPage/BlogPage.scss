@@ -21,7 +21,7 @@
 		}
 
 		@media (max-width: $sm) {
-			padding: 3rem 0rem;
+			padding: 3rem 2rem;
 		}
 	}
 
@@ -32,7 +32,9 @@
 		color: var(--theme-primary, $primary);
 		opacity: 0.5;
 		letter-spacing: 0.1rem;
-		margin: 1rem 0;
+		margin: 3rem;
+		
+		@apply mb-0 ml-4;
 
 		.blog-back-text-container {
 			font-size: 1.1rem;
@@ -62,34 +64,17 @@
 			grid-column: 2/12;
 
 			@media (max-width: $lg) {
-				grid-column: 3/16;
-			}
-		}
-
-		.blog-title {
-			font-family: "Lora", sans-serif;
-			animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-
-			@media (max-width: $lg) {
-				font-size: 4rem;
-			}
-
-			@media (max-width: $md) {
-				text-align: center;
-				font-size: 3.5rem;
-			}
-
-			@media (max-width: $sm) {
-				font-size: 3rem;
-				margin-bottom: 1.5rem;
+				grid-column: 2/16;
 			}
 		}
 
 		.hr {
-			width: 100%;
 			border: 1px solid var(--theme-primary, $primary);
-			margin-top: 2rem;
-			margin-bottom: 4rem;
+			@apply w-full mt-8 mb-16;
+
+			@screen sm {
+				@apply mb-4;
+			}
 		}
 	}
 }

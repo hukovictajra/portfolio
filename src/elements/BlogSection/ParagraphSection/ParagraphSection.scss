@@ -1,8 +1,3 @@
 @import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
-.blog-paragraph-section-text {
-	@apply text-lg text-justify font-normal leading-relaxed 
-						md:text-lg md:leading-normal 
-						lg:text-xl lg:leading-relaxed;
-}

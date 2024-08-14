@@ -1,0 +1,11 @@
+@import "src/styles/colors.scss";
+@import "src/styles/constants.scss";
+
+.blog-paragraph {
+	@apply text-xl inline-block text-justify font-normal leading-relaxed mb-4;
+
+	@screen md {
+		@apply text-lg leading-normal;
+	}
+
+}

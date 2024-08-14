@@ -8,8 +8,7 @@
 		height: 2rem;
 		width: 2rem;
 		cursor: pointer;
-		position: absolute;
-		top: 0.6rem;
+		top: 1rem;
 		right: 2rem;
 		transition: 0.3s ease;
 	}
@@ -20,17 +19,7 @@
 		font-medium text-center uppercase;
 
 		background-color: var(--theme-bg-primary, $bg-primary);
-		animation: fadeColor 0.5s alternate ease-in-out;
-
-		@keyframes fadeColor {
-			0%,
-			100% {
-				background-color: transparent;
-			}
-			50% {
-				background-color: var(--theme-bg-primary, $bg-primary);
-			}
-		}
+		animation: background-color 0.5s alternate ease-in-out;
 
 		ul {
 			li {
@@ -68,7 +57,7 @@
 	}
 
 	.menu-items {
-		visibility: visible;
+		display: flex;
 	}
 }
 
@@ -82,6 +71,6 @@
 	}
 
 	.menu-items {
-		visibility: hidden;
+		display: none;
 	}
 }

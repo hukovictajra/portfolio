@@ -1,5 +1,5 @@
 import React from "react";
-import { GenericBlogSection } from "../GenericBlogSection";
+import { BlogSection } from "../BlogSection";
 import { BlogListContent, BlogListSection } from "@data/models";
 
 import "./ListSection.scss";
@@ -9,11 +9,13 @@ export interface ListSectionProps {
 }
 
 export function ListSection({ section }: ListSectionProps) {
-	const { items } = section;
+	const { items, preText, postText } = section;
 
 	return (
-		<GenericBlogSection className="blog-list-section" section={section}>
-			<ul className="list-disc ml-10 space-y-2">
+		<BlogSection className="blog-list-section">
+			{preText && <p className="text-lg mb-4">{preText}</p>}
+
+			<ul className={`list-disc ml-10 space-y-4 ${preText && postText ? "my-2" : "my-4"}`}>
 				{items.map((item: BlogListContent | string, i: number) => (
 					<React.Fragment key={i}>
 						{typeof item === "string" ? (
@@ -26,6 +28,8 @@ export function ListSection({ section }: ListSectionProps) {
 					</React.Fragment>
 				))}
 			</ul>
-		</GenericBlogSection>
+
+			{postText && <p className="text-lg mt-4">{postText}</p>}
+		</BlogSection>
 	);
 }

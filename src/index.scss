@@ -537,6 +537,10 @@ video {
 
 .fixed {
   position: fixed;
+
+  @screen md {
+    position: relative;
+  }
 }
 
 .absolute {
@@ -693,4 +697,8 @@ video {
   .sm\:text-center {
     text-align: center;
   }
+}
+
+.react-responsive-modal-modal {
+  border-radius: 1rem;
 }

@@ -1,5 +1,5 @@
 import { BlogParagraphSection } from "@data/models";
-import { GenericBlogSection } from "../GenericBlogSection";
+import { BlogSection } from "../BlogSection";
 
 import "./ParagraphSection.scss";
 
@@ -11,7 +11,7 @@ export function ParagraphSection({ section }: ParagraphSectionProps) {
 	const { text } = section;
 
 	return (
-		<GenericBlogSection section={section}>
+		<BlogSection section={section}>
 			{typeof text === "string" ? (
 				<p className="blog-paragraph-section-text">{text}</p>
 			) : (
@@ -21,6 +21,6 @@ export function ParagraphSection({ section }: ParagraphSectionProps) {
 					</p>
 				)
 			)}
-		</GenericBlogSection>
+		</BlogSection>
 	);
 }

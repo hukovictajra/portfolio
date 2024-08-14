@@ -1,0 +1,16 @@
+.blog-title {
+  animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  @apply inline-block text-6xl font-semibold mb-8;
+
+  @screen sm {
+    @apply text-4xl text-center;
+  }
+
+  @screen xs {
+    @apply mb-2;
+  }
+
+  @screen xxs {
+    @apply text-3xl;
+  }
+}

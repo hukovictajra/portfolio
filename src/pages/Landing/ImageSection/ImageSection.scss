@@ -17,4 +17,8 @@
 		@apply h-full max-h-full min-w-full items-center;
 		object-position: left center;
 	}
+
+	@screen md {
+		overflow-y: hidden;
+	}
 }

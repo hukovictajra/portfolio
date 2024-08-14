@@ -1,6 +1,7 @@
 import { BlogSection } from "./BlogSection";
 import { BlogSubtitle } from "./BlogSubtitle";
-import { BlogImageSource } from "./BlogImage";
+import { ImageSource } from "./BlogImage";
+import React from "react";
 
 export interface Blog {
 	id: string;
@@ -8,10 +9,11 @@ export interface Blog {
 	showOnLanding: boolean;
 	title: string;
 	subtitles: BlogSubtitle[];
-	image: BlogImageSource | string;
+	image: ImageSource | string;
 	colors?: BlogColors;
 	style?: CSSStyle;
-	sections: BlogSection[];
+	sections?: BlogSection[];
+	component?: React.Component;
 }
 
 export type CSSStyle = React.CSSProperties & Partial<ResponsiveInlineStyle>;

@@ -27,7 +27,7 @@
 		font-size: 2.7rem;
 		color: var(--theme-primary, $primary);
 		transform-origin: 0 0;
-		font-weight: bold;
+		font-weight:600;
 		cursor: pointer;
 
 		@media (max-width: $sm) {

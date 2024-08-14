@@ -3,6 +3,10 @@ import { parseStyles } from "./utils";
 import { CSSStyle } from "@data/models";
 
 export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | Object => {
+	if (!style) {
+		return {};
+	}
+
 	const [parsedStyles, setParsedStyles] = useState({});
 
 	useEffect(() => {

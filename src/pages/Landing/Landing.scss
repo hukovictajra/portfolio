@@ -9,10 +9,10 @@
 	@apply h-[100vh] flex justify-between gap-8 p-10;
 
 	@screen lg {
-		@apply pt-8 flex-col justify-start gap-10;
+		@apply pt-8 px-20 flex-col justify-start gap-10;
 	}
 
 	@screen md {
-		@apply pt-6;
+		@apply pt-6 overflow-y-scroll px-10;
 	}
 }

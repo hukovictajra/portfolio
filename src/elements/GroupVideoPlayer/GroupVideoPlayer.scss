@@ -1,0 +1,11 @@
+.blog-group-video-player-container {
+  @apply flex gap-8 justify-between items-start;
+
+  @screen md {
+    @apply flex-col gap-4;
+  }
+
+  @screen xs {
+    @apply gap-2;
+  }
+}

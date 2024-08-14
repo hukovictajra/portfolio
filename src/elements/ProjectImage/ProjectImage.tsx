@@ -1,6 +1,6 @@
 import { Blog } from "@data/models";
 import { useNavigate } from "react-router-dom";
-import { Subtitles } from "../Subtitle/Subtitle";
+import { Overview } from "../Overview/Overview";
 import { useStyleResizeHandler } from "@utils/hooks";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { getImageURL } from "@utils/utils";
@@ -37,12 +37,7 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 
 	const onClickHandler = () => {
 		if (isTouchDevice()) {
-			if (isFocused) {
-				goToBlog();
-				setIsFocuses(false);
-			} else {
-				setIsFocuses(true);
-			}
+			goToBlog();
 		} else {
 			goToBlog();
 		}
@@ -75,7 +70,7 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 			<div className="project-image-overlay" ref={projectImageOverlay}>
 				<h3 className="project-image-title">{blog.title}</h3>
 				{isSubtitleDisplayed && (
-					<Subtitles subtitles={blog.subtitles} colors={blog.colors} overview onPrimary />
+					<Overview subtitles={blog.subtitles} colors={blog.colors} overview onPrimary />
 				)}
 			</div>
 		</div>

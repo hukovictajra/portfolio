@@ -1,0 +1,7 @@
+.blog-text {
+  @apply text-xl text-justify font-normal leading-relaxed mb-2;
+
+	@screen md {
+		@apply text-lg leading-normal;
+	}
+}

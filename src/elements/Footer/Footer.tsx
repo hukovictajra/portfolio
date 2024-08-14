@@ -1,4 +1,4 @@
-import { GithubIcon, LinkedinIcon, PinterestIcon, ContraIcon } from "@icons/social/";
+import { LinkedinIcon, PinterestIcon, ContraIcon, InstagramIcon } from "@icons/social/";
 
 import "./Footer.scss";
 
@@ -36,7 +36,7 @@ export function Footer() {
 					<li className="footer-external-quick-link-item">
 						<a
 							className="footer-quick-link-item"
-							href="https://www.pinterest.com/PawPix94/"
+							href="https://www.linkedin.com/in/tajra-hukovi%C4%87-07b338234/"
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -47,11 +47,11 @@ export function Footer() {
 					<li className="footer-external-quick-link-item">
 						<a
 							className="footer-quick-link-item"
-							href="https://www.pinterest.com/PawPix94/"
+							href="https://www.instagram.com/pawpix101/"
 							target="_blank"
 							rel="noreferrer"
 						>
-							<GithubIcon className="footer-external-quick-link-icon info-github-icon" />
+							<InstagramIcon className="footer-external-quick-link-icon info-instagram-icon" />
 						</a>
 					</li>
 				</ul>

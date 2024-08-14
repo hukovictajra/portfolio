@@ -1,38 +1,39 @@
 import { CSSStyle } from "./Blog";
-import { ReactImageGalleryItem } from "react-image-gallery";
 
-export type BlogImage = SingleBlogImage | GroupBlogImage | BlogImageGallery;
+export type BlogImage = SingleImage | GroupImage | ImageGallery;
 
-export enum BlogImageType {
+export enum ImageType {
 	Single,
 	Group,
-	Gallery,
+	Gallery
 }
 
-export interface GenericBlogImage {
-	type: BlogImageType;
+export interface GenericImage {
+	type: ImageType;
 	imageStyle?: CSSStyle;
 }
 
-export interface SingleBlogImage extends GenericBlogImage {
-	type: BlogImageType.Single;
-	source: BlogImageSource | string;
+export interface SingleImage extends GenericImage {
+	type: ImageType.Single;
+	source: ImageSource | string;
 }
 
-export interface GroupBlogImage extends GenericBlogImage {
-	type: BlogImageType.Group;
-	source: (BlogImageSource | string)[];
+export interface GroupImage extends GenericImage {
+	type: ImageType.Group;
+	source: (ImageSource | string)[];
 	containerStyle?: CSSStyle;
 }
 
-export interface BlogImageGallery extends GenericBlogImage {
-	type: BlogImageType.Gallery;
-	source: ReactImageGalleryItem[];
+export interface ImageGallery extends GenericImage {
+	type: ImageType.Gallery;
+	source: string[] | any;
 	containerStyle?: CSSStyle;
 }
 
-export interface BlogImageSource {
+export interface ImageSource {
 	url: string;
 	caption?: string;
 	style?: CSSStyle;
+	className?: string;
+	modalClassName?: string;
 }

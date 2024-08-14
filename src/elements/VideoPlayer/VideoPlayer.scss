@@ -1,22 +1,3 @@
-@import "src/styles/constants.scss";
-
 .blog-video-player-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-
-	animation: fade-in-bl $animation-length cubic-bezier(0.39, 0.575, 0.565, 1) both;
-	animation-delay: $animation-delay + 0.3s;
-
-	.blog-video-player {
-		cursor: pointer;
-	}
-
-	.blog-video-caption {
-		font-size: 1rem;
-		letter-spacing: 0.1rem;
-		font-weight: 500;
-	}
+  @apply flex flex-col items-center mb-4;
 }
