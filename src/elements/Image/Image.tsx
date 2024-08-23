@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { getImageURL } from "@utils/utils";
 import { ImageSource, CSSStyle } from "@data/models";
 import { useStyleResizeHandler } from "@utils/hooks";
-import { CSSProperties, Fragment, useState } from "react";
+import { CSSProperties, Fragment, useEffect, useRef, useState } from "react";
 
 import "./Image.scss";
 import ImageModal from "@elements/ImageModal/ImageModal";
@@ -49,12 +49,36 @@ export function Image({
 	const onModalOpen = () => setOpen(true);
 	const onModalClose = () => setOpen(false);
 
+	const divRef = useRef<HTMLDivElement>(null);
+
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsVisible(entry.isIntersecting);
+			},
+			{ threshold: 0.1 }
+		);
+
+		if (divRef.current) {
+			observer.observe(divRef.current);
+		}
+
+		return () => {
+			if (divRef.current) {
+				observer.unobserve(divRef.current);
+			}
+		};
+	}, []);
+
 	return (
 		<Fragment>
 			<div
 				className={classnames("blog-image-container", containerClassName)}
 				style={processedContainerStyle}
 				onClick={onModalOpen}
+				ref={divRef}
 			>
 				<img
 					src={imageUrl.href}

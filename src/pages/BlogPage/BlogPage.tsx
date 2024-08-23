@@ -1,10 +1,11 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 import { Blog } from "@data/models";
 import { Footer } from "@elements/Footer/Footer";
 import { Navbar } from "@elements/Navbar/Navbar";
 
 import "./BlogPage.scss";
+import { useSmoothScrollHeadings } from "@utils/hooks";
 
 export interface BlogPageProps {
 	blogData: Blog;
@@ -39,6 +40,8 @@ export function BlogPage({ children, blogData }: BlogPageProps) {
 			}
 		}
 	}, [blogData]);
+
+	useSmoothScrollHeadings();
 
 	return (
 		<div id="blog">
