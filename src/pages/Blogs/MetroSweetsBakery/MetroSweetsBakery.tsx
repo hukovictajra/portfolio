@@ -60,10 +60,10 @@ export default function MetroSweetsBakery() {
 			<BlogSection title="Work Process 🖌️">
 				<Paragraph>
 					Moving into visual design, I selected color schemes, typography, and imagery to capture
-					the essence of Metro Sweets. High-fidelity mockups were crafted to showcase the final look
-					and feel. Responsive design was a key consideration, ensuring a seamless experience across
-					devices. In the initial step, I immersed myself in brainstorming and ideation, generating
-					a diverse range of concepts and features for the design. Prioritizing visual appeal, I
+					the essence of Metro Sweets. Mockups were crafted to showcase the final look and feel.
+					Responsive design was a key consideration, ensuring a seamless experience across devices.
+					In the initial step, I immersed myself in brainstorming and ideation, generating a diverse
+					range of concepts and features for the design. Prioritizing visual appeal, I
 					conceptualized ideas aimed at enhancing the overall aesthetic while ensuring seamless
 					functionality.
 				</Paragraph>
@@ -103,9 +103,16 @@ export default function MetroSweetsBakery() {
 				<Paragraph>
 					I moved into the fourth step, fine-tuning and carefully checking every part of the design.
 					Paying close attention to detail, I made sure not to miss anything, ensuring a thorough
-					review of the entire project.\nThe design process peaked in the fifth step, where I turned
-					ideas into practical designs using mockups and prototypes. By refining and iterating, I
-					brought these concepts to life, creating effective design solutions.\nThis project marked
+					review of the entire project.
+				</Paragraph>
+
+				<Paragraph>
+					The design process peaked in the fifth step, where I turned ideas into practical designs
+					using mockups and prototypes. By refining and iterating, I brought these concepts to life,
+					creating effective design solutions. This project marked
+				</Paragraph>
+
+				<Paragraph>
 					a significant professional milestone and a personal journey of growth for me. It started
 					as a small project, originating from a website I previously designed. Transitioning from
 					desktop to mobile design presented a welcomed challenge, providing an opportunity to

@@ -1,7 +1,7 @@
 import Text from "@elements/Text/Text";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
-import { GreenViewDashboardData } from "./data";
+import { GreenviewDashboardData } from "./data";
 import Subtitle from "@elements/Subtitle/Subtitle";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import { List, ListItem } from "@elements/List/List";
@@ -10,11 +10,11 @@ import { Overview } from "@elements/Overview/Overview";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import { ImageGallery } from "@elements/ImageGallery/ImageGallery";
 
-export default function GreenViewDashboard() {
-	const { title, subtitles, colors } = GreenViewDashboardData;
+export default function GreenviewDashboard() {
+	const { title, subtitles, colors } = GreenviewDashboardData;
 
 	return (
-		<BlogPage blogData={GreenViewDashboardData}>
+		<BlogPage blogData={GreenviewDashboardData}>
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 
@@ -52,8 +52,11 @@ export default function GreenViewDashboard() {
 				</List>
 
 				<Text className="mt-4">
-					Dark Mode: The background is navy blue, with a white and green gradient as the accent
-					color. Text is displayed in white to maintain readability.
+					These color choices ensure that the dashboard is visually appealing, maintains brand
+					consistency, and is accessible in both lighting conditions. I decided on the navy and
+					green contrast to create a professional and calming aesthetic that aligns with the
+					company's green and sustainable ethos. The navy blue provides a strong, stable background,
+					while the green accents reinforce the environmental focus of the company.
 				</Text>
 			</BlogSection>
 

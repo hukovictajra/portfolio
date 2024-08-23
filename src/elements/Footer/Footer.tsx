@@ -1,4 +1,4 @@
-import { LinkedinIcon, PinterestIcon, ContraIcon, InstagramIcon } from "@icons/social/";
+import { LinkedinIcon, PinterestIcon, ContraIcon, InstagramIcon, FigmaIcon } from "@icons/social/";
 
 import "./Footer.scss";
 
@@ -36,11 +36,11 @@ export function Footer() {
 					<li className="footer-external-quick-link-item">
 						<a
 							className="footer-quick-link-item"
-							href="https://www.linkedin.com/in/tajra-hukovi%C4%87-07b338234/"
+							href="https://www.figma.com/@htajra"
 							target="_blank"
 							rel="noreferrer"
 						>
-							<LinkedinIcon className="footer-external-quick-link-icon info-linkedin-icon" />
+							<FigmaIcon className="footer-external-quick-link-icon info-figma-icon" />
 						</a>
 					</li>
 
@@ -52,6 +52,17 @@ export function Footer() {
 							rel="noreferrer"
 						>
 							<InstagramIcon className="footer-external-quick-link-icon info-instagram-icon" />
+						</a>
+					</li>
+
+					<li className="footer-external-quick-link-item">
+						<a
+							className="footer-quick-link-item"
+							href="https://www.linkedin.com/in/tajra-hukovi%C4%87-07b338234/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<LinkedinIcon className="footer-external-quick-link-icon info-linkedin-icon" />
 						</a>
 					</li>
 				</ul>

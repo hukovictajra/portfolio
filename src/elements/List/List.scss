@@ -7,5 +7,9 @@
     @screen md {
       @apply text-lg leading-normal;
     }
+
+    @screen sm {
+      @apply text-base;
+    }
   }
 }

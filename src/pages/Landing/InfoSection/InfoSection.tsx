@@ -1,6 +1,7 @@
+import { Tooltip } from "react-tooltip";
 import { MapPinIcon, ItemArrowIcon } from "@assets/icons";
 import { WorkWithMe } from "@elements/WorkWithMe/WorkWithMe";
-import { InstagramIcon, LinkedinIcon, PinterestIcon } from "@assets/icons/social";
+import { FigmaIcon, InstagramIcon, LinkedinIcon, PinterestIcon } from "@assets/icons/social";
 
 import "./InfoSection.scss";
 
@@ -14,7 +15,7 @@ export default function InfoSection() {
 				</div>
 
 				<div id="info-portfolio-wrapper">
-					<div id="info-portfolio-items">
+					<div id="info-portfolio-items" className="select-none">
 						{/* <a className="info-portfolio-item">
 							<Icon src={ItemArrowIcon} alt="->" className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Projects</span>
@@ -23,10 +24,20 @@ export default function InfoSection() {
 							<ItemArrowIcon className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Résumé</span>
 						</a>
-						<a className="info-portfolio-item">
+						<a className="info-portfolio-item" data-tooltip-id="get-to-know-me">
 							<ItemArrowIcon className="info-portfolio-item-icon" />
-							<span className="info-portfolio-item-text underline-effect">Get to know me!</span>
+
+							<span
+								className="info-portfolio-item-text underline-effect"
+								data-tooltip-content="Comming soon!"
+							>
+								Get to know me!
+							</span>
 						</a>
+
+						<Tooltip id="get-to-know-me" place="top">
+							Comming soon!
+						</Tooltip>
 					</div>
 
 					<WorkWithMe className="info-section-wwm-button" />
@@ -59,11 +70,11 @@ export default function InfoSection() {
 						<li className="info-quick-link-list-item">
 							<a
 								className="info-quick-link-item"
-								href="https://www.linkedin.com/in/tajra-hukovi%C4%87-07b338234/"
+								href="https://www.figma.com/@htajra"
 								target="_blank"
 								rel="noreferrer"
 							>
-								<LinkedinIcon className="info-quick-link-item-icon info-linkedin-icon" />
+								<FigmaIcon className="info-quick-link-item-icon info-figma-icon" />
 							</a>
 						</li>
 
@@ -84,6 +95,17 @@ export default function InfoSection() {
 										</linearGradient>
 									</defs>
 								</svg>
+							</a>
+						</li>
+
+						<li className="info-quick-link-list-item">
+							<a
+								className="info-quick-link-item"
+								href="https://www.linkedin.com/in/tajra-hukovi%C4%87-07b338234/"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<LinkedinIcon className="info-quick-link-item-icon info-linkedin-icon" />
 							</a>
 						</li>
 					</ul>

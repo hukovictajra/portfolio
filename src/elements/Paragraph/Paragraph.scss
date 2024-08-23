@@ -8,4 +8,8 @@
 		@apply text-lg leading-normal;
 	}
 
+	@screen xs {
+		@apply text-base;
+	}
+
 }

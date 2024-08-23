@@ -39,6 +39,10 @@
 			@screen md {
 				@apply left-[-40px]
 			}
+
+			@screen sm {
+				@apply hidden;
+			}
 		}
 	
 		.slick-next {
@@ -46,6 +50,10 @@
 
 			@screen md {
 				@apply right-[-30px];
+			}
+
+			@screen sm {
+				@apply hidden;
 			}
 		}
 	

@@ -1,12 +1,12 @@
 import { Blog } from "./models/Blog";
-import { GreenViewDashboard } from "./blogs/GreenViewDashboard";
 import { MetroSweetsBakeryData } from "@pages/Blogs/MetroSweetsBakery/data";
 import { MyTributeToThe1984WinterOlympicsData } from "@pages/Blogs/TributeToWinterOlympics/data";
 import { MelodicMixData } from "@pages/Blogs/MelodicMix/data";
 import { SunflowerPostcardData } from "@pages/Blogs/SunflowerPostcard/data";
+import { GreenviewDashboard } from "./blogs/GreenviewDashboard";
 
 export const blogs: Blog[] = [
-	GreenViewDashboard,
+	GreenviewDashboard,
 	MetroSweetsBakeryData,
 	MyTributeToThe1984WinterOlympicsData,
 	MelodicMixData,

@@ -1,12 +1,10 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 
 import { Blog } from "@data/models";
-import { useParams } from "react-router-dom";
 import { Footer } from "@elements/Footer/Footer";
 import { Navbar } from "@elements/Navbar/Navbar";
 
 import "./BlogPage.scss";
-import { ItemArrowIcon } from "@assets/icons";
 
 export interface BlogPageProps {
 	blogData: Blog;

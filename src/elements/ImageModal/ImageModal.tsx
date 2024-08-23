@@ -4,6 +4,7 @@ import { CSSStyle, ImageSource } from "@data/models";
 import Modal from "react-responsive-modal";
 import { useStyleResizeHandler } from "@utils/hooks";
 import { getImageURL } from "@utils/utils";
+import { useSwipeable } from "react-swipeable";
 
 export interface ImageModalProps {
 	isOpen: boolean;
@@ -11,6 +12,8 @@ export interface ImageModalProps {
 	className?: string;
 	style?: CSSStyle;
 	image: ImageSource | string;
+	onSwipeLeft?: () => any;
+	onSwipeRight?: () => any;
 }
 
 export default function ImageModal({
@@ -18,7 +21,9 @@ export default function ImageModal({
 	onModalClose,
 	className,
 	style,
-	image
+	image,
+	onSwipeLeft,
+	onSwipeRight
 }: ImageModalProps) {
 	const processedModalStyle: CSSProperties = useStyleResizeHandler(style!);
 
@@ -36,12 +41,34 @@ export default function ImageModal({
 		imageUrl = getImageURL(image);
 	}
 
+	const config = {
+		delta: 10,
+		preventScrollOnSwipe: false,
+		trackTouch: true,
+		trackMouse: false,
+		rotationAngle: 0,
+		swipeDuration: Infinity,
+		touchEventOptions: { passive: true }
+	};
+
+	const swipeHandlers = useSwipeable({
+		onSwiped: (eventData) => {
+			if (eventData.dir === "Left") {
+				onSwipeLeft && onSwipeLeft();
+			} else if (eventData.dir === "Right") {
+				onSwipeRight && onSwipeRight();
+			}
+		},
+		...config
+	});
+
 	return (
 		<Modal
 			open={isOpen}
 			onClose={onModalClose}
 			center
 			closeIcon={<span></span>}
+			{...swipeHandlers}
 			classNames={{
 				modal: classnames("!bg-transparent !shadow-none m-0 !p-2", className)
 			}}

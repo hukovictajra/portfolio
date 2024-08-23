@@ -1,10 +1,10 @@
 import { Blog, BlogSectionType, BlogSubtitleType, ImageType } from "@data/models";
 
-export const GreenViewDashboardData: Blog = {
-	id: "green-view-dashboard",
+export const GreenviewDashboardData: Blog = {
+	id: "greenview-dashboard",
 	position: 0,
 	showOnLanding: true,
-	title: "Green View Dashboard",
+	title: "Greenview Dashboard",
 	image: "@images/blogs/green-view-dashboard/showcase.png",
 	colors: {
 		navbar: "#96CBC1",
