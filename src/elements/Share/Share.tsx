@@ -46,7 +46,7 @@ export default function Share({
 		<HoverCard openDelay={300} closeDelay={300} open={open} onOpenChange={setOpen}>
 			<HoverCardTrigger onClick={onClick}>
 				<span
-					className="underline-effect font-medium select-none"
+					className="underline-effect font-medium select-none md:text-lg md:text-center"
 					style={{
 						color: colors.primary
 					}}

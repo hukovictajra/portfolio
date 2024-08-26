@@ -44,6 +44,15 @@ export default function TributeToWinterOlympics() {
 				</Paragraph>
 
 				<ImageGallery
+					imageStyle={{
+						aspectRatio: "9/16",
+						height: "720px",
+						maxHeight: "720px"
+					}}
+					dotImageStyle={{
+						aspectRatio: "9/16",
+						width: "75px"
+					}}
 					source={[
 						{
 							url: "@images/blogs/my-tribute-to-the-1984-winter-olympics/process-original.png"
@@ -66,7 +75,12 @@ export default function TributeToWinterOlympics() {
 					who cherish Sarajevo's journey over the years.
 				</Paragraph>
 
-				<Image source="@images/blogs/my-tribute-to-the-1984-winter-olympics/final.png" />
+				<Image
+					style={{
+						maxHeight: "720px"
+					}}
+					source="@images/blogs/my-tribute-to-the-1984-winter-olympics/final.png"
+				/>
 			</BlogSection>
 		</BlogPage>
 	);

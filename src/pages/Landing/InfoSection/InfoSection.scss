@@ -23,7 +23,7 @@
 		#info-section-title-wrapper {
 			@apply flex flex-col items-start gap-4;
 
-			@screen md {
+			@screen lg {
 				@apply items-center gap-2;
 			}
 
@@ -54,7 +54,7 @@
 		#info-portfolio-wrapper {
 			@apply flex flex-col justify-between;
 
-			@screen md {
+			@screen lg {
 				@apply justify-center items-center;
 			}
 
@@ -106,7 +106,7 @@
 				}
 
 				@screen md {
-					@apply py-4 text-base;
+					@apply py-3 px-3 text-base;
 				}
 
 				@screen sm {

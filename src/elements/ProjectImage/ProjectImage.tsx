@@ -44,12 +44,12 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 	};
 
 	const [isSubtitleDisplayed, setSubtitleDisplayed] = useState(
-		document.documentElement.clientWidth > 576
+		document.documentElement.clientWidth > 1024
 	);
 
 	useEffect(() => {
 		const handleResize = () => {
-			setSubtitleDisplayed(document.documentElement.clientWidth > 576);
+			setSubtitleDisplayed(document.documentElement.clientWidth > 1024);
 		};
 
 		window.addEventListener("resize", handleResize);
@@ -69,9 +69,6 @@ export function ProjectImage({ blog, className }: ProjectImageProps) {
 			/>
 			<div className="project-image-overlay" ref={projectImageOverlay}>
 				<h3 className="project-image-title">{blog.title}</h3>
-				{isSubtitleDisplayed && (
-					<Overview subtitles={blog.subtitles} colors={blog.colors} overview onPrimary />
-				)}
 			</div>
 		</div>
 	);

@@ -25,7 +25,6 @@ export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | Object =
 };
 
 export const useSmoothScrollHeadings = () => {
-	const headingsRef = useRef<HTMLHeadingElement[]>([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [scrollTop, setScrollTop] = useState(false);
 	const [headings, setHeadings] = useState<HTMLHeadingElement[]>([]);

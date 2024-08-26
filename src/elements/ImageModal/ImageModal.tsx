@@ -5,6 +5,7 @@ import Modal from "react-responsive-modal";
 import { useStyleResizeHandler } from "@utils/hooks";
 import { getImageURL } from "@utils/utils";
 import { useSwipeable } from "react-swipeable";
+import { ArrowRoundedIcon } from "@assets/icons";
 
 export interface ImageModalProps {
 	isOpen: boolean;
@@ -12,8 +13,8 @@ export interface ImageModalProps {
 	className?: string;
 	style?: CSSStyle;
 	image: ImageSource | string;
-	onSwipeLeft?: () => any;
-	onSwipeRight?: () => any;
+	onNext?: () => any;
+	onPrevious?: () => any;
 }
 
 export default function ImageModal({
@@ -22,8 +23,8 @@ export default function ImageModal({
 	className,
 	style,
 	image,
-	onSwipeLeft,
-	onSwipeRight
+	onNext,
+	onPrevious
 }: ImageModalProps) {
 	const processedModalStyle: CSSProperties = useStyleResizeHandler(style!);
 
@@ -54,9 +55,9 @@ export default function ImageModal({
 	const swipeHandlers = useSwipeable({
 		onSwiped: (eventData) => {
 			if (eventData.dir === "Left") {
-				onSwipeLeft && onSwipeLeft();
+				onNext && onNext();
 			} else if (eventData.dir === "Right") {
-				onSwipeRight && onSwipeRight();
+				onPrevious && onPrevious();
 			}
 		},
 		...config
@@ -73,7 +74,7 @@ export default function ImageModal({
 				modal: classnames("!bg-transparent !shadow-none m-0 !p-2", className)
 			}}
 		>
-			<div className="flex justify-center cursor-pointer max-h-screen" style={processedModalStyle}>
+			<div className="flex justify-center cursor-zoom-out max-h-screen" style={processedModalStyle}>
 				<img
 					src={imageUrl.href}
 					alt={imageUrl.pathname}
@@ -82,6 +83,18 @@ export default function ImageModal({
 					onClick={onModalClose}
 				/>
 			</div>
+
+			{onPrevious && onNext && (
+				<div className="flex items-center justify-between w-full h-14 w-14 mt-4 select-none text-[var(--theme-primary)] opacity-75">
+					<div onClick={onPrevious} className="h-14 w-14 cursor-pointer">
+						<ArrowRoundedIcon />
+					</div>
+
+					<div onClick={onNext} className="h-14 w-14 rotate-180 cursor-pointer">
+						<ArrowRoundedIcon />
+					</div>
+				</div>
+			)}
 		</Modal>
 	);
 }

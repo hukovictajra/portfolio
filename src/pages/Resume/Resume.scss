@@ -10,7 +10,6 @@ $xxxs-width: 298px;
 
 html, body, #root {
 	background-color: $bg-primary;
-	overflow-y: hidden;
 }
 
 #resume {
@@ -169,7 +168,7 @@ html, body, #root {
 			}
 		}
 
-		.resume-items-disabled {
+		.resume-k-disabled {
 			color: gray !important;
 			cursor: not-allowed !important;
 		}

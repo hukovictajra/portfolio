@@ -2,19 +2,17 @@
 @import "src/styles/constants.scss";
 
 #image-section {
-	@apply flex flex-col justify-between min-w-full gap-8;
+	width: 70vw;
+  max-width: 70%;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: auto;
+  gap: 16px;
 	overflow-y: scroll;
-	aspect-ratio: 143/100;
-	max-width: 650px;
-	min-width: 650px;
-
 
 	@screen lg {
-		@apply h-full max-h-full min-w-full items-center;
-		object-position: left center;
-	}
-
-	@screen md {
-		overflow-y: hidden;
+		width: 100vw;
+		max-width: 100%;
+		justify-content: center;
 	}
 }

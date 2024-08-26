@@ -46,6 +46,7 @@ export function BlogPage({ title, children, blogData }: BlogPageProps) {
 
 	useSmoothScrollHeadings();
 
+
 	return (
 		<div id="blog">
 			<Navbar />

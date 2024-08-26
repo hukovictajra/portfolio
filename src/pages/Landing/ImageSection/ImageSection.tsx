@@ -1,8 +1,8 @@
 import { blogs } from "@data/Blogs";
+import { useEffect, useState } from "react";
 import { ProjectImage } from "@elements/ProjectImage/ProjectImage";
 
 import "./ImageSection.scss";
-import { useEffect, useState } from "react";
 
 export default function ImageSection({ scrollRef }: any) {
 	const [isMobile, setIsMobile] = useState(document.documentElement.clientWidth <= 576);
@@ -24,9 +24,7 @@ export default function ImageSection({ scrollRef }: any) {
 		.sort((x) => x.position)
 		.map((blog) => <ProjectImage key={blog.id} blog={blog} />);
 
-	return isMobile ? (
-		content
-	) : (
+	return (
 		<div id="image-section" ref={scrollRef}>
 			{content}
 		</div>

@@ -182,10 +182,10 @@ export function ImageGallery({
 				className={modalClassName}
 				style={modalStyle}
 				image={isOpen ? source[activeSlide] : source[activeSlide2]}
-				onSwipeLeft={() => {
+				onNext={() => {
 					nextArrowRef.current && nextArrowRef.current.click();
 				}}
-				onSwipeRight={() => {
+				onPrevious={() => {
 					prevArrowRef.current && prevArrowRef.current.click();
 				}}
 			/>

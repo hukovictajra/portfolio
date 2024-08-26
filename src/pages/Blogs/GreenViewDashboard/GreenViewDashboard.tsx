@@ -208,11 +208,7 @@ export default function GreenviewDashboard() {
 					to decide on the overall possible placement of future widgets early on.
 				</Text>
 
-				<Image
-					className="h-[400px] w-[700px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]"
-					modalClassName="h-[600px] w-[900px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]"
-					source="@images/blogs/green-view-dashboard/wireframe.png"
-				/>
+				<Image source="@images/blogs/green-view-dashboard/wireframe.png" />
 
 				<Text>
 					For widgets in the wireframing phase, I focused on ensuring they would be easy on the eyes
@@ -245,11 +241,9 @@ export default function GreenviewDashboard() {
 				<ImageGallery
 					source={[
 						{
-							className: "h-[400px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]",
 							url: "@images/blogs/green-view-dashboard/light-mode-showcase.png"
 						},
 						{
-							className: "h-[400px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]",
 							url: "@images/blogs/green-view-dashboard/dark-mode-showcase.png"
 						}
 					]}

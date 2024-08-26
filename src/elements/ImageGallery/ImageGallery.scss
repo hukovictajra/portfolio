@@ -34,7 +34,7 @@
 		}
 	
 		.slick-prev {
-			@apply left-[-50px];
+			@apply left-[-50px] z-0;
 
 			@screen md {
 				@apply left-[-40px]
@@ -46,7 +46,7 @@
 		}
 	
 		.slick-next {
-			@apply right-[-40px];
+			@apply right-[-40px] z-0;
 
 			@screen md {
 				@apply right-[-30px];
@@ -58,7 +58,8 @@
 		}
 	
 		img {
-			cursor: pointer;
+			cursor: zoom-in;
+			aspect-ratio: 19/6;
 		}
 	
 		.slider-dots-section {
@@ -72,7 +73,7 @@
 			}
 	
 			img {
-				@apply h-[100px] w-full p-1 cursor-pointer;
+				@apply h-[100px] w-full p-1 cursor-zoom-in;
 				transition: box-shadow 0.2s ease-in-out;
 	
 				&:hover {

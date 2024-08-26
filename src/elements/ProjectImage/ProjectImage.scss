@@ -2,27 +2,14 @@
 @import "/src/styles/constants.scss";
 
 .project-image-container {
-	@apply relative cursor-pointer;
+	position: relative;
 	width: 100%;
-	min-height: 400px;
-	overflow: hidden;
-
-	@screen md {
-		height: 400px;
-	}
-	
-	@screen xxs {
-		min-height: 200px;
-	}
-		
-	@screen xxxs {
-		min-height: 180px;
-	}
+  height: auto;
+  object-fit: cover;
+	aspect-ratio: 16/9;
+	cursor: pointer;
 
 	img {
-		position: relative;
-		transform-origin: 0 0;
-		transform-origin: center;
 		transition: transform $animation-length ease;
 		object-fit: cover;
 		height: 100%;
@@ -32,10 +19,6 @@
 			animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 			animation-fill-mode: forwards;
 		}
-	}
-
-	&:hover img {
-		transform: scale(1.25);
 	}
 
 	.project-image-overlay {
@@ -68,18 +51,25 @@
 
 	.project-image-title {
 		font-weight: 500;
-		font-size: 2.7rem;
+		@apply text-4xl;
 		margin: 0;
 		margin-bottom: 1rem;
 		color: white;
 
-		@media (max-width: $md) {
-			font-size: 1.5rem;
+		@screen lg {
+			@apply text-2xl;
 		}
 
-		@media (max-width: $xs) {
-			font-size: 1.25rem;
-			margin-bottom: 0;
+		@screen lg {
+			@apply text-4xl;
+		}
+
+		@screen xs {
+			@apply text-2xl;
+		}
+
+		@screen xxs {
+			@apply text-xl;
 		}
 	}
 
