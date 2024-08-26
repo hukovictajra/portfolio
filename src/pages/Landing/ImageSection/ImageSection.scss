@@ -8,10 +8,6 @@
 	max-width: 650px;
 	min-width: 650px;
 
-	@screen xl {
-		max-width: 575px;
-		min-width: 575px;
-	}
 
 	@screen lg {
 		@apply h-full max-h-full min-w-full items-center;
