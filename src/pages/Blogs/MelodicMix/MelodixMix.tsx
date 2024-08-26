@@ -11,7 +11,7 @@ export default function MelodicMix() {
 	const { title, subtitles, colors } = MelodicMixData;
 
 	return (
-		<BlogPage blogData={MelodicMixData}>
+		<BlogPage blogData={MelodicMixData} title="Melodic Mix">
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 

@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, RefObject, useEffect, useRef, useState } from "react";
 import { parseStyles } from "./utils";
 import { CSSStyle } from "@data/models";
 
@@ -27,6 +27,8 @@ export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | Object =
 export const useSmoothScrollHeadings = () => {
 	const headingsRef = useRef<HTMLHeadingElement[]>([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [scrollTop, setScrollTop] = useState(false);
+	const [headings, setHeadings] = useState<HTMLHeadingElement[]>([]);
 
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
@@ -42,7 +44,7 @@ export const useSmoothScrollHeadings = () => {
 
 		const scrollToNextHeading = () => {
 			const nextIndex = currentIndex + 1;
-			if (nextIndex < headingsRef.current.length) {
+			if (nextIndex < headings.length) {
 				setCurrentIndex(nextIndex);
 				scrollToHeading(nextIndex);
 			}
@@ -57,7 +59,8 @@ export const useSmoothScrollHeadings = () => {
 		};
 
 		const scrollToHeading = (index: number) => {
-			const heading = headingsRef.current[index];
+			const heading = headings[index];
+
 			if (heading) {
 				const offset = 125;
 				const headingPosition = heading.getBoundingClientRect().top + window.scrollY - offset;
@@ -65,34 +68,65 @@ export const useSmoothScrollHeadings = () => {
 			}
 		};
 
+		const handleScroll = (e: any) => {
+			setScrollTop(e.target.documentElement.scrollTop);
+		};
+
 		window.addEventListener("keydown", handleKeyDown);
+		window.addEventListener("scroll", handleScroll);
 
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, [currentIndex]);
 
 	useEffect(() => {
-		const updateCurrentIndex = (entries: IntersectionObserverEntry[]) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const index = headingsRef.current.indexOf(entry.target as HTMLHeadingElement);
-					if (index !== -1) {
-						setCurrentIndex(index);
-					}
+		setHeadings(Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6")));
+	}, []);
+
+	useEffect(() => {
+		const findNextClosestHeading = (headings: HTMLHeadingElement[]) => {
+			const viewportHeight = window.innerHeight;
+			const scrollTop = window.scrollY;
+
+			for (let heading of headings) {
+				const bounding = heading.getBoundingClientRect();
+				const headingTop = bounding.top + scrollTop;
+
+				if (headingTop >= scrollTop && bounding.top < viewportHeight) {
+					return heading;
 				}
-			});
+			}
+
+			return headings[0];
 		};
 
-		const observer = new IntersectionObserver(updateCurrentIndex, {
-			threshold: 0.1
-		});
+		const closest = findNextClosestHeading(headings);
+		setCurrentIndex(headings.findIndex((x) => x.innerHTML === closest.innerHTML));
+	}, [scrollTop]);
+};
 
-		headingsRef.current = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"));
-		headingsRef.current.forEach((heading) => observer.observe(heading));
+export function useHover<T extends HTMLElement = HTMLElement>(elementRef: RefObject<T>): boolean {
+	const [value, setValue] = useState(false);
+
+	useEffect(() => {
+		const element = elementRef.current;
+		if (!element) return;
+
+		const handleMouseEnter = () => setValue(true);
+		const handleMouseLeave = () => setValue(false);
+
+		element.addEventListener("mouseenter", handleMouseEnter);
+		element.addEventListener("mouseleave", handleMouseLeave);
+		document.addEventListener("mouseleave", handleMouseLeave);
 
 		return () => {
-			observer.disconnect();
+			element.removeEventListener("mouseenter", handleMouseEnter);
+			element.removeEventListener("mouseleave", handleMouseLeave);
+			document.removeEventListener("mouseleave", handleMouseLeave);
 		};
-	}, []);
-};
+	}, [elementRef]);
+
+	return value;
+}

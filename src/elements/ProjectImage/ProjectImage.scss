@@ -3,8 +3,15 @@
 
 .project-image-container {
 	@apply relative cursor-pointer;
-	height: 400px;
 	width: 100%;
+	min-height: 400px;
+	overflow: hidden;
+
+	@screen md {
+		height: 400px;
+		min-height: unset;
+		overflow: unset;
+	}
 
 	img {
 		position: relative;

@@ -10,7 +10,7 @@ export interface Blog {
 	title: string;
 	subtitles: BlogSubtitle[];
 	image: ImageSource | string;
-	colors?: BlogColors;
+	colors: BlogColors;
 	style?: CSSStyle;
 	sections?: BlogSection[];
 	component?: React.Component;

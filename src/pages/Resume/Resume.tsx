@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Toggle from "../../elements/Toggle/Toggle";
 import { Document, Page, pdfjs } from "react-pdf";
 import {
 	ItemArrowIcon,
@@ -9,6 +8,9 @@ import {
 	ArrowRoundedIcon
 } from "@assets/icons";
 import resumeFile from "@assets/files/pdf/resume.pdf";
+import { Switch } from "@elements/shadcn/ui/switch";
+import { Label } from "@elements/shadcn/ui/label";
+import { useSwipeable } from "react-swipeable";
 
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./Resume.scss";
@@ -38,14 +40,16 @@ export function Resume() {
 	}
 
 	function getScale(windowWidth: number) {
-		if (windowWidth <= 576) {
+		if (windowWidth <= 375) {
 			return 0.5;
+		} else if (windowWidth <= 425) {
+			return 0.6;
+		} else if (windowWidth <= 577) {
+			return 0.7;
+		} else if (windowWidth <= 640) {
+			return 0.9;
 		} else if (windowWidth <= 768) {
-			return 1.2;
-		} else if (windowWidth <= 992) {
-			return 0.8;
-		} else if (windowWidth <= 1200) {
-			return 1.1;
+			return 1.0;
 		} else {
 			return 1.2;
 		}
@@ -72,29 +76,53 @@ export function Resume() {
 		};
 	}, []);
 
+	const config = {
+		delta: 10,
+		preventScrollOnSwipe: false,
+		trackTouch: true,
+		trackMouse: false,
+		rotationAngle: 0,
+		swipeDuration: Infinity,
+		touchEventOptions: { passive: true }
+	};
+
+	const swipeHandlers = useSwipeable({
+		onSwiped: (eventData) => {
+			if (eventData.dir === "Left") {
+				goToNextPage();
+			} else if (eventData.dir === "Right") {
+				goToPreviousPage();
+			}
+		},
+		...config
+	});
+
 	return (
 		<div id="resume">
-			<div className="resume-go-back-button" onClick={() => window.history.back()}>
-				<ItemArrowIcon className="resume-go-back-button-icon" />
-				<span className="underline-effect">Go Back</span>
+			<div className="resume-go-back-button-container">
+				<div className="resume-go-back-button" onClick={() => window.history.back()}>
+					<ItemArrowIcon className="resume-go-back-button-icon" />
+					<span className="underline-effect">Go Back</span>
+				</div>
 			</div>
 
 			<div className="resume-content">
-				<div className="resume-navigation-controls">
-					<Toggle
-						className="resume-navigation-toggle"
-						onLabel="frame"
-						offLabel="page"
-						onClick={() => setShowIframe(!showIframe)}
-					/>
+				<div className="resume-navigation-pagination">
+					<div className="flex gap-2 items-center font-medium">
+						<Switch
+							id="page-frame-switch"
+							className="resume-navigation-toggle"
+							onClick={() => setShowIframe(!showIframe)}
+							color="#a41109"
+						/>
+						<span>{showIframe ? "Page" : "Frame"}</span>
+					</div>
 
-					<span
-						className={`resume-navigation-pagination ${showIframe && "resume-navigation-disabled"}`}
-					>
+					<span className={`navigation-md ${showIframe && "resume-items-disabled"}`}>
 						<span
 							className={`navigation-icon-md navigation-icon-previous ${
-								pageNumber <= 1 && "resume-navigation-disabled"
-							}`}
+								pageNumber <= 1 && "resume-items-disabled"
+							}  `}
 							onClick={goToPreviousPage}
 						>
 							<PaginationArrowIcon />
@@ -102,7 +130,7 @@ export function Resume() {
 						Page {pageNumber} of {totalPages}
 						<span
 							className={`navigation-icon-md navigation-icon-next ${
-								pageNumber >= totalPages && "resume-navigation-disabled"
+								pageNumber >= totalPages && "resume-items-disabled"
 							}`}
 							onClick={goToNextPage}
 						>
@@ -111,18 +139,18 @@ export function Resume() {
 					</span>
 
 					<span
-						className={`resume-navigation-download ${showIframe && "resume-navigation-disabled"}`}
+						className={`resume-download-button ${showIframe && "resume-items-disabled"}`}
 						onClick={downloadPDF}
 					>
 						Download
-						<DownloadIcon className="resume-navigation-download-icon" />
+						<DownloadIcon className="h-6 w-6" />
 					</span>
 				</div>
 
 				{showIframe ? (
 					<iframe className="resume-iframe" title="Tajra Huković Résumé" src={resumeFile} />
 				) : (
-					<div className="resume-pdf-document-wrapper">
+					<div className="resume-pdf-document-wrapper h-full" {...swipeHandlers}>
 						<Document
 							file={resumeFile}
 							className="resume-pdf-document"
@@ -160,6 +188,26 @@ export function Resume() {
 							>
 								<ArrowRoundedIcon />
 							</div>
+						</div>
+					</div>
+				)}
+
+				{!showIframe && (
+					<div className="navigation-xs">
+						<div
+							onClick={goToPreviousPage}
+							className={`navigation-xs-button ${pageNumber <= 1 && "resume-items-disabled"}`}
+						>
+							<ArrowRoundedIcon />
+						</div>
+
+						<div
+							onClick={goToNextPage}
+							className={`navigation-xs-button rotate-180 ${
+								pageNumber >= totalPages && "resume-items-disabled"
+							}`}
+						>
+							<ArrowRoundedIcon />
 						</div>
 					</div>
 				)}

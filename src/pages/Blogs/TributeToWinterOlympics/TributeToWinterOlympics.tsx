@@ -11,7 +11,10 @@ export default function TributeToWinterOlympics() {
 	const { title, subtitles, colors } = MyTributeToThe1984WinterOlympicsData;
 
 	return (
-		<BlogPage blogData={MyTributeToThe1984WinterOlympicsData}>
+		<BlogPage
+			blogData={MyTributeToThe1984WinterOlympicsData}
+			title="My Tribute To The 1984 Winter Olympics"
+		>
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 

@@ -14,7 +14,7 @@ export default function MetroSweetsBakery() {
 	const { title, subtitles, colors } = MetroSweetsBakeryData;
 
 	return (
-		<BlogPage blogData={MetroSweetsBakeryData}>
+		<BlogPage blogData={MetroSweetsBakeryData} title="Metro Sweets Bakery">
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 

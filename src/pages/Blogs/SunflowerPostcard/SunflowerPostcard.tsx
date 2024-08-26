@@ -11,7 +11,7 @@ export default function SunflowerPostcard() {
 	const { title, subtitles, colors } = SunflowerPostcardData;
 
 	return (
-		<BlogPage blogData={SunflowerPostcardData}>
+		<BlogPage blogData={SunflowerPostcardData} title="Sunflower Postrcard">
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 

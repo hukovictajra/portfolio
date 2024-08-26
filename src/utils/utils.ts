@@ -81,3 +81,4 @@ export function getImageURL(name: string): URL {
 export function getVideoURL(name: string): URL {
 	return new URL(`../assets/${name.replace("@", "")}`, import.meta.url);
 }
+

@@ -14,7 +14,7 @@ export default function GreenviewDashboard() {
 	const { title, subtitles, colors } = GreenviewDashboardData;
 
 	return (
-		<BlogPage blogData={GreenviewDashboardData}>
+		<BlogPage blogData={GreenviewDashboardData} title="Greenview Dashboard">
 			<Title>{title}</Title>
 			<Overview subtitles={subtitles} colors={colors} />
 

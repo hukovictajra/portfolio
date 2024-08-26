@@ -1,18 +1,21 @@
-import { ReactNode, useEffect, useRef } from "react";
-
 import { Blog } from "@data/models";
+import { Helmet } from "react-helmet";
+import { ReactNode, useEffect } from "react";
 import { Footer } from "@elements/Footer/Footer";
 import { Navbar } from "@elements/Navbar/Navbar";
-
-import "./BlogPage.scss";
 import { useSmoothScrollHeadings } from "@utils/hooks";
 
+import "./BlogPage.scss";
+import Share from "@elements/Share/Share";
+import { BASE_IMAGE_URL } from "@utils/constants";
+
 export interface BlogPageProps {
+	title: string;
 	blogData: Blog;
 	children: ReactNode;
 }
 
-export function BlogPage({ children, blogData }: BlogPageProps) {
+export function BlogPage({ title, children, blogData }: BlogPageProps) {
 	useEffect(() => {
 		if (blogData) {
 			if (blogData.colors) {
@@ -56,9 +59,52 @@ export function BlogPage({ children, blogData }: BlogPageProps) {
 
 			<div className="blog-wrapper">
 				{blogData && Object.keys(blogData).length !== 0 ? (
-					<div className="blog-content-wrapper">
-						<div className="blog-content">{children}</div>
-					</div>
+					<>
+						<Helmet>
+							<title>Tajra Hukovic - {title}</title>
+							<meta name="description" content={`Tajra Hukovic project - ${title}.`} />
+							<meta
+								name="keywords"
+								content="Tajra Hukovic, UX/UI designer, portfolio, HTML, CSS, JavaScript, React, Figma, Canva"
+							/>
+							<meta property="og:title" content={`Tajra Hukovic - ${title}`} />
+							<meta property="og:description" content={`Check out my project - ${title}.`} />
+							<meta
+								property="og:image"
+								content={`${BASE_IMAGE_URL}/${blogData.id}/${blogData.image}`}
+							/>
+							<meta
+								property="og:url"
+								content={`${BASE_IMAGE_URL}/${blogData.id}/${blogData.image}`}
+							/>
+							<meta name="twitter:card" content="summary_large_image" />
+							<meta name="twitter:title" content={`Tajra Hukovic - ${title}`} />
+							<meta name="twitter:description" content={`Check out my project - ${title}.`} />
+							<meta
+								name="twitter:image"
+								content={`${BASE_IMAGE_URL}/${blogData.id}/${blogData.image}`}
+							/>
+							<script type="application/ld+json">
+								{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Tajra Hukovic",
+            "url": "https://hukovictajra.github.io/portfolio/",
+            "jobTitle": "UX/UI Designer"
+          }
+        `}
+							</script>
+						</Helmet>
+
+						<div className="blog-content-wrapper">
+							<div className="blog-content">{children}</div>
+						</div>
+
+						<div className="flex justify-center cursor-pointer text-2xl">
+							<Share id={blogData.id} title={blogData.title} colors={blogData.colors} />
+						</div>
+					</>
 				) : (
 					<div>404: Blog not found</div>
 				)}

@@ -727,3 +727,7 @@ video {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+html, body, #root {
+	overflow-y: scroll;
+}

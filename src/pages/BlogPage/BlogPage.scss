@@ -9,7 +9,7 @@
 	.blog-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 6rem;
+		gap: 2rem;
 		padding: 3rem 7.5rem;
 
 		@media (max-width: $lg) {
@@ -23,6 +23,7 @@
 		@media (max-width: $sm) {
 			padding: 3rem 2rem;
 		}
+		
 	}
 
 	.blog-back-container {

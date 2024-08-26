@@ -1,184 +1,236 @@
 @import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
-#resume {
-	position: relative;
+$xxl-width: 714px;
+$md-width: 595px;
+$sm-width: 536px;
+$xs-width: 417px;
+$xxs-width: 357px;
+$xxxs-width: 298px;
+
+html, body, #root {
 	background-color: $bg-primary;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	padding: 3rem;
+	overflow-y: hidden;
+}
+
+#resume {
+	@apply flex flex-col justify-center items-center gap-4 p-8 w-full h-full;
 	font-family: "General Sans", sans-serif;
+	background-color: $bg-primary;
 	color: $primary;
-	width: 100%;
-	box-sizing: border-box;
-	gap: 2rem;
 
-	@media (max-width: $md) {
-		padding: 1rem;
+	@screen md {
+		@apply p-4;
 	}
 
-	@media (max-width: $xs) {
-		padding: 0;
+	@screen xs {
+		@apply p-2;
 	}
 
-	.resume-go-back-button {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 2rem;
-		cursor: pointer;
-		align-self: flex-start;
+	.resume-go-back-button-container {
+		@apply relative w-full mb-4;
 
-		.resume-go-back-button-icon {
-			transform: rotate(180deg);
+		@screen xs {
+			width: $xxs-width;
 		}
 
-		@media (max-width: $md) {
-			padding: 1rem;
+		@screen md {
+			width: $md-width;
 		}
-	}
 
+		@screen sm {
+			width: $sm-width;
+		}
+
+		@screen xs {
+			@apply mb-0;
+			width: $xs-width;
+		}
+
+		@screen xxs {
+			width: $xxs-width;
+		}
+
+		@screen xxxs {
+			width: $xxxs-width;
+		}
+
+		.resume-go-back-button {
+			@apply flex items-center gap-2 text-4xl cursor-pointer self-start;
+
+			.resume-go-back-button-icon {
+				@apply rotate-180;
+			}
+
+			@screen md {
+				@apply items-center mt-4;
+			}
+			
+			@screen sm {
+				@apply text-2xl;
+			}
+
+			@screen xs {
+				@apply text-xl;
+			}
+		} 
+	}
+		
 	.resume-content {
-		font-size: 1.25rem;
+		.resume-navigation-pagination {
+			@apply flex justify-between items-center mb-4 text-2xl;
+			width: $xxl-width;
+			
+			@screen md {
+				width: $md-width;
+			}
 
-		@media (max-width: $lg) {
-			padding-top: 6rem;
-		}
+			@screen sm {
+				@apply text-xl;
+				width: $sm-width;
+			}
 
-		@media (max-width: $md) {
-			font-size: 1rem;
-			padding: 0;
-		}
+			@screen xs {
+				@apply text-base;
+				width: $xs-width;
+			}
 
-		@media (max-width: $xs) {
-			font-size: 0.75rem;
-			width: 100%;
+			@screen xxs {
+				@apply text-sm;
+				width: $xxs-width;
+			}
+
+			@screen xxxs {
+				width: $xxxs-width;
+			}
+
+			.resume-navigation-toggle {
+				background-color: "#E08181";
+
+				&[data-state="checked"] {
+					background-color: $primary;
+				}
+			}
+
+			.navigation-md {
+				@apply flex items-center justify-between font-medium gap-4;
+				
+				@screen md {
+					@apply gap-2;
+				}
+
+			}
+			
+			.resume-download-button {
+				@apply inline-flex items-center font-medium cursor-pointer gap-2;
+				transition: opacity 0.2s ease-in-out;
+
+				&:hover {
+					@apply opacity-65;
+				}
+			}
+
+			.navigation-icon-md {
+				@apply hidden h-5 w-5 cursor-pointer font-bold;
+
+				@screen lg {
+					@apply block;
+				}
+
+				@screen xxs {
+					@apply hidden;
+				}
+			}
+
+			.navigation-icon-next {
+				@apply rotate-180;
+
+				@screen lg {
+					@apply block;
+				}
+
+				@screen xxs {
+					@apply hidden;
+				}
+			}
 		}
 
 		.resume-navigation-controls {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-bottom: 1rem;
 			width: 714px;
 
-			@media (max-width: $lg) {
+			@screen lg {
 				width: 650px;
 			}
 
-			@media (max-width: $md) {
+			@screen md {
+				justify-content: center;
+				gap: rem;
 				width: 100%;
 			}
+		}
 
-			.resume-navigation-pagination {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: 500;
-				gap: 1rem;
-				font-size: 1.2rem;
+		.resume-items-disabled {
+			color: gray !important;
+			cursor: not-allowed !important;
+		}
 
-				@media (max-width: $xs) {
-					font-size: 0.75rem;
-				}
-
-				.navigation-icon-md {
-					display: none;
-					height: 1.5rem;
-					width: 1.5rem;
-					cursor: pointer;
-					font-weight: bold;
-
-					@media (max-width: $md) {
-						display: block;
-					}
-
-					@media (max-width: $md) {
-						font-size: 1rem;
-					}
-				}
-
-				.navigation-icon-next {
-					transform: rotate(180deg);
-				}
-			}
-
-			.resume-navigation-download {
-				display: inline-flex;
-				align-items: center;
-				font-weight: 500;
-				cursor: pointer;
-				gap: 0.5rem;
-
-				.resume-navigation-download-icon {
-					height: 2rem;
-					width: 2rem;
-				}
-
-				@media (max-width: $md) {
-					font-size: 1.25rem;
-				}
-
-				@media (max-width: $md) {
-					font-size: 1rem;
-				}
-			}
-
-			.resume-navigation-disabled {
-				color: gray !important;
-				cursor: not-allowed !important;
-			}
+		.resume-navigation-disabled {
+			background: gray !important;
+			cursor: not-allowed !important;
 		}
 
 		.resume-iframe {
 			position: relative;
 			width: 100%;
-			height: 900px;
+			height: 100%;
+
+			@screen xs {
+				height: 70vh;
+			}
 		}
 
 		.resume-pdf-document-wrapper {
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			@media (max-width: $xs) {
-				width: 100%;
-			}
+			@apply relative flex justify-center items-center;
 
 			.resume-pdf-document {
 				overflow: scroll;
-				height: 842px;
 
 				.resume-pdf-loader {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 595px;
-					height: 842px;
-				}
+					@apply flex justify-center items-center w-[595px] h-[926px];
 
-				.resume-pdf-page {
-					height: 842px;
+			
+					@screen md {
+						height: 768px;
+						width: $md-width;
+					}
+			
+					@screen sm {
+						height: 714px;
+						width: $sm-width;
+					}
+			
+					@screen xs {
+						height: 842px;
+						width: $xs-width;
+					}
+			
+					@screen xxs {
+						height: 505px;
+						width: $xxs-width;
+					}
+			
+					@screen xxxs {
+						height: 421px;
+						width: $xxxs-width;
+					}
 				}
 			}
 
 			.resume-navigation {
-				position: absolute;
-				padding: 0 3rem;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				justify-content: space-between;
+				@apply absolute px-12 w-full h-full flex justify-between;
 
-				@media (max-width: $xs) {
-					display: none;
-				}
-
-				@media (max-width: $md) {
-					display: none;
+				@screen lg {
+					@apply hidden;
 				}
 
 				.resume-navigation-disabled {
@@ -207,6 +259,19 @@
 					transform: rotate(180deg);
 					margin-right: -5rem;
 				}
+			}
+
+		}
+		
+		.navigation-xs {
+			@apply hidden gap-10 justify-center w-full mt-4;
+			
+			@screen xs {
+				@apply flex;
+			}
+
+			.navigation-xs-button {
+				@apply h-14 w-14;
 			}
 		}
 	}
