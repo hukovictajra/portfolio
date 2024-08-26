@@ -9,8 +9,14 @@
 
 	@screen md {
 		height: 400px;
-		min-height: unset;
-		overflow: unset;
+	}
+	
+	@screen xxs {
+		min-height: 200px;
+	}
+		
+	@screen xxxs {
+		min-height: 180px;
 	}
 
 	img {

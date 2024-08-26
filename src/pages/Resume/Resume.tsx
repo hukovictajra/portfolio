@@ -108,11 +108,14 @@ export function Resume() {
 
 			<div className="resume-content">
 				<div className="resume-navigation-pagination">
-					<div className="flex gap-2 items-center font-medium">
+					<div
+						className="flex gap-2 items-center font-medium"
+						onClick={() => setShowIframe(!showIframe)}
+					>
 						<Switch
 							id="page-frame-switch"
+							checked={showIframe}
 							className="resume-navigation-toggle"
-							onClick={() => setShowIframe(!showIframe)}
 							color="#a41109"
 						/>
 						<span>{showIframe ? "Page" : "Frame"}</span>
