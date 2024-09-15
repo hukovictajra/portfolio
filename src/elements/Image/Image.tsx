@@ -5,7 +5,7 @@ import { useStyleResizeHandler } from "@utils/hooks";
 import { CSSProperties, Fragment, useEffect, useRef, useState } from "react";
 
 import "./Image.scss";
-import ImageModal from "@elements/ImageModal/ImageModal";
+import ImageLightbox from "@elements/ImageLightbox/ImageLightbox";
 
 export interface SingleImageProps {
 	source: ImageSource | string;
@@ -90,7 +90,7 @@ export function Image({
 				{imageCaption && <span className="text-lg tracking-wide font-medium">{imageCaption}</span>}
 			</div>
 
-			<ImageModal
+			<ImageLightbox
 				isOpen={isOpen}
 				onModalClose={onModalClose}
 				className={modalClassName}

@@ -9,11 +9,13 @@ import {
 } from "@assets/icons";
 import resumeFile from "@assets/files/pdf/resume.pdf";
 import { Switch } from "@elements/shadcn/ui/switch";
-import { Label } from "@elements/shadcn/ui/label";
 import { useSwipeable } from "react-swipeable";
 
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./Resume.scss";
+import { Navbar } from "@elements/Navbar/Navbar";
+import GoBack from "@elements/GoBack/GoBack";
+import ContentPage from "@pages/ContentPage/ContentPage";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -98,15 +100,8 @@ export function Resume() {
 	});
 
 	return (
-		<div id="resume">
-			<div className="resume-go-back-button-container">
-				<div className="resume-go-back-button" onClick={() => window.history.back()}>
-					<ItemArrowIcon className="resume-go-back-button-icon" />
-					<span className="underline-effect">Go Back</span>
-				</div>
-			</div>
-
-			<div className="resume-content">
+		<ContentPage>
+			<div id="resume">
 				<div className="resume-navigation-pagination">
 					<div
 						className="flex gap-2 items-center font-medium"
@@ -215,6 +210,6 @@ export function Resume() {
 					</div>
 				)}
 			</div>
-		</div>
+		</ContentPage>
 	);
 }

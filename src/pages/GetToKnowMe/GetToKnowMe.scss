@@ -1,0 +1,68 @@
+@import "src/styles/colors.scss";
+
+#get-to-know-me {
+  @apply flex flex-col justify-center items-center gap-4 w-[65vw] h-full;
+	font-family: "General Sans", sans-serif;
+
+  @screen md {
+    @apply w-[75vw]
+  }
+
+  h1 {
+    color: var(--theme-primary, $primary);
+    @apply text-6xl font-semibold mb-8;
+
+    @screen lg {
+      @apply text-5xl mb-4;
+    }
+
+    @screen md {
+      @apply text-4xl mb-0;
+    }
+
+    @screen xs {
+      @apply text-3xl;
+    }
+  }
+    
+  .card {
+    @apply p-5 my-5 bg-[#DBC4C4] text-lg mb-16;
+    color: var(--theme-primary, $primary);
+
+    @screen lg {
+      @apply text-base;
+    }
+  }
+
+  .accordion {
+    @apply w-full;
+  }
+
+  .accordion-trigger {
+    transform: translateX(0);
+  }
+
+  .accordion-item {
+    @apply w-full border-b-2 text-xl;
+    color: var(--theme-primary, $primary);
+    border-color: rgba(var(--theme-primary, $primary), 0.5);
+
+    @screen lg {
+      button {
+        @apply justify-between text-lg;
+      }
+    }
+
+    .accordion-content {
+      @apply text-lg pt-4 py-8;
+      
+      @screen lg {
+        @apply text-sm;
+      }
+    }
+
+    p:not(:last-child) {
+      @apply mb-2
+    }
+  }
+}

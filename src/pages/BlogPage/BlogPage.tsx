@@ -1,13 +1,13 @@
 import { Blog } from "@data/models";
 import { Helmet } from "react-helmet";
+import Share from "@elements/Share/Share";
 import { ReactNode, useEffect } from "react";
 import { Footer } from "@elements/Footer/Footer";
+import { BASE_IMAGE_URL } from "@utils/constants";
 import { Navbar } from "@elements/Navbar/Navbar";
 import { useSmoothScrollHeadings } from "@utils/hooks";
 
 import "./BlogPage.scss";
-import Share from "@elements/Share/Share";
-import { BASE_IMAGE_URL } from "@utils/constants";
 
 export interface BlogPageProps {
 	title: string;

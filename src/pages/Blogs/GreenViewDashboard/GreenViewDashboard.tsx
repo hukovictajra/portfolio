@@ -147,31 +147,24 @@ export default function GreenviewDashboard() {
 				</Text>
 
 				<ImageGallery
-					dotImageClassName="h-[250px]"
 					source={[
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/all.png",
-							className: "h-[500px] w-[800px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]"
+							url: "@images/blogs/green-view-dashboard/graphs/all.png"
 						},
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/volume-in-service-level.png",
-							className: "h-[400px] w-[450px] md:h-[300px] md:w-[300px] xs:h-[250px] xs:w-[250px]"
+							url: "@images/blogs/green-view-dashboard/graphs/volume-in-service-level.png"
 						},
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/customer-satisfaction.png",
-							className: "h-[400px] w-[450px] md:h-[300px] md:w-[300px] xs:h-[250px] xs:w-[250px]"
+							url: "@images/blogs/green-view-dashboard/graphs/customer-satisfaction.png"
 						},
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/sales-mapping-by-country.png",
-							className: "h-[400px] w-[450px] md:h-[300px] md:w-[300px] xs:h-[250px] xs:w-[250px]"
+							url: "@images/blogs/green-view-dashboard/graphs/sales-mapping-by-country.png"
 						},
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/visitor-insights.png",
-							className: "h-[500px] w-[800px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]"
+							url: "@images/blogs/green-view-dashboard/graphs/visitor-insights.png"
 						},
 						{
-							url: "@images/blogs/green-view-dashboard/graphs/top-products.png",
-							className: "h-[500px] w-[800px] md:h-[350px] md:w-[550px] xs:h-[200px] xs:w-[300px]"
+							url: "@images/blogs/green-view-dashboard/graphs/top-products.png"
 						}
 					]}
 				/>

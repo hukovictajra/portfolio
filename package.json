@@ -4,6 +4,8 @@
 	"private": true,
 	"homepage": "https://hukovictajra.github.io/portfolio",
 	"dependencies": {
+		"@radix-ui/react-accordion": "^1.2.0",
+		"@radix-ui/react-collapsible": "^1.1.0",
 		"@radix-ui/react-hover-card": "^1.1.1",
 		"@radix-ui/react-label": "^2.1.0",
 		"@radix-ui/react-popover": "^1.1.1",
@@ -23,6 +25,7 @@
 		"react-dom": "^18.2.0",
 		"react-helmet": "^6.1.0",
 		"react-inlinesvg": "^4.1.1",
+		"react-modal-image": "^2.6.0",
 		"react-pdf": "^7.7.0",
 		"react-player": "^2.14.1",
 		"react-responsive-modal": "^6.4.2",
@@ -34,7 +37,8 @@
 		"slick-carousel": "^1.8.1",
 		"tailwind-merge": "^2.5.2",
 		"tailwindcss-animate": "^1.0.7",
-		"web-vitals": "^2.1.4"
+		"web-vitals": "^2.1.4",
+		"yet-another-react-lightbox": "^3.21.4"
 	},
 	"scripts": {
 		"build": "vite build",

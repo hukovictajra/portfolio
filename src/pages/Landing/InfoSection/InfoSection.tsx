@@ -24,20 +24,10 @@ export default function InfoSection() {
 							<ItemArrowIcon className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Résumé</span>
 						</a>
-						<a className="info-portfolio-item" data-tooltip-id="get-to-know-me">
+						<a className="info-portfolio-item" href="#/get-to-know-me">
 							<ItemArrowIcon className="info-portfolio-item-icon" />
-
-							<span
-								className="info-portfolio-item-text underline-effect"
-								data-tooltip-content="Comming soon!"
-							>
-								Get to know me!
-							</span>
+							<span className="info-portfolio-item-text underline-effect">Get to know me!</span>
 						</a>
-
-						<Tooltip id="get-to-know-me" place="top">
-							Comming soon!
-						</Tooltip>
 					</div>
 
 					<WorkWithMe className="info-section-wwm-button" />

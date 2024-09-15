@@ -14,6 +14,9 @@ export function Footer() {
 					<a href="#/gallery">Gallery</a>
 				</li> */}
 					<li className="underline-effect">
+						<a href="#/resume">Get to know me</a>
+					</li>
+					<li className="underline-effect">
 						<a href="#/resume">Résumé</a>
 					</li>
 					<li className="underline-effect">

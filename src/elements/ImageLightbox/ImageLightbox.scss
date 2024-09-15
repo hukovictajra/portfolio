@@ -1,0 +1,10 @@
+.image-lightbox {
+  .yarl__container {
+    background-color: rgba(0, 0, 0,0.85)
+  }
+
+  .yarl__navigation_prev,
+  .yarl__navigation_next {
+    @apply hidden;
+  }  
+}

@@ -1,10 +1,10 @@
-import Slider from "react-slick";
 import classnames from "classnames";
 import { getImageURL } from "@utils/utils";
 import { useStyleResizeHandler } from "@utils/hooks";
 import { ImageSource, CSSStyle } from "@data/models";
-import ImageModal from "@elements/ImageModal/ImageModal";
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useRef, useState } from "react";
+import Lightbox, { FullscreenRef } from "yet-another-react-lightbox";
+import { Download, Inline, Thumbnails, Zoom } from "yet-another-react-lightbox/plugins";
 
 import "./ImageGallery.scss";
 
@@ -25,170 +25,100 @@ export interface GalleryImageSectionProps {
 export function ImageGallery({
 	source,
 	containerStyle,
-	containerClassName,
-	sliderClassName,
-	dotImageStyle,
-	dotImageClassName,
-	imageStyle,
-	imageClassName,
-	modalStyle,
-	modalClassName,
-	sliderWrapperClassNames
+	containerClassName
 }: GalleryImageSectionProps) {
+	const fullscreenRef = useRef<FullscreenRef>(null);
+
 	const processedContainerStyle: CSSProperties = useStyleResizeHandler(containerStyle!);
-	const processedDotImageStyle: CSSProperties = useStyleResizeHandler(dotImageStyle!);
-	const processedImageStyle: CSSProperties = useStyleResizeHandler(imageStyle!);
 
-	const [isOpen, setOpen] = useState(false);
-
-	const onModalOpen = () => setOpen(true);
-	const onModalClose = () => setOpen(false);
-
-	const [dotsDisplayed, setDotsDisplayed] = useState(document.documentElement.clientWidth > 576);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setDotsDisplayed(document.documentElement.clientWidth > 576);
-		};
-
-		window.addEventListener("resize", handleResize);
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, []);
-
-	const divRef = useRef<HTMLDivElement>(null);
-	const prevArrowRef = useRef<HTMLDivElement>(null);
-	const nextArrowRef = useRef<HTMLDivElement>(null);
-
-	const [isVisible, setIsVisible] = useState(false);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				setIsVisible(entry.isIntersecting);
-			},
-			{ threshold: 0.1 }
-		);
-
-		if (divRef.current) {
-			observer.observe(divRef.current);
-		}
-
-		return () => {
-			if (divRef.current) {
-				observer.unobserve(divRef.current);
-			}
-		};
-	}, []);
-
-	useEffect(() => {
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (!isVisible) return;
-
-			if (event.key === "ArrowLeft") {
-				if (prevArrowRef.current) {
-					prevArrowRef.current.click();
-				}
-			} else if (event.key === "ArrowRight") {
-				if (nextArrowRef.current) {
-					nextArrowRef.current.click();
-				}
-			} else if (event.key === "Enter") {
-				onModalOpen();
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-		};
-	}, [isVisible]);
-
-	const renderCustomPaging = (i: number) => {
-		return (
-			<a className="">
-				<img
-					src={getImageURL(source[i].url).href}
-					className={dotImageClassName}
-					style={processedDotImageStyle}
-				/>
-			</a>
-		);
-	};
-
-	const PrevArrow = ({ className, style, onClick, children }: any): JSX.Element => {
-		return (
-			<div className={className} style={style} onClick={onClick} ref={prevArrowRef}>
-				{children}
-			</div>
-		);
-	};
-
-	const NextArrow = ({ className, style, onClick, children }: any): JSX.Element => {
-		return (
-			<div className={className} style={style} onClick={onClick} ref={nextArrowRef}>
-				{children}
-			</div>
-		);
-	};
-
-	const [activeSlide, setActiveSlide] = useState(0);
-	const [activeSlide2, setActiveSlide2] = useState(0);
+	const [isOpen, setOpen] = useState<boolean>(false);
+	const [currentSlide, setCurrentSlide] = useState<number>(0);
 
 	return (
 		<div
-			className={classnames("image-gallery-container", containerClassName)}
+			className={classnames(
+				"image-gallery-container",
+				isOpen && "image-gallery-open",
+				containerClassName
+			)}
 			style={processedContainerStyle}
-			ref={divRef}
 		>
-			<Slider
-				customPaging={renderCustomPaging}
-				dots={dotsDisplayed}
-				infinite
-				slidesToShow={1}
-				slidesToScroll={1}
-				className={classnames("image-gallery-slider", sliderClassName)}
-				dotsClass="slider-dots-section"
-				swipeToSlide
-				beforeChange={(_, next) => {
-					setActiveSlide(next);
-				}}
-				afterChange={(current) => setActiveSlide2(current)}
-				prevArrow={<PrevArrow />}
-				nextArrow={<NextArrow />}
-			>
-				{source.map((src, index) => (
-					<div
-						className={classnames("image-gallery-slider-wrapper", sliderWrapperClassNames)}
-						key={index}
-					>
-						<img
-							className={classnames(imageClassName, src.className)}
-							src={getImageURL(src.url).href}
-							alt={`Thumbnail ${index}`}
-							style={processedImageStyle}
-							onClick={onModalOpen}
-						/>
-					</div>
-				))}
-			</Slider>
+			{/* Inline */}
+			<div className="image-gallery-lightbox">
+				<Lightbox
+					styles={{
+						slide: {
+							cursor: "zoom-in"
+						},
+						thumbnail: {
+							border: "0"
+						}
+					}}
+					plugins={[Inline, Thumbnails, Download]}
+					inline={{
+						className: "image-gallery-lightbox-inline"
+					}}
+					thumbnails={{
+						vignette: false,
+						showToggle: true
+					}}
+					slides={source.map((x) => ({
+						src: getImageURL(x.url).href
+					}))}
+					on={{
+						click: (props) => {
+							setOpen(true);
+							setCurrentSlide(props.index);
+							fullscreenRef.current?.enter();
+						},
+						enterFullscreen: () => setOpen(true),
+						exitFullscreen: () => setOpen(false)
+					}}
+					close={() => setOpen(false)}
+				/>
+			</div>
 
-			<ImageModal
-				isOpen={isOpen}
-				onModalClose={onModalClose}
-				className={modalClassName}
-				style={modalStyle}
-				image={isOpen ? source[activeSlide] : source[activeSlide2]}
-				onNext={() => {
-					nextArrowRef.current && nextArrowRef.current.click();
-				}}
-				onPrevious={() => {
-					prevArrowRef.current && prevArrowRef.current.click();
-				}}
-			/>
+			{/* Fullscreen */}
+			<div className="image-gallery-lightbox-fullscreen">
+				<Lightbox
+					open={isOpen}
+					index={currentSlide}
+					styles={{
+						container: {
+							backgroundColor: isOpen ? "rgba(0, 0, 0, 0.7)" : "transparent"
+						},
+						thumbnail: {
+							border: "0"
+						},
+						thumbnailsContainer: {
+							backgroundColor: isOpen ? "rgba(0, 0, 0, 0.7)" : "transparent"
+						}
+					}}
+					plugins={[Thumbnails, Zoom, Download]}
+					inline={{
+						style: { width: "100%", aspectRatio: "16 / 9", height: "720px" }
+					}}
+					thumbnails={{
+						vignette: false,
+						showToggle: true
+					}}
+					slides={source.map((x) => ({
+						src: getImageURL(x.url).href
+					}))}
+					on={{
+						click: () => {
+							setOpen(true);
+							fullscreenRef.current?.enter();
+						},
+						enterFullscreen: () => setOpen(true),
+						exitFullscreen: () => setOpen(false)
+					}}
+					fullscreen={{
+						ref: fullscreenRef
+					}}
+					close={() => setOpen(false)}
+				/>
+			</div>
 		</div>
 	);
 }

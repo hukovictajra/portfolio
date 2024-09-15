@@ -24,6 +24,10 @@ module.exports = {
 			}
 		},
 		extend: {
+			animation: {
+				fadeIn: "fadeIn 0.5s ease-in forwards",
+				fadeOut: "fadeOut 0.5s ease-out forwards"
+			},
 			colors: {
 				primary: "#a41109",
 				bgPrimary: "#f1e1e1",
@@ -81,11 +85,26 @@ module.exports = {
 				"accordion-up": {
 					from: { height: "var(--radix-accordion-content-height)" },
 					to: { height: "0" }
+				},
+				"fadeIn": {
+					"0%": { opacity: "0" },
+					"100%": { opacity: "1" }
+				},
+				"fadeOut": {
+					"0%": { opacity: "1" },
+					"100%": { opacity: "0" }
+				},
+				"slide-in": {
+					"0%": { transform: "translateX(100%)", opacity: "0" },
+					"100%": { transform: "translateX(0)", opacity: "1" }
 				}
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
-				"accordion-up": "accordion-up 0.2s ease-out"
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"fadeIn": "fadeIn 0.5s ease-in forwards",
+				"fadeOut": "fadeOut 0.5s ease-out forwards",
+				"slide-in": "slide-in 0.5s ease forwards"
 			}
 		}
 	},

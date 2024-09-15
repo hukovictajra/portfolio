@@ -2,21 +2,12 @@
 @import "src/styles/constants.scss";
 
 #navbar {
-	position: sticky;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 4rem;
+	@apply sticky top-0 left-0 z-20 w-full
+		flex justify-between items-center px-8 py-6;
 	background-color: var(--theme-bg-navbar, $bg-navbar);
-	box-sizing: border-box;
-	width: 100vw;
-	z-index: 5;
 
-	@media (max-width: $xs) {
-		padding: 1rem 2rem;
+	@screen sm {
+		@apply px-8 py-6;
 	}
 
 	a:not(:last-child) {
@@ -24,19 +15,8 @@
 	}
 
 	.navbar-heading {
-		font-size: 2.7rem;
+		@apply text-4xl font-semibold cursor-pointer;
 		color: var(--theme-primary, $primary);
-		transform-origin: 0 0;
-		font-weight:600;
-		cursor: pointer;
-
-		@media (max-width: $sm) {
-			font-size: 2rem;
-		}
-
-		@media (max-width: $xs) {
-			font-size: 1.3rem;
-		}
 	}
 
 	.navbar-heading-down-animation {
@@ -48,39 +28,58 @@
 	}
 
 	.navbar-submenu {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 40%;
-		letter-spacing: 0.107rem;
+		@apply flex justify-between items-center w-[50%] text-xl;
 
-		@media (max-width: $lg) {
-			width: 50%;
+		@screen xl {
+			@apply w-[65%];
 		}
-
-		@media (max-width: $sm) {
-			display: none;
+		
+		@screen lg {
+			@apply hidden;
 		}
 
 		a {
-			cursor: pointer;
+			@apply cursor-pointer;
 		}
 
 		.nav-wwm-button a {
-			width: 12.5rem;
-			padding: 1.35rem;
-			font-size: 1rem;
-			margin: 0;
-			letter-spacing: 0.1rem;
-			font-weight: 500;
+			@apply w-52 p-4 text-sm font-medium m-0;
+
+			@screen lg {
+				@apply w-40 text-xs p-4; 
+			}
 		}
 	}
 
 	.navbar-hamburger-menu {
-		display: none;
+		@apply hidden;
 
-		@media (max-width: $sm) {
-			display: block;
+		@screen lg {
+			@apply block;
+		}
+	}
+
+	.hamburger-menu-open-icon {
+		@apply hidden absolute top-8 right-8 z-30 h-8 w-8 cursor-pointer;
+	
+		color: var(--theme-primary, $primary);
+		animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+		@screen lg {
+			&.icon-open {
+				@apply block;
+			}
+		}
+	}
+	
+	.hamburger-menu-close-icon {
+		@apply hidden absolute top-8 right-8 h-8 w-8 z-30 cursor-pointer
+			animate-fadeIn;
+	
+		@screen lg {
+			&.icon-open {
+				@apply block;
+			}
 		}
 	}
 }

@@ -1,0 +1,23 @@
+@import "src/styles/colors.scss";
+
+.go-back-button {
+  @apply flex items-center justify-center gap-2 self-start 
+    text-2xl cursor-pointer;
+  color: var(--theme-primary, $primary);
+  
+  .go-back-button-icon {
+    @apply rotate-180 h-8 w-8;
+
+    @screen md {
+      @apply h-6 w-6;
+    }
+  }
+
+  @screen lg {
+    @apply gap-0 mt-4;
+  }
+  
+  @screen sm {
+    @apply text-xl ml-0;
+  }
+} 

@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { WorkWithMe } from "../WorkWithMe/WorkWithMe";
-import { HamburgerMenu } from "../HamburgerMenu/HamburgerMenu";
 
 import "./Navbar.scss";
+import { HamburgerCrossIcon, HamburgerIcon } from "@assets/icons";
+import HamburgerControls from "@elements/HamburgerMenu/HamburgerControls";
 
 export function Navbar() {
-	const headingRef = useRef(null);
-	const navbarRef = useRef(null);
+	const headingRef = useRef<HTMLAnchorElement>(null);
+	const navbarRef = useRef<HTMLDivElement>(null);
 
 	const scrollFunction = () => {
 		const scrollTop = document.documentElement.scrollTop;
@@ -20,25 +21,29 @@ export function Navbar() {
 		) {
 			const scrollDirection = window.scrollY > 120 ? "up" : "down";
 
+			if (!headingRef || !headingRef.current || !navbarRef || !navbarRef.current) {
+				return;
+			}
+
 			if (scrollDirection === "down") {
 				headingRef.current.style.transform = `scale(${1 - 0.0007 * scrollTop})`;
 			} else {
 				headingRef.current.style.transform = `scale(${1 + 0.0007 * scrollTop})`;
 			}
-			if (navbarRef.current.style["background-color"] === "") {
-				navbarRef.current.style["background-color"] =
+			if (navbarRef.current.style.backgroundColor === "") {
+				navbarRef.current.style.backgroundColor =
 					document.documentElement.style.getPropertyValue("--theme-bg-navbar");
 			}
 
 			navbarRef.current.classList.remove("navbar-in-sticky");
 		}
 
-		navbarRef.current.style["background-color"] = navbarRef.current.style[
-			"background-color"
-		].replace(
-			/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*\d*\.?\d+)?\)/,
-			`rgba($1, $2, $3, ${scrollTop / 140})`
-		);
+		if (navbarRef && navbarRef.current) {
+			navbarRef.current.style.backgroundColor = navbarRef.current.style.backgroundColor.replace(
+				/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*\d*\.?\d+)?\)/,
+				`rgba($1, $2, $3, ${scrollTop / 140})`
+			);
+		}
 	};
 
 	useEffect(() => {
@@ -51,26 +56,27 @@ export function Navbar() {
 
 	return (
 		<nav id="navbar" ref={navbarRef}>
-			<a className="navbar-heading satoshi" ref={headingRef} href={"#/"}>
-				Tajra Huković
-			</a>
-
-			<nav className="navbar-submenu">
-				<a className="underline-effect" href="#/">
-					Projects
+			<div className="flex justify-between items-center w-full">
+				<a className="navbar-heading satoshi" ref={headingRef} href={"#/"}>
+					Tajra Huković
 				</a>
-				{/* <a className="underline-effect" href="#/gallery">
-					Gallery
-				</a> */}
-				<a className="underline-effect" href="#/resume">
-					Résumé
-				</a>
-				<div className="nav-wwm-button">
-					<WorkWithMe />
-				</div>
-			</nav>
 
-			<HamburgerMenu className="navbar-hamburger-menu" />
+				<nav className="navbar-submenu">
+					<a className="underline-effect" href="#/">
+						Projects
+					</a>
+					<a className="underline-effect" href="#/get-to-know-me">
+						Get to know me
+					</a>
+					<a className="underline-effect" href="#/resume">
+						Résumé
+					</a>
+					<div className="nav-wwm-button">
+						<WorkWithMe />
+					</div>
+				</nav>
+			</div>
+			<HamburgerControls />
 		</nav>
 	);
 }
