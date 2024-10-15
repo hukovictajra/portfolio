@@ -727,3 +727,11 @@ video {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.transition-visibility {
+  transition: visibility 0.35s;
+}
+
+.transition-height {
+  transition: height 0.35s;
+}

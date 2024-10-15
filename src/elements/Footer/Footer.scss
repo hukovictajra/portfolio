@@ -1,4 +1,3 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 #footer {
@@ -9,11 +8,20 @@
 	}
 
 	.footer-quick-links {
-		color: var(--theme-primary, $primary);
-		@apply flex justify-around gap-8;
+		@apply flex justify-around gap-8 text-primary;
+
+
+		@screen sm {
+			@apply grid grid-rows-2 grid-cols-2 gap-0;
+		}
 
 		li {
 			@apply font-medium text-base uppercase cursor-pointer;
+
+			@screen sm {
+				@apply text-sm;
+			}
+
 		}
 	}
 
@@ -24,38 +32,30 @@
 			@apply font-medium cursor-pointer;
 
 			.footer-external-quick-link-icon {
-				height: 2.5rem;
-				width: 2.5rem;
-				color: var(--theme-primary, $primary);
+				@apply h-10 w-10 text-primary;
 				transition: color 0.5s;
 				animation-delay: 0.65s;
 
 				&:hover {
-					color: var(--theme-secondary, $secondary);
+					@apply text-secondary;
 				}
 
-				@media (max-width: $xs) {
-					height: 2rem;
-					width: 2rem;
+				@screen xs {
+					@apply h-8 w-8;
 				}
-			}
-
-			.info-quick-link-item-icon span {
-				line-height: 100%;
 			}
 		}
 	}
 
 	.footer-copyright-section {
 		@apply inline-flex flex-col items-center gap-2 
-			text-lg text-[var(--theme-primary)] uppercase font-normal;
+			text-lg text-primary uppercase font-normal;
 
 		.footer-inspired-by {
 			@apply inline-flex items-center gap-1 text-sm;
 	
 			.footer-copyright-contra-icon {
-				height: 17px;
-				width: 65px;
+				@apply h-[17px] w-[65px];
 			}
 		}
 	
@@ -68,8 +68,7 @@
 		}
 
 		@screen xs {
-			font-size: 0.7rem;
-			gap: 1rem;
+			@apply text-sm gap-4;
 		}
 
 		a {

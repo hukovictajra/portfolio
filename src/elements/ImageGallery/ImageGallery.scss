@@ -1,11 +1,9 @@
-@import "src/styles/colors.scss";
-
 ::backdrop,:fullscreen {
-	background-color: rgba(0,0,0,0.7);
+	@apply bg-black bg-opacity-70;
 }
 
 ::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    @apply bg-black bg-opacity-50;
 }
 
 .image-gallery-lightbox-inline {
@@ -39,24 +37,23 @@
 	.image-gallery-lightbox,
 	.yarl__fullscreen  {
 		.yarl__container {
-			background-color: rgba(0, 0, 0, 0);
+			@apply bg-transparent;
 		}
 
 		.yarl__thumbnails_container {
-			background-color: rgba(0, 0, 0, 0);
+			@apply bg-transparent;
 		}
 
 		.yarl__thumbnails_thumbnail {
-			background-color: var($primary);
+			@apply bg-transparent;
 		}
 
 		.yarl__thumbnails_vignette {
 			background: linear-gradient(to right,
-				var(--yarl__color_backdrop, var(--theme-bg-primary, $bg-primary)) 0,
+				var(--yarl__color_backdrop, theme("colors.background")) 0,
 				transparent var(--yarl__thumbnails_vignette_size,12%) calc(100% - var(--yarl__thumbnails_vignette_size, 12%)),
-				var(--yarl__color_backdrop, var(--theme-bg-primary, $bg-primary)) 100%
+				var(--yarl__color_backdrop, theme("colors.background")) 100%
 				)
 		}
 	}
-
 }

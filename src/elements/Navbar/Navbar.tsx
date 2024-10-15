@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
 import { WorkWithMe } from "../WorkWithMe/WorkWithMe";
+import HamburgerControls from "@elements/HamburgerMenu/HamburgerControls";
 
 import "./Navbar.scss";
-import { HamburgerCrossIcon, HamburgerIcon } from "@assets/icons";
-import HamburgerControls from "@elements/HamburgerMenu/HamburgerControls";
 
 export function Navbar() {
 	const headingRef = useRef<HTMLAnchorElement>(null);
@@ -30,10 +29,9 @@ export function Navbar() {
 			} else {
 				headingRef.current.style.transform = `scale(${1 + 0.0007 * scrollTop})`;
 			}
-			if (navbarRef.current.style.backgroundColor === "") {
-				navbarRef.current.style.backgroundColor =
-					document.documentElement.style.getPropertyValue("--theme-bg-navbar");
-			}
+
+			navbarRef.current.style.backgroundColor =
+				document.documentElement.style.getPropertyValue("--theme-navbar-bg");
 
 			navbarRef.current.classList.remove("navbar-in-sticky");
 		}
@@ -47,6 +45,8 @@ export function Navbar() {
 	};
 
 	useEffect(() => {
+		scrollFunction();
+
 		window.addEventListener("scroll", scrollFunction);
 
 		return () => {

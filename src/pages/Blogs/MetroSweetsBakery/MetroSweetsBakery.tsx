@@ -1,22 +1,24 @@
+import Text from "@elements/Text/Text";
+import { getTitle } from "@utils/utils";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
 import { MetroSweetsBakeryData } from "./data";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import Paragraph from "@elements/Paragraph/Paragraph";
-import { Overview } from "@elements/Overview/Overview";
+import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import { VideoPlayer } from "@elements/VideoPlayer/VideoPlayer";
 import { ImageGallery } from "@elements/ImageGallery/ImageGallery";
+import FigmaEmbededFrame from "@elements/FigmaEmbededFrame/FigmaEmbededFrame";
 import { GroupVideoPlayer } from "@elements/GroupVideoPlayer/GroupVideoPlayer";
-import Text from "@elements/Text/Text";
 
-export default function MetroSweetsBakery() {
-	const { title, subtitles, colors } = MetroSweetsBakeryData;
+export function MetroSweetsBakery() {
+	const { title, tags, colors } = MetroSweetsBakeryData;
 
 	return (
 		<BlogPage blogData={MetroSweetsBakeryData} title="Metro Sweets Bakery">
-			<Title>{title}</Title>
-			<Overview subtitles={subtitles} colors={colors} />
+			<Title>{getTitle(title)}</Title>
+			<TagSection tags={tags} colors={colors} />
 
 			<div className="hr" />
 
@@ -146,6 +148,10 @@ export default function MetroSweetsBakery() {
 				</Paragraph>
 
 				<Image source="@images/blogs/metro-sweets-bakery/app-on-phone.png" className="w-[90%]" />
+			</BlogSection>
+
+			<BlogSection title="Figma project">
+				<FigmaEmbededFrame src="https://embed.figma.com/design/tJ5dJk7lLLXdUHlNH5Chsu/METRO-SWEETS?node-id=5-2&embed-host=share" />
 			</BlogSection>
 		</BlogPage>
 	);

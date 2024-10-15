@@ -1,4 +1,4 @@
-import { BlogColors } from "@data/models";
+import { BlogColors, BlogTitle } from "@data/models";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@elements/shadcn/ui/hover-card";
 import { BASE_URL } from "@utils/constants";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function Share({
 	colors
 }: {
 	id: string;
-	title: string;
+	title: string | BlogTitle;
 	colors: BlogColors;
 }) {
 	const blogUrl = `${BASE_URL}/${id}`;
@@ -65,7 +65,9 @@ export default function Share({
 				<div className="flex justify-between gap-4 w-full sm:!grid sm:grid-cols-5">
 					<EmailShareButton
 						url={blogUrl}
-						subject={`Check out the ${title} project by Tajra Hukovic!`}
+						subject={`Check out the ${
+							typeof title === "object" ? title.main : title
+						} project by Tajra Hukovic!`}
 						body={`Hello!
         I saw this project and I though you might find it interesting. 
         It is made by Tajra Hukovic, Junior UX/UI designer based in Sarajevo!

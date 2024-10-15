@@ -1,19 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import InfoSection from "./InfoSection/InfoSection";
 import ImageSection from "./ImageSection/ImageSection";
 
 import "./Landing.scss";
+import { usePageInitialization, useTheme } from "@utils/hooks";
 
 export function Landing() {
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const [scrollTop, setScrollTop] = useState(0);
 
-	useEffect(() => {
-		document.documentElement.style.setProperty("--theme-navbar-primary", null);
-		document.documentElement.style.setProperty("--theme-bg-primary", null);
-		document.documentElement.style.setProperty("--theme-primary", null);
-	}, []);
+	useTheme(null);
+	usePageInitialization();
 
 	useEffect(() => {
 		const handleScroll = () => {

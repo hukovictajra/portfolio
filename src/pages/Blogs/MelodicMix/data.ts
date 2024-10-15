@@ -1,4 +1,4 @@
-import { Blog, BlogSubtitleType } from "@data/models";
+import { Blog, BlogTagType } from "@data/models";
 
 export const MelodicMixData: Blog = {
 	id: "melodic-mix-a-custom-print-collaboration",
@@ -6,7 +6,7 @@ export const MelodicMixData: Blog = {
 	showOnLanding: true,
 	title: "Melodic Mix: A Custom Print Collaboration",
 	colors: {
-		navbar: "#9f9f9f",
+		navbarBg: "#9f9f9f",
 		background: "#d1d1d1",
 		primary: "#293137",
 		secondary: "#f5f3f0",
@@ -14,19 +14,19 @@ export const MelodicMixData: Blog = {
 		artworkPrimary: "#f5f3f0",
 		artworkSecondary: "#d1d1d1"
 	},
-	subtitles: [
+	tags: [
 		{
-			type: BlogSubtitleType.Text,
+			type: BlogTagType.Text,
 			prefix: "Skills:",
 			items: ["Graphic Design", "Print Design"]
 		},
 		{
-			type: BlogSubtitleType.Text,
+			type: BlogTagType.Text,
 			prefix: "Tools:",
-			items: ["Adobe Photoshop", "Adobe Illustrator", "Canva"]
+			items: ["Photoshop", "Adobe Illustrator", "Canva"]
 		},
 		{
-			type: BlogSubtitleType.Color,
+			type: BlogTagType.Color,
 			prefix: "Theme:",
 			items: {
 				Background: "@artworkBackground",

@@ -1,22 +1,20 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 #navbar {
 	@apply sticky top-0 left-0 z-20 w-full
-		flex justify-between items-center px-8 py-6;
-	background-color: var(--theme-bg-navbar, $bg-navbar);
+		flex justify-between items-center px-8 py-6
+		bg-navbar-bg text-navbar-bg-text;
 
 	@screen sm {
 		@apply px-8 py-6;
 	}
 
-	a:not(:last-child) {
-		color: var(--theme-primary, $primary);
-	}
-
 	.navbar-heading {
 		@apply text-4xl font-semibold cursor-pointer;
-		color: var(--theme-primary, $primary);
+
+		@screen lg {
+			@apply text-3xl;
+		}
 	}
 
 	.navbar-heading-down-animation {
@@ -61,8 +59,6 @@
 
 	.hamburger-menu-open-icon {
 		@apply hidden absolute top-8 right-8 z-30 h-8 w-8 cursor-pointer;
-	
-		color: var(--theme-primary, $primary);
 		animation: fade-in-bl 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
 		@screen lg {
@@ -86,18 +82,18 @@
 
 @keyframes scaleDown {
 	from {
-		font-size: 2.7rem;
+		@apply text-5xl;
 	}
 	to {
-		font-size: 2rem;
+		@apply text-4xl;
 	}
 }
 
 @keyframes scaleUp {
 	from {
-		font-size: 2rem;
+		@apply text-4xl;
 	}
 	to {
-		font-size: 2.7rem;
+		@apply text-5xl;
 	}
 }

@@ -1,16 +1,12 @@
-@import "src/styles/colors.scss";
-
 #get-to-know-me {
-  @apply flex flex-col justify-center items-center gap-4 w-[65vw] h-full;
-	font-family: "General Sans", sans-serif;
+  @apply flex flex-col justify-center items-center gap-4 w-[65vw] h-full font-general;
 
   @screen md {
     @apply w-[75vw]
   }
 
   h1 {
-    color: var(--theme-primary, $primary);
-    @apply text-6xl font-semibold mb-8;
+    @apply text-6xl font-semibold mb-8 text-primary;
 
     @screen lg {
       @apply text-5xl mb-4;
@@ -26,8 +22,7 @@
   }
     
   .card {
-    @apply p-5 my-5 bg-[#DBC4C4] text-lg mb-16;
-    color: var(--theme-primary, $primary);
+    @apply p-5 my-5 bg-[#DBC4C4] text-lg mb-16 text-primary;
 
     @screen lg {
       @apply text-base;
@@ -39,13 +34,11 @@
   }
 
   .accordion-trigger {
-    transform: translateX(0);
+    @apply translate-x-0;
   }
 
   .accordion-item {
-    @apply w-full border-b-2 text-xl;
-    color: var(--theme-primary, $primary);
-    border-color: rgba(var(--theme-primary, $primary), 0.5);
+    @apply w-full border-b-2 text-xl text-primary border-primary;
 
     @screen lg {
       button {

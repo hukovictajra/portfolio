@@ -1,11 +1,12 @@
 import { Blog } from "@data/models";
 import { Helmet } from "react-helmet";
 import Share from "@elements/Share/Share";
-import { ReactNode, useEffect } from "react";
+import Loading from "@elements/Loading/Loading";
 import { Footer } from "@elements/Footer/Footer";
-import { BASE_IMAGE_URL } from "@utils/constants";
 import { Navbar } from "@elements/Navbar/Navbar";
-import { useSmoothScrollHeadings } from "@utils/hooks";
+import { BASE_IMAGE_URL, LAST_LOADED_PAGE_LS_KEY } from "@utils/constants";
+import { ReactNode, useEffect, useState } from "react";
+import { useScrollReset, useSmoothScrollHeadings, useTheme } from "@utils/hooks";
 
 import "./BlogPage.scss";
 
@@ -15,40 +16,36 @@ export interface BlogPageProps {
 	children: ReactNode;
 }
 
+const getRandomTimeout = () => Math.floor(Math.random() * (1250 - 950 + 1)) + 950;
+
 export function BlogPage({ title, children, blogData }: BlogPageProps) {
+	const lastLoadedPage: string | null = localStorage.getItem(LAST_LOADED_PAGE_LS_KEY);
+	const isLastLoadedCurrent: boolean = lastLoadedPage
+		? window.location.href === lastLoadedPage
+		: false;
+
+	const [loading, setLoading] = useState(!isLastLoadedCurrent);
+
 	useEffect(() => {
-		if (blogData) {
-			if (blogData.colors) {
-				if (blogData.colors.navbar) {
-					document.documentElement.style.setProperty("--theme-bg-navbar", blogData.colors.navbar);
-				}
+		const timeout = isLastLoadedCurrent ? 0 : getRandomTimeout();
 
-				if (blogData.colors.background) {
-					document.documentElement.style.setProperty(
-						"--theme-bg-primary",
-						blogData.colors.background
-					);
-				}
+		localStorage.setItem(LAST_LOADED_PAGE_LS_KEY, window.location.href);
 
-				if (blogData.colors.primary) {
-					document.documentElement.style.setProperty("--theme-primary", blogData.colors.primary);
-				}
+		const timer = setTimeout(() => setLoading(false), timeout);
 
-				if (blogData.colors.secondary) {
-					document.documentElement.style.setProperty(
-						"--theme-secondary",
-						blogData.colors.secondary
-					);
-				}
-			}
-		}
-	}, [blogData]);
+		return () => {
+			clearTimeout(timer);
+		};
+	}, []);
 
+	useTheme(blogData.colors);
 	useSmoothScrollHeadings();
-
+	useScrollReset();
 
 	return (
 		<div id="blog">
+			{loading && <Loading visible={loading} />}
+
 			<Navbar />
 
 			{/* <div className="blog-back-container">
@@ -87,14 +84,14 @@ export function BlogPage({ title, children, blogData }: BlogPageProps) {
 							/>
 							<script type="application/ld+json">
 								{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Tajra Hukovic",
-            "url": "https://hukovictajra.github.io/portfolio/",
-            "jobTitle": "UX/UI Designer"
-          }
-        `}
+								{
+									"@context": "https://schema.org",
+									"@type": "Person",
+									"name": "Tajra Hukovic",
+									"url": "https://hukovictajra.github.io/portfolio/",
+									"jobTitle": "UX/UI Designer"
+								}
+							`}
 							</script>
 						</Helmet>
 

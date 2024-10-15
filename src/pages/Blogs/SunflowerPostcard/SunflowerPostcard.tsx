@@ -1,19 +1,20 @@
+import { getTitle } from "@utils/utils";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
 import { SunflowerPostcardData } from "./data";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import Paragraph from "@elements/Paragraph/Paragraph";
-import { Overview } from "@elements/Overview/Overview";
+import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import { ImageGallery } from "@elements/ImageGallery/ImageGallery";
 
-export default function SunflowerPostcard() {
-	const { title, subtitles, colors } = SunflowerPostcardData;
+export function SunflowerPostcard() {
+	const { title, tags, colors } = SunflowerPostcardData;
 
 	return (
 		<BlogPage blogData={SunflowerPostcardData} title="Sunflower Postrcard">
-			<Title>{title}</Title>
-			<Overview subtitles={subtitles} colors={colors} />
+			<Title>{getTitle(title)}</Title>
+			<TagSection tags={tags} colors={colors} />
 
 			<div className="hr" />
 

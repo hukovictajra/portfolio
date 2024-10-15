@@ -1,77 +1,61 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 #blog {
-	background-color: var(--theme-bg-primary, $bg-primary);
-	font-family: "General Sans", sans-serif;
-	position: relative;
+	@apply relative bg-background font-general;
 
 	.blog-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		padding: 3rem 7.5rem;
+		@apply flex flex-col gap-8 py-12 px-28;
+		// padding: 3rem 7.5rem;
 
-		@media (max-width: $lg) {
-			padding: 3rem 5rem;
+		@screen lg {
+			@apply py-12 px-20;
 		}
 
-		@media (max-width: $md) {
-			padding: 3rem 4rem;
+		@screen md {
+			@apply py-12 px-16;
 		}
 
-		@media (max-width: $sm) {
-			padding: 3rem 2rem;
+		@screen sm {
+			@apply py-12 px-8;
 		}
 		
+		@screen xs {
+			@apply py-12 px-0;
+		}
 	}
 
 	.blog-back-container {
-		width: 100%;
-		text-transform: uppercase;
-		gap: 0.5rem;
-		color: var(--theme-primary, $primary);
-		opacity: 0.5;
-		letter-spacing: 0.1rem;
-		margin: 3rem;
-		
-		@apply mb-0 ml-4;
+		@apply w-full uppercase gap-2 opacity-50 m-12 mb-0 ml-4;
 
 		.blog-back-text-container {
-			font-size: 1.1rem;
-			width: fit-content;
-			cursor: pointer;
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
+			@apply text-[1.1rem] cursor-pointer flex items-center gap-2;
+      width: fit-content;
 		}
 
 		.blog-back-icon {
-			transform: rotate(180deg);
-			font-size: 1.2rem;
+			@apply text-[1.2rem] transform rotate-180;
+
 		}
 	}
 
 	.blog-content-wrapper {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		color: var(--theme-primary, $primary);
+    @apply grid grid-cols-12 text-primary;
 
-		@media (max-width: $lg) {
-			grid-template-columns: repeat(16, 1fr);
+
+		@screen lg {
+      @apply grid-cols-[16];
 		}
 
 		.blog-content {
-			grid-column: 2/12;
+      @apply col-start-2 col-end-12;
 
-			@media (max-width: $lg) {
-				grid-column: 2/16;
+			@screen lg {
+        @apply col-start-2 col-end-12;
 			}
 		}
 
 		.hr {
-			border: 1px solid var(--theme-primary, $primary);
-			@apply w-full mt-8 mb-16;
+      @apply border-t border-primary w-full mt-8 mb-16;
 
 			@screen sm {
 				@apply mb-4 mt-8;

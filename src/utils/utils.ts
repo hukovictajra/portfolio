@@ -1,27 +1,54 @@
-import { CSSStyle } from "@data/models";
+import { BlogTitle, CSSStyle } from "@data/models";
 import { CSSProperties } from "react";
 
-export function isTextColorVisible(bgColor: string, textColor: string): boolean {
-	const rgbText = textColor.slice(1);
-	const rgbBg = bgColor.slice(1);
+export function hexToRgb(hex: string): [number, number, number] {
+	let r = 0,
+		g = 0,
+		b = 0;
 
-	const [rText, gText, bText] = [
-		parseInt(rgbText.substr(0, 2), 16),
-		parseInt(rgbText.substr(2, 2), 16),
-		parseInt(rgbText.substr(4, 2), 16)
-	];
-	const [rBg, gBg, bBg] = [
-		parseInt(rgbBg.substr(0, 2), 16),
-		parseInt(rgbBg.substr(2, 2), 16),
-		parseInt(rgbBg.substr(4, 2), 16)
-	];
+	if (hex.length === 4) {
+		r = parseInt(hex[1] + hex[1], 16);
+		g = parseInt(hex[2] + hex[2], 16);
+		b = parseInt(hex[3] + hex[3], 16);
+	} else if (hex.length === 7) {
+		r = parseInt(hex[1] + hex[2], 16);
+		g = parseInt(hex[3] + hex[4], 16);
+		b = parseInt(hex[5] + hex[6], 16);
+	}
 
-	const luminanceText = 0.2126 * rText + 0.7152 * gText + 0.0722 * bText;
-	const luminanceBg = 0.2126 * rBg + 0.7152 * gBg + 0.0722 * bBg;
+	return [r, g, b];
+}
 
-	const contrastRatio =
-		(Math.max(luminanceText, luminanceBg) + 0.05) / (Math.min(luminanceText, luminanceBg) + 0.05);
-	return contrastRatio >= 3.0;
+export function luminance(rgb: [number, number, number]): number {
+	// Calculate the relative luminance of a color
+	const a = rgb.map((value) => {
+		const v = value / 255;
+		return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+	});
+
+	return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+}
+
+export function contrastRatio(
+	rgb1: [number, number, number],
+	rgb2: [number, number, number]
+): number {
+	const lum1 = luminance(rgb1);
+	const lum2 = luminance(rgb2);
+
+	return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+}
+
+export function isTextColorVisible(
+	bgColor: string,
+	textColor: string,
+	threshold: number = 4.5
+): boolean {
+	const bgRgb = hexToRgb(bgColor);
+	const textRgb = hexToRgb(textColor);
+
+	const ratio = contrastRatio(bgRgb, textRgb);
+	return ratio >= threshold;
 }
 
 export function parseStyles(style: CSSStyle): CSSProperties {
@@ -49,6 +76,14 @@ export function parseStyles(style: CSSStyle): CSSProperties {
 	}
 
 	return rootStyles;
+}
+
+export function isDarkColor(hex: string): boolean {
+	const [r, g, b] = hexToRgb(hex);
+
+	const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+
+	return luminance < 0.5;
 }
 
 function getRootStyle(style: CSSStyle): React.CSSProperties {
@@ -82,3 +117,10 @@ export function getVideoURL(name: string): URL {
 	return new URL(`../assets/${name.replace("@", "")}`, import.meta.url);
 }
 
+export function toKebabCase(str: string): string {
+	return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
+export function getTitle(title: BlogTitle | string): string {
+	return typeof title === "string" ? title : title.main;
+}

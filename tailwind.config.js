@@ -28,36 +28,58 @@ module.exports = {
 				fadeIn: "fadeIn 0.5s ease-in forwards",
 				fadeOut: "fadeOut 0.5s ease-out forwards"
 			},
+			fontFamily: {
+				general: ['"General Sans"', "sans-serif"]
+			},
 			colors: {
-				primary: "#a41109",
-				bgPrimary: "#f1e1e1",
-				$secondary: "#a41109",
-				$bgNavbar: "rgba(246, 232, 231, 0)",
-				$linkedinPrimary: "rgb(0, 119, 181)",
-				$pinterestPrimary: "rgb(230, 0, 35)",
-				$instagramPrimary: "#E55D64",
-				border: "hsl(var(--border))",
-				input: "hsl(var(--input))",
-				ring: "hsl(var(--ring))",
-				background: "hsl(var(--background))",
-				foreground: "hsl(var(--foreground))",
-				destructive: {
+				"global-background": "#f1e1e1",
+				"global-primary": "#a41109",
+				"global-secondary": "#f0e1e0",
+
+				"background": "var(--theme-background, #f1e1e1)",
+				"primary": "var(--theme-primary, #a41109)",
+				"secondary": "var(--theme-secondary, #f0e1e0)",
+
+				"navbar-bg": "var(--theme-navbar-bg, #eec3bc)",
+				"navbar-bg-text": "var(--theme-navbar-text, var(--theme-primary, #a41109))",
+
+				"tag-text": "var(--theme-tag-text, var(--theme-primary, #a41109))",
+				"tag-hover-bg": "var(--theme-tag-hover-bg, var(--theme-primary, #a41109))",
+				"tag-hover-text": "var(--theme-tag-hover-text, var(--theme-background, #f1e1e1))",
+
+				"work-with-me-bg": "var(--theme-work-with-me-bg, var(--theme-primary, #a41109))",
+				"work-with-me-text": "var(--theme-work-with-me-text, var(--theme-background, #f1e1e1))",
+				"work-with-me-hover-bg":
+					"var(--theme-work-with-me-hover-bg, ar(--theme-background, #f1e1e1))",
+				"work-with-me-hover-text":
+					"var(--theme-work-with-me-hover-text, var(--theme-primary, #a41109))",
+
+				"linkedin-primary": "rgb(0, 119, 181)",
+				"figma-primary": "rgb(162, 89, 255)",
+				"pinterest-primary": "rgb(230, 0, 35)",
+				"instagram-primary": "rgb(247, 119, 55)",
+
+				"border": "hsl(var(--border))",
+				"input": "hsl(var(--input))",
+				"ring": "hsl(var(--ring))",
+				"foreground": "hsl(var(--foreground))",
+				"destructive": {
 					DEFAULT: "hsl(var(--destructive))",
 					foreground: "hsl(var(--destructive-foreground))"
 				},
-				muted: {
+				"muted": {
 					DEFAULT: "hsl(var(--muted))",
 					foreground: "hsl(var(--muted-foreground))"
 				},
-				accent: {
+				"accent": {
 					DEFAULT: "hsl(var(--accent))",
 					foreground: "hsl(var(--accent-foreground))"
 				},
-				popover: {
+				"popover": {
 					DEFAULT: "hsl(var(--popover))",
 					foreground: "hsl(var(--popover-foreground))"
 				},
-				card: {
+				"card": {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))"
 				}

@@ -1,22 +1,20 @@
 import {
 	Accordion,
-	AccordionContent,
 	AccordionItem,
+	AccordionContent,
 	AccordionTrigger
 } from "@elements/shadcn/ui/accordion";
-
-import { useEffect } from "react";
+import { usePageInitialization, useScrollReset, useTheme } from "@utils/hooks";
 import { Card } from "@elements/shadcn/ui/card";
+import { Footer } from "@elements/Footer/Footer";
 import ContentPage from "@pages/ContentPage/ContentPage";
 
 import "./GetToKnowMe.scss";
+
 export default function GetToKnowMe() {
-	useEffect(() => {
-		document.documentElement.style.setProperty("--theme-bg-navbar", "#eec3bd");
-		document.documentElement.style.setProperty("--theme-navbar-primary", "#eec3bd");
-		document.documentElement.style.setProperty("--theme-bg-primary", "#f1e1e1");
-		document.documentElement.style.setProperty("--theme-primary", "#a41109");
-	}, []);
+	useTheme(null);
+	useScrollReset();
+	usePageInitialization();
 
 	return (
 		<ContentPage>
@@ -258,6 +256,8 @@ export default function GetToKnowMe() {
 					</AccordionItem>
 				</Accordion>
 			</div>
+
+			<Footer />
 		</ContentPage>
 	);
 }

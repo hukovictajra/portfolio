@@ -1,4 +1,3 @@
-@import "src/styles/colors.scss";
 
 :root {
 	--mouse-height: 5rem;
@@ -7,33 +6,23 @@
 }
 
 #scroll-indicator {
-	position: absolute;
-	left: 50%;
-	bottom: 15%;
-	opacity: 0;
-	transition: 0.3s opacity ease;
+	@apply absolute left-1/2 bottom-[15%] opacity-0 transition-opacity duration-300 ease-in;
 }
 
 #scroll-mouse {
-	position: relative;
-	width: var(--mouse-width);
-	height: var(--mouse-height);
-	border: 2px solid var(--theme-bg-primary, $bg-primary);
-	border-radius: calc(var(--mouse-height) / 2);
+	@apply relative w-[var(--mouse-width)] h-[var(--mouse-height)] border-2 border-background rounded-[calc(var(--mouse-height)/2)];
 	animation: move-down 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #scroll-mouse:after {
 	content: "";
+	@apply absolute bg-background rounded-full;
 	width: var(--scroll-size);
 	height: var(--scroll-size);
-	display: block;
-	border-radius: 50%;
-	position: absolute;
 	left: calc(var(--mouse-width) / 2 - var(--scroll-size) / 2);
-	background-color: var(--theme-bg-primary, $bg-primary);
 	animation: scroll-down 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 @keyframes move-down {
 	0% {
 		top: 0;

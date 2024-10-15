@@ -1,4 +1,5 @@
 import Text from "@elements/Text/Text";
+import { getTitle } from "@utils/utils";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
 import { GreenviewDashboardData } from "./data";
@@ -6,17 +7,18 @@ import Subtitle from "@elements/Subtitle/Subtitle";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import { List, ListItem } from "@elements/List/List";
 import Paragraph from "@elements/Paragraph/Paragraph";
-import { Overview } from "@elements/Overview/Overview";
+import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import { ImageGallery } from "@elements/ImageGallery/ImageGallery";
+import FigmaEmbededFrame from "@elements/FigmaEmbededFrame/FigmaEmbededFrame";
 
-export default function GreenviewDashboard() {
-	const { title, subtitles, colors } = GreenviewDashboardData;
+export function GreenviewDashboard() {
+	const { title, tags, colors } = GreenviewDashboardData;
 
 	return (
 		<BlogPage blogData={GreenviewDashboardData} title="Greenview Dashboard">
-			<Title>{title}</Title>
-			<Overview subtitles={subtitles} colors={colors} />
+			<Title>{getTitle(title)}</Title>
+			<TagSection tags={tags} colors={colors} />
 
 			<div className="hr" />
 
@@ -201,7 +203,10 @@ export default function GreenviewDashboard() {
 					to decide on the overall possible placement of future widgets early on.
 				</Text>
 
-				<Image source="@images/blogs/green-view-dashboard/wireframe.png" />
+				<Image
+					source="@images/blogs/green-view-dashboard/wireframe.png"
+					className="h-[75%] w-[75%]"
+				/>
 
 				<Text>
 					For widgets in the wireframing phase, I focused on ensuring they would be easy on the eyes
@@ -241,6 +246,10 @@ export default function GreenviewDashboard() {
 						}
 					]}
 				/>
+			</BlogSection>
+
+			<BlogSection title="Figma project">
+				<FigmaEmbededFrame src="https://embed.figma.com/design/dANTtMCoulSaxHv2IzLEO6/Dashboard?node-id=0-1&embed-host=share" />
 			</BlogSection>
 		</BlogPage>
 	);

@@ -1,22 +1,23 @@
+import { getTitle } from "@utils/utils";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import Paragraph from "@elements/Paragraph/Paragraph";
-import { Overview } from "@elements/Overview/Overview";
-import { MyTributeToThe1984WinterOlympicsData } from "./data";
+import { TributeToThe1984WinterOlympicsData } from "./data";
+import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import { ImageGallery } from "@elements/ImageGallery/ImageGallery";
 
-export default function TributeToWinterOlympics() {
-	const { title, subtitles, colors } = MyTributeToThe1984WinterOlympicsData;
+export function TributeToThe1984WinterOlympics() {
+	const { title, tags, colors } = TributeToThe1984WinterOlympicsData;
 
 	return (
 		<BlogPage
-			blogData={MyTributeToThe1984WinterOlympicsData}
+			blogData={TributeToThe1984WinterOlympicsData}
 			title="My Tribute To The 1984 Winter Olympics"
 		>
-			<Title>{title}</Title>
-			<Overview subtitles={subtitles} colors={colors} />
+			<Title>{getTitle(title)}</Title>
+			<TagSection tags={tags} colors={colors} />
 
 			<div className="hr" />
 

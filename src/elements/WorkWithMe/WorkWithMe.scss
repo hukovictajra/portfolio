@@ -1,10 +1,7 @@
-@import "/src/styles/colors.scss";
 
 .work-with-me-button {
-	background-color: var(--theme-primary, $primary);
-	border: 1px solid var(--theme-primary, $primary);
+	@apply bg-work-with-me-bg text-work-with-me-text border-2 border-work-with-me-bg;
 	transition: 0.5s background-color, 0.5s border-color, 0.5s color, 0.5s fill;
-	color: var(--theme-bg-primary, $bg-primary);
 
 	@apply block w-52 p-4 rounded-full text-center text-sm 
 		font-medium m-0 uppercase cursor-pointer tracking-widest;
@@ -12,9 +9,8 @@
 	@screen lg {
 		@apply w-40 text-xs p-4; 
 	}
-}
-
-.work-with-me-button:hover {
-	background-color: var(--theme-bg-primary, $bg-primary);
-	color: var(--theme-primary, $primary);
+	
+	&:hover {
+		@apply bg-work-with-me-hover-bg text-work-with-me-hover-text;
+	}
 }

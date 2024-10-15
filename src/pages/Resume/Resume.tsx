@@ -1,36 +1,32 @@
+import { usePageInitialization, useScrollReset, useTheme } from "@utils/hooks";
 import { useState, useEffect } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import {
-	ItemArrowIcon,
-	LoaderIcon,
-	PaginationArrowIcon,
-	DownloadIcon,
-	ArrowRoundedIcon
-} from "@assets/icons";
-import resumeFile from "@assets/files/pdf/resume.pdf";
-import { Switch } from "@elements/shadcn/ui/switch";
 import { useSwipeable } from "react-swipeable";
+import { Document, Page, pdfjs } from "react-pdf";
+import resumeFile from "@assets/files/pdf/resume.pdf";
+import ContentPage from "@pages/ContentPage/ContentPage";
+import { Tabs, TabsList, TabsTrigger } from "@elements/shadcn/ui/tabs";
+import { LoaderIcon, PaginationArrowIcon, DownloadIcon, ArrowRoundedIcon } from "@assets/icons";
 
 import "react-pdf/dist/esm/Page/TextLayer.css";
+
 import "./Resume.scss";
-import { Navbar } from "@elements/Navbar/Navbar";
-import GoBack from "@elements/GoBack/GoBack";
-import ContentPage from "@pages/ContentPage/ContentPage";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export function Resume() {
 	const [totalPages, setTotalPages] = useState(0);
 	const [pageNumber, setPageNumber] = useState(1);
-	const [showIframe, setShowIframe] = useState(false);
+	const [selectedView, setSelectedView] = useState<"page" | "frame">("page");
 	const [scale, setScale] = useState(getScale(document.documentElement.clientWidth));
+
+	usePageInitialization();
 
 	function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
 		setTotalPages(numPages);
 	}
 
 	function onDocumentLoadError() {
-		setShowIframe(true);
+		setSelectedView("frame");
 	}
 
 	function goToPreviousPage() {
@@ -58,13 +54,16 @@ export function Resume() {
 	}
 
 	function downloadPDF() {
-		if (!showIframe) {
+		if (selectedView === "page") {
 			const anchorElement = document.createElement("a");
 			anchorElement.href = resumeFile;
 			anchorElement.download = "tajra_hukovic_resume_2024.pdf";
 			anchorElement.click();
 		}
 	}
+
+	useTheme(null);
+	useScrollReset();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -103,20 +102,28 @@ export function Resume() {
 		<ContentPage>
 			<div id="resume">
 				<div className="resume-navigation-pagination">
-					<div
-						className="flex gap-2 items-center font-medium"
-						onClick={() => setShowIframe(!showIframe)}
-					>
-						<Switch
-							id="page-frame-switch"
-							checked={showIframe}
-							className="resume-navigation-toggle"
-							color="#a41109"
-						/>
-						<span>{showIframe ? "Page" : "Frame"}</span>
+					<div className="flex gap-2 items-center font-medium bg-gray-300 bg-opacity-60 rounded-md">
+						<Tabs className="flex space-x-2" defaultValue={selectedView}>
+							<TabsList className="xs:h-8">
+								<TabsTrigger
+									value="page"
+									onClick={() => setSelectedView("page")}
+									className="data-[state=active]:bg-primary data-[state=active]:text-white xs:text-xs xs:px-1.5 xs:py-0.5"
+								>
+									Page
+								</TabsTrigger>
+								<TabsTrigger
+									value="frame"
+									onClick={() => setSelectedView("frame")}
+									className="data-[state=active]:bg-primary data-[state=active]:text-white xs:text-xs xs:px-1.5 xs:py-0.5"
+								>
+									Frame
+								</TabsTrigger>
+							</TabsList>
+						</Tabs>
 					</div>
 
-					<span className={`navigation-md ${showIframe && "resume-items-disabled"}`}>
+					<span className={`navigation-md ${selectedView === "frame" && "resume-items-disabled"}`}>
 						<span
 							className={`navigation-icon-md navigation-icon-previous ${
 								pageNumber <= 1 && "resume-items-disabled"
@@ -137,7 +144,9 @@ export function Resume() {
 					</span>
 
 					<span
-						className={`resume-download-button ${showIframe && "resume-items-disabled"}`}
+						className={`resume-download-button ${
+							selectedView === "frame" && "resume-items-disabled"
+						}`}
 						onClick={downloadPDF}
 					>
 						Download
@@ -145,7 +154,7 @@ export function Resume() {
 					</span>
 				</div>
 
-				{showIframe ? (
+				{selectedView === "frame" ? (
 					<iframe className="resume-iframe" title="Tajra Huković Résumé" src={resumeFile} />
 				) : (
 					<div className="resume-pdf-document-wrapper h-full" {...swipeHandlers}>
@@ -190,7 +199,7 @@ export function Resume() {
 					</div>
 				)}
 
-				{!showIframe && (
+				{selectedView === "frame" && (
 					<div className="navigation-xs">
 						<div
 							onClick={goToPreviousPage}

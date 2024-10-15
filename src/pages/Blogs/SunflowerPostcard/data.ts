@@ -1,4 +1,4 @@
-import { Blog, BlogSubtitleType } from "@data/models";
+import { Blog, BlogTagType } from "@data/models";
 
 export const SunflowerPostcardData: Blog = {
 	id: "sunflower-postcard",
@@ -6,25 +6,25 @@ export const SunflowerPostcardData: Blog = {
 	showOnLanding: true,
 	title: "Sunflower🌻: Postcard",
 	colors: {
-		navbar: "#A49689",
+		navbarBg: "#A49689",
 		background: "#c2b1a1",
 		primary: "#413736",
 		secondary: "#e7ae00"
 	},
 
-	subtitles: [
+	tags: [
 		{
-			type: BlogSubtitleType.Text,
+			type: BlogTagType.Text,
 			prefix: "Skills:",
 			items: ["Graphic Design", "Print Design", "Photography"]
 		},
 		{
-			type: BlogSubtitleType.Text,
+			type: BlogTagType.Text,
 			prefix: "Tools:",
-			items: ["Adobe Photoshop", "Adobe Illustrator", "Canon 2000D"]
+			items: ["Photoshop", "Adobe Illustrator", "Canon 2000D"]
 		},
 		{
-			type: BlogSubtitleType.Color,
+			type: BlogTagType.Color,
 			prefix: "Theme:",
 			items: {
 				Background: "@background",

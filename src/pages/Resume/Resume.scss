@@ -1,4 +1,3 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 $xxl-width: 714px;
@@ -11,12 +10,11 @@ $xxxs-width: 298px;
 html,
 body,
 #root {
-	background-color: $bg-primary;
+	@apply bg-background;
 }
 
 #resume {
-	color: $primary;
-	background-color: $bg-primary;
+	@apply text-primary bg-background;
 
 	.resume-navigation-pagination {
 		@apply flex justify-between items-center mb-4 text-2xl;
@@ -43,14 +41,6 @@ body,
 
 		@screen xxxs {
 			width: $xxxs-width;
-		}
-
-		.resume-navigation-toggle {
-			background-color: "#E08181";
-
-			&[data-state="checked"] {
-				background-color: $primary;
-			}
 		}
 
 		.navigation-md {
@@ -174,25 +164,17 @@ body,
 			}
 
 			.resume-page-button {
-				position: absolute;
-				height: 4rem;
-				width: 4rem;
-				border-radius: 50%;
-				cursor: pointer;
-				background-color: $primary;
-				color: $bg-primary;
-				top: 50%;
+				@apply absolute top-1/2 h-16 w-16 
+					rounded-[50%] cursor-pointer 
+					bg-primary text-background;
 			}
 
 			.resume-previous-page {
-				left: 0;
-				margin-left: -5rem;
+				@apply left-0 ml-[-5rem];
 			}
 
 			.resume-next-page {
-				right: 0;
-				transform: rotate(180deg);
-				margin-right: -5rem;
+				@apply right-0 rotate-180 mr-[-5rem];
 			}
 		}
 	}

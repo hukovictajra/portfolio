@@ -20,9 +20,8 @@ export default function ImageSection({ scrollRef }: any) {
 	}, []);
 
 	const content = blogs
-		.filter((x) => x.showOnLanding)
-		.sort((x) => x.position)
-		.map((blog) => <ProjectImage key={blog.id} blog={blog} />);
+		.filter((x) => x.data.showOnLanding)
+		.map((blog) => <ProjectImage key={blog.data.id} blog={blog.data} />);
 
 	return (
 		<div id="image-section" ref={scrollRef}>

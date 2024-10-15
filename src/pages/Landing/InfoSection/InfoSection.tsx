@@ -1,4 +1,3 @@
-import { Tooltip } from "react-tooltip";
 import { MapPinIcon, ItemArrowIcon } from "@assets/icons";
 import { WorkWithMe } from "@elements/WorkWithMe/WorkWithMe";
 import { FigmaIcon, InstagramIcon, LinkedinIcon, PinterestIcon } from "@assets/icons/social";
@@ -11,7 +10,7 @@ export default function InfoSection() {
 			<div id="info-section-content">
 				<div id="info-section-title-wrapper">
 					<h1 id="info-section-title">Tajra Huković</h1>
-					<h3 id="info-section-subtitle">Graphic Designer, UX/UI Designer, Photographer</h3>
+					<h3 id="info-section-subtitle">UX/UI Designer, Graphic Designer, Photographer</h3>
 				</div>
 
 				<div id="info-portfolio-wrapper">
@@ -23,6 +22,10 @@ export default function InfoSection() {
 						<a className="info-portfolio-item" href="#/resume">
 							<ItemArrowIcon className="info-portfolio-item-icon" />
 							<span className="info-portfolio-item-text underline-effect">Résumé</span>
+						</a>
+						<a className="info-portfolio-item" href="https://www.figma.com/@htajra" target="_blank">
+							<ItemArrowIcon className="info-portfolio-item-icon" />
+							<span className="info-portfolio-item-text underline-effect">Figma community</span>
 						</a>
 						<a className="info-portfolio-item" href="#/get-to-know-me">
 							<ItemArrowIcon className="info-portfolio-item-icon" />

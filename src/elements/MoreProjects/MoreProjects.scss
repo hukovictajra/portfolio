@@ -1,62 +1,37 @@
-@import "src/styles/colors.scss";
-
 .more-projects-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	position: relative;
+	@apply relative flex flex-col justify-start;
 
 	.more-projects-wrapper {
-		display: flex;
-		gap: 5rem;
+		@apply flex gap-20
 	}
 
 	h1 {
-		color: var(--theme-primary, $primary);
-		font-weight: 600;
-		font-size: 2.5rem;
+		@apply text-primary font-bold text-4xl;
 	}
 
 	.more-projects-card {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		cursor: pointer;
+		@apply required flex flex-col items-center cursor-pointer:
 		transition: 0.5s background-color ease-in-out;
 
 		.more-projects-card-overlay {
-			opacity: 0;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@apply opacity-0 
+				absolute top-0 left-0 
+				h-full w-full 
+				flex justify-center items-center;
 		}
 
 		&:hover {
 			.more-projects-card-overlay {
-				opacity: 1;
-				background-color: var(--theme-bg-primary, $bg-primary);
-				color: var(--theme-primary, $primary);
+				@apply opacity-100 bg-background text-primary;
 			}
 		}
 
 		img {
-			height: 17rem;
-			width: 100%;
-			margin-bottom: 1rem;
+			@apply h-[17rem] w-full mb-4;
 		}
 
 		.more-projects-caption {
-			color: var(--theme-primary, $primary);
-			font-weight: 500;
-			font-size: 1.2rem;
-			text-wrap: wrap;
-			text-align: center;
+			@apply text-primary font-medium text-lg text-wrap text-center;
 		}
 	}
 }

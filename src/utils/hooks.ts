@@ -1,6 +1,40 @@
-import { CSSProperties, RefObject, useEffect, useRef, useState } from "react";
-import { parseStyles } from "./utils";
-import { CSSStyle } from "@data/models";
+import { parseStyles, toKebabCase } from "./utils";
+import { LAST_LOADED_PAGE_LS_KEY } from "./constants";
+import { BlogColorKey, BlogColors, CSSStyle } from "@data/models";
+import { CSSProperties, RefObject, useEffect, useState } from "react";
+
+export const usePageInitialization = () => {
+	useEffect(() => {
+		localStorage.setItem(LAST_LOADED_PAGE_LS_KEY, window.location.href);
+	}, []);
+};
+
+export const useTheme = (colors: BlogColors | null) => {
+	useEffect(() => {
+		const instanceKeys = Object.keys(new BlogColors({}));
+
+		if (colors) {
+			instanceKeys.forEach((key: string) => {
+				document.documentElement.style.setProperty(
+					`--theme-${toKebabCase(key)}`,
+					colors[key as BlogColorKey] || null
+				);
+			});
+		} else {
+			instanceKeys.forEach((key: string) => {
+				document.documentElement.style.setProperty(`--theme-${toKebabCase(key)}`, null);
+			});
+		}
+	}, [colors]);
+};
+
+export const useScrollReset = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
+	return null;
+};
 
 export const useStyleResizeHandler = (style: CSSStyle): CSSProperties | Object => {
 	if (!style) {

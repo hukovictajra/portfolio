@@ -1,18 +1,9 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 #image-section {
-	width: 70vw;
-  max-width: 70%;
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-template-rows: auto;
-  gap: 16px;
-	overflow-y: scroll;
+	@apply w-[70vw] max-w-[70%] grid grid-cols-1 gap-4 overflow-y-scroll;
 
 	@screen lg {
-		width: 100vw;
-		max-width: 100%;
-		justify-content: center;
+		@apply w-[100vw] max-w-[100%] justify-center
 	}
 }

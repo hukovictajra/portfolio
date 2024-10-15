@@ -1,19 +1,20 @@
 import { MelodicMixData } from "./data";
+import { getTitle } from "@utils/utils";
 import Title from "@elements/Title/Title";
 import { Image } from "@elements/Image/Image";
 import { BlogPage } from "@pages/BlogPage/BlogPage";
 import { List, ListItem } from "@elements/List/List";
 import Paragraph from "@elements/Paragraph/Paragraph";
-import { Overview } from "@elements/Overview/Overview";
+import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 
-export default function MelodicMix() {
-	const { title, subtitles, colors } = MelodicMixData;
+export function MelodicMix() {
+	const { title, tags, colors } = MelodicMixData;
 
 	return (
 		<BlogPage blogData={MelodicMixData} title="Melodic Mix">
-			<Title>{title}</Title>
-			<Overview subtitles={subtitles} colors={colors} />
+			<Title>{getTitle(title)}</Title>
+			<TagSection tags={tags} colors={colors} />
 
 			<div className="hr" />
 

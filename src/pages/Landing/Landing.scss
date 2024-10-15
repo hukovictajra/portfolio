@@ -1,10 +1,7 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 #landing-page {
-	background-color: var(--theme-bg-primary, $bg-primary);
-	font-family: "General Sans", sans-serif;
-	height: 100vh;
+	@apply bg-background h-[100vh] font-general;
 
 	@apply h-[100vh] flex justify-between gap-8 p-10;
 

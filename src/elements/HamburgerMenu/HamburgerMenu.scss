@@ -1,71 +1,56 @@
-@import "src/styles/colors.scss";
 @import "src/styles/constants.scss";
 
 .hamburger-navbar-overlay {
-	@apply fixed top-0 left-0 w-full h-[0%] opacity-0 invisible overflow-hidden;
-	font-family: "General Sans", sans-serif;
-	background: var(--theme-bg-primary, $bg-primary);
-	transition: opacity .35s, visibility .35s, height .35s;
+	@apply fixed top-0 left-0 
+		w-full h-[0%] pt-12
+		opacity-0 invisible overflow-hidden
+		bg-background 
+		font-general
+		transition-opacity transition-visibility transition-height duration-300;
 
 	&.open {
 		@apply opacity-100 visible h-[100%];
 
 		li {
-			animation: fadeInRight .5s ease forwards;
-			animation-delay: .35s;
+			animation: fadeInRight .4s ease forwards;
+			animation-delay: .1s;
 			
 			&:nth-of-type(2) {
-				animation-delay: .4s;
+				animation-delay: .2s;
 			}
 			&:nth-of-type(3) {
-				animation-delay: .45s;
+				animation-delay: .3s;
 			}
 			&:nth-of-type(4) {
-				animation-delay: .50s;
+				animation-delay: .4s;
 			}
 		}
 	}
 
 	nav {
-		@apply h-full flex flex-col gap-4 justify-center items-center
-			text-2xl mt-8 font-medium text-center;
-		color: var(--theme-primary, $primary);
+		@apply h-full w-full text-2xl flex justify-center font-medium text-center text-primary;
 	}
 
 	ul {
-		@apply flex justify-center items-center
+		@apply flex gap-16 justify-center items-center
 			list-none p-0 m-0;
 		
 		li {
-			display: block;
-			height: 25%;
-			height: calc(100% / 4);
-			min-height: 50px;
-			position: relative;
-			opacity: 0;
+			@apply block relative opacity-0;
 			
 			a {
-				display: block;
-				position: relative;
-				text-decoration: none;
-				overflow: hidden;
+				@apply block relative no-underline overflow-hidden;
 				
 				&:hover:after,
 					&:focus:after,
 					&:active:after {
-						width: 100%;
+						@apply w-full;
 					}
 				
 				&:after {
+					@apply absolute bottom-0 left-1/2 w-0 h-[3px] text-primary
+					duration-300 transform -translate-x-1/2;
 					content: '';
-					position: absolute;
-					bottom: 0;
-					left: 50%;
-					width: 0%;
-					transform: translateX(-50%);
-					height: 3px;
-					color: var(--theme-primary, $primary);
-					transition: .35s;
 				}
 			}
 		}
@@ -74,11 +59,17 @@
 
 @keyframes fadeInRight {
   0% {
-    opacity: 0;
-    left: 20%;
+		@apply opacity-0 left-[20%];
   }
   100% {
-    opacity: 1;
-    left: 0;
+		@apply opacity-100 left-0;
   }
+}
+
+.transition-visibility {
+  transition: visibility 0.35s;
+}
+
+.transition-height {
+  transition: height 0.35s;
 }

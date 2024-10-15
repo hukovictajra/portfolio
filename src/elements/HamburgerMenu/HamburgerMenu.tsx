@@ -14,7 +14,7 @@ export function HamburgerMenu({ className }: HamburgerMenuProps) {
 	return (
 		<div id="hamburger-nav" className={cn("hamburger-navbar-overlay", className)}>
 			<nav>
-				<ul className="flex flex-col gap-8">
+				<ul className="flex flex-col">
 					<li className="underline-effect">
 						<a href="#/" onClick={resetMenu}>
 							Homepage
