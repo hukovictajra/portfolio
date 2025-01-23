@@ -5,6 +5,7 @@ import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import FigmaEmbededFrame from "@elements/FigmaEmbededFrame/FigmaEmbededFrame";
 import { List, ListItem } from "@elements/List/List";
+import Medium from "@elements/Medium/Medium";
 
 export function NationalGeographicRemake() {
 	const { title, tags, colors } = NationalGeographicRemakeData;
@@ -19,12 +20,12 @@ export function NationalGeographicRemake() {
 			<BlogSection title="Design approach">
 				<List>
 					<ListItem>
-						<span className="font-semibold">Inspiration:</span> The original National Geographic
-						website's clean and visually rich aesthetic.
+						<Medium>Inspiration:</Medium> The original National Geographic website's clean and
+						visually rich aesthetic.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Key element changed: </span> Added an animated
-						introduction to make the website more interactive and engaging.
+						<Medium>Key element changed: </Medium> Added an animated introduction to make the
+						website more interactive and engaging.
 					</ListItem>
 				</List>
 			</BlogSection>
@@ -32,13 +33,12 @@ export function NationalGeographicRemake() {
 			<BlogSection title="Design features">
 				<List>
 					<ListItem>
-						<span className="font-semibold">Minimalist layout:</span> Prioritized simplicity and
-						functionality, maintaing a user-friendly experience.
+						<Medium>Minimalist layout:</Medium> Prioritized simplicity and functionality, maintaing
+						a user-friendly experience.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Interactive antimation:</span> The introduction
-						animation gives a modern and dynamic feel to the webside, enchancing the user's first
-						interaction.
+						<Medium>Interactive antimation:</Medium> The introduction animation gives a modern and
+						dynamic feel to the webside, enchancing the user's first interaction.
 					</ListItem>
 				</List>
 			</BlogSection>

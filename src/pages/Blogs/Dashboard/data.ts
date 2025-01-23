@@ -1,17 +1,18 @@
 import { Blog, BlogColors, BlogTagType } from "@data/models";
 
-export const GreenviewDashboardData: Blog = {
-	id: "greenview-dashboard",
+export const DashboardData: Blog = {
+	id: "dashboard",
 	position: 0,
 	showOnLanding: true,
-	title: "Greenview Dashboard",
-	image: "@images/blogs/green-view-dashboard/showcase.png",
+	title: "Dashboard",
+	image: "@images/blogs/dashboard/showcase.png",
 	colors: new BlogColors({
-		navbarBg: "#96CBC1",
+		navbarBg: "#3E3E3E",
+		navbarText: "#AEAEAE",
 
-		background: "#D6F3F3",
-		primary: "#101214",
-		secondary: "#96CBC1"
+		background: "#333333",
+		primary: "#AEAEAE",
+		secondary: "#5FA0BE"
 	}),
 	tags: [
 		{
@@ -43,7 +44,7 @@ export const GreenviewDashboardData: Blog = {
 				// },
 				{
 					text: "Figma Community",
-					url: "https://www.figma.com/community/file/1408255484114053601/dashboard-design-with-dark-and-light-mode"
+					url: "https://www.figma.com/community/file/1447271184154208951/dasboard"
 				}
 			]
 		}

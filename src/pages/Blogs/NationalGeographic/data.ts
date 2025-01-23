@@ -7,7 +7,7 @@ export const NationalGeographicRemakeData: Blog = {
 	title: "National Geographic Website Remake",
 	colors: new BlogColors({
 		navbarBg: "#C09900",
-		navbarText: "#FFFFFF",
+		navbarText: "#fafafa",
 
 		tagHoverBg: "#C09900",
 		tagHoverText: "#000000",
@@ -17,8 +17,8 @@ export const NationalGeographicRemakeData: Blog = {
 		workWithMeHoverBg: "#000000",
 		workWithMeHoverText: "#FFFFFF",
 
-		background: "#000000",
-		primary: "#FFFFFF",
+		background: "#333333",
+		primary: "#fafafa",
 		secondary: "#C09900"
 	}),
 	tags: [
@@ -45,10 +45,10 @@ export const NationalGeographicRemakeData: Blog = {
 			type: BlogTagType.Link,
 			prefix: "Links:",
 			items: [
-				{
-					text: "Figma",
-					url: "https://www.figma.com/design/JX5WiGcf9Gj3P7UvGmtQeQ/National-Geo-webside-remake?node-id=9-167&t=peKFFcveR8apjHhP-1"
-				},
+				// {
+				// 	text: "Figma",
+				// 	url: "https://www.figma.com/design/JX5WiGcf9Gj3P7UvGmtQeQ/National-Geo-webside-remake?node-id=9-167&t=iZn9VHVzcFi3YqWF-1"
+				// },
 				{
 					text: "Figma Community",
 					url: "https://www.figma.com/community/file/1422332976274230395/national-geographic-commercial-concept"

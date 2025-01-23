@@ -7,6 +7,7 @@ import { BlogPage } from "@pages/BlogPage/BlogPage";
 import { TagSection } from "@elements/TagSection/TagSection";
 import { BlogSection } from "@elements/BlogSection/BlogSection";
 import FigmaEmbededFrame from "@elements/FigmaEmbededFrame/FigmaEmbededFrame";
+import Medium from "@elements/Medium/Medium";
 
 export function Primecinema() {
 	const { title, tags, colors } = PrimecinemaData;
@@ -24,27 +25,24 @@ export function Primecinema() {
 				</Text>
 				<List>
 					<ListItem>
-						<span className="font-semibold">Autoplay Previews:</span> Each show or movie has an
-						animated preview, accompanied by basic information and a trailer for quick
-						decision-making.
+						<Medium>Autoplay Previews:</Medium> Each show or movie has an animated preview,
+						accompanied by basic information and a trailer for quick decision-making.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Dynamic Recommendations:</span> Four recommended shows
-						rotate every five seconds, allowing users to explore new content effortlessly.
+						<Medium>Dynamic Recommendations:</Medium> Four recommended shows rotate every five
+						seconds, allowing users to explore new content effortlessly.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Category Switching:</span> Users can easily navigate
-						between different categories (Movies, TV Shows, Documentaries) for a diverse browsing
-						experience.
+						<Medium>Category Switching:</Medium> Users can easily navigate between different
+						categories (Movies, TV Shows, Documentaries) for a diverse browsing experience.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Minimalist Design:</span> A clean, white-themed
-						interface, complemented by original show logos for added visual uniqueness.
+						<Medium>Minimalist Design:</Medium> A clean, white-themed interface, complemented by
+						original show logos for added visual uniqueness.
 					</ListItem>
 					<ListItem>
-						<span className="font-semibold">Interactive Elements:</span> Includes essential controls
-						such as a mute button, notification bell, settings cogwheel, and profile access for user
-						convenience.
+						<Medium>Interactive Elements:</Medium> Includes essential controls such as a mute
+						button, notification bell, settings cogwheel, and profile access for user convenience.
 					</ListItem>
 				</List>
 			</BlogSection>

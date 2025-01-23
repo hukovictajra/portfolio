@@ -4,7 +4,6 @@ import {
 	NationalGeographicRemake,
 	NationalGeographicRemakeData
 } from "@pages/Blogs/NationalGeographic";
-import { MetroSweetsBakery, MetroSweetsBakeryData } from "@pages/Blogs/MetroSweetsBakery";
 import { SunflowerPostcard, SunflowerPostcardData } from "@pages/Blogs/SunflowerPostcard";
 import { GreenviewDashboard, GreenviewDashboardData } from "@pages/Blogs/GreenviewDashboard";
 import {
@@ -13,6 +12,8 @@ import {
 } from "@pages/Blogs/TributeToWinterOlympics";
 import { Primecinema, PrimecinemaData } from "@pages/Blogs/Primecinema";
 import { ReactNode } from "react";
+import { Dashboard } from "@pages/Blogs/Dashboard/Dashboard";
+import { DashboardData } from "@pages/Blogs/Dashboard/data";
 
 export interface BlogComponent {
 	component: () => ReactNode;
@@ -20,10 +21,11 @@ export interface BlogComponent {
 }
 
 export const blogs: BlogComponent[] = [
-	{ component: NationalGeographicRemake, data: NationalGeographicRemakeData },
-	{ component: Primecinema, data: PrimecinemaData },
+	{ component: Dashboard, data: DashboardData },
 	{ component: GreenviewDashboard, data: GreenviewDashboardData },
-	{ component: MetroSweetsBakery, data: MetroSweetsBakeryData },
+	{ component: Primecinema, data: PrimecinemaData },
+	{ component: NationalGeographicRemake, data: NationalGeographicRemakeData },
+	// { component: MetroSweetsBakery, data: MetroSweetsBakeryData },
 	{ component: MelodicMix, data: MelodicMixData },
 	{ component: TributeToThe1984WinterOlympics, data: TributeToThe1984WinterOlympicsData },
 	{ component: SunflowerPostcard, data: SunflowerPostcardData }

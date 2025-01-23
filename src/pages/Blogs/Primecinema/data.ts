@@ -16,7 +16,7 @@ export const PrimecinemaData: Blog = {
 		tagHoverBg: "#1E1225",
 
 		background: "#3C3043",
-		primary: "#FFFFFF",
+		primary: "#f2f3f2",
 		secondary: "#1E1225"
 	},
 	tags: [
@@ -43,10 +43,10 @@ export const PrimecinemaData: Blog = {
 			type: BlogTagType.Link,
 			prefix: "Links:",
 			items: [
-				{
-					text: "Figma",
-					url: "https://www.figma.com/proto/YB5FRJBeUcRcILVPnVGqZa/TV-app?node-id=59-230&node-type=canvas&t=9UOXlRG2dvxBMKxU-1&scaling=min-zoom&content-scaling=fixed&page-id=4%3A313&starting-point-node-id=59%3A230"
-				},
+				// {
+				// 	text: "Figma",
+				// 	url: "https://www.figma.com/proto/YB5FRJBeUcRcILVPnVGqZa/TV-app?node-id=59-230&node-type=canvas&t=9UOXlRG2dvxBMKxU-1&scaling=min-zoom&content-scaling=fixed&page-id=4%3A313&starting-point-node-id=59%3A230"
+				// },
 				{
 					text: "Figma Community",
 					url: "https://www.figma.com/community/file/1424806976126567954/tv-app-project-simplified-content-exploration-with-autoplay-previews"
