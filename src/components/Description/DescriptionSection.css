@@ -1,0 +1,11 @@
+#bar {
+	@apply flex flex-col gap-8;
+}
+
+#bar-image {
+	@apply w-full pb-10;
+}
+
+#bar-image img {
+	@apply w-full;
+}

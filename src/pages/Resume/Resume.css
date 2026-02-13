@@ -1,0 +1,176 @@
+/* Resume Page Styles */
+
+.resume-main {
+	@apply min-h-screen pt-20;
+	background-color: #0f0f0f;
+}
+
+.resume-container {
+	@apply max-w-6xl mx-auto px-4 py-8;
+}
+
+.resume-header {
+	@apply flex justify-between items-center mb-8 flex-wrap gap-4;
+}
+
+.resume-title {
+	@apply text-4xl font-bold text-white m-0;
+}
+
+.resume-actions {
+	@apply flex gap-4 items-center;
+}
+
+.resume-download-btn,
+.resume-fullscreen-btn {
+	@apply flex items-center gap-2 px-6 py-3 border-2 bg-transparent no-underline font-medium transition-all duration-300 cursor-none text-sm hover:-translate-y-0.5;
+	border-color: white;
+	color: white;
+}
+
+.resume-download-btn:hover,
+.resume-fullscreen-btn:hover {
+	@apply bg-pink-400 border-pink-400;
+}
+
+.resume-viewer-container {
+	@apply relative w-full overflow-hidden bg-white shadow-lg;
+	border: 1px solid #232323;
+	/* A4 aspect ratio is 1:1.414 (210mm x 297mm) */
+	height: 100vh;
+	max-width: calc(70vh / 1.414);
+	margin: 0 auto;
+}
+
+.resume-iframe {
+	@apply w-full h-full border-none block;
+}
+
+.resume-loading {
+	@apply absolute inset-0 flex flex-col items-center justify-center z-10;
+	background-color: #0f0f0f;
+}
+
+/* .resume-loading.hidden {
+	@apply hidden;
+} */
+
+.resume-spinner {
+	@apply w-10 h-10 border-4 animate-spin mb-4;
+	border-color: #232323;
+}
+
+.resume-loading p {
+	@apply text-base;
+	color: #b1b1b1;
+}
+
+.resume-mobile-notice {
+	@apply mt-6 p-4 border-l-4 hidden;
+	background-color: #232323;
+}
+
+.resume-mobile-notice p {
+	@apply text-sm m-0;
+	color: #b1b1b1;
+}
+
+/* Fullscreen styles */
+.resume-fullscreen {
+	@apply fixed inset-0 w-screen h-screen z-50 bg-black;
+}
+
+.resume-fullscreen .resume-iframe {
+	@apply w-full h-full;
+}
+
+/* Active navigation item */
+.navbar-navigation-item.active,
+.mobile-menu-item.active {
+	color: #ec4899;
+	@apply font-semibold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+	.resume-main {
+		@apply pt-16;
+	}
+
+	.resume-container {
+		@apply px-3 py-4;
+	}
+
+	.resume-title {
+		@apply text-3xl;
+	}
+
+	.resume-header {
+		@apply flex-col items-center gap-6;
+	}
+
+	.resume-actions {
+		@apply w-full justify-center gap-3;
+	}
+
+	.resume-download-btn,
+	.resume-fullscreen-btn {
+		@apply flex-1 justify-center px-4 py-3 text-sm;
+		max-width: 200px;
+	}
+
+	.resume-viewer-container {
+		/* Mobile: use more screen height for better visibility */
+		height: 60vh;
+		max-width: calc(60vh / 1.414);
+		width: 95vw;
+	}
+
+	.resume-mobile-notice {
+		@apply block;
+	}
+}
+
+@media (max-width: 480px) {
+	.resume-title {
+		@apply text-2xl;
+	}
+
+	.resume-actions {
+		@apply flex-row w-full gap-2 justify-center;
+	}
+
+	.resume-download-btn,
+	.resume-fullscreen-btn {
+		@apply justify-center px-3 py-2 text-xs;
+		max-width: 140px;
+		flex: 0 1 auto;
+	}
+
+	.resume-viewer-container {
+		height: 55vh;
+		max-width: calc(55vh / 1.414);
+		width: 95vw;
+	}
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+	.resume-viewer-container {
+		/* In landscape, prioritize height and maintain A4 ratio */
+		height: 80vh;
+		max-height: 80vh;
+		max-width: calc(80vh / 1.414);
+	}
+
+	.resume-mobile-notice {
+		@apply hidden;
+	}
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.resume-viewer-container {
+		border-width: 0.5px;
+	}
+}

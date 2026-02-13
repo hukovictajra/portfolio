@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: "Inter", sans-serif;
+	scroll-behavior: smooth;
+	@apply bg-[#0f0f0f] text-white font-[Inter] overflow-x-hidden;
+	cursor: none;
+}
+
+/* Show default cursor on mobile devices */
+@media (max-width: 768px), (hover: none) {
+	body {
+		cursor: auto !important;
+	}
+
+	/* Hide custom cursor elements on mobile */
+	.cursor-dot,
+	.cursor-dot-outline {
+		display: none !important;
+	}
+}
+
+/* Also hide custom cursor on touch devices */
+@media (pointer: coarse) {
+	body {
+		cursor: auto !important;
+	}
+
+	.cursor-dot,
+	.cursor-dot-outline {
+		display: none !important;
+	}
+}
+
+.inria-regular {
+	font-family: "Inria Serif", serif;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 120%;
+}
+
+.inria-italic-bold {
+	font-family: "Inria Serif", serif;
+	font-weight: 700;
+	font-style: italic;
+	line-height: 120%;
+}
+
+a {
+	@apply cursor-none;
+}
+
+ul {
+	@apply list-disc list-inside text-white text-sm leading-relaxed pl-2 pt-2
+		md:text-base
+		lg:text-xl;
+}
+
+li {
+	@apply xl:pb-1;
+}

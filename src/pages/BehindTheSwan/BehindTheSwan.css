@@ -1,0 +1,16 @@
+.bar-dashboard-lists {
+	@apply flex flex-col gap-4
+    md:gap-4
+    lg:gap-6
+    xl:flex-row xl:gap-20;
+}
+
+.bar-dashboard-left {
+	@apply w-full 
+    xl:w-1/2;
+}
+
+.bar-dashboard-right {
+	@apply w-full 
+    xl:w-1/2;
+}

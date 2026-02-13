@@ -1,0 +1,11 @@
+#vitta .project-header-chips-container {
+	@apply md:w-[50%];
+}
+
+#vitta .project-header-paragraph {
+	@apply w-[80%];
+}
+
+#vitta .project-header-title {
+	font-family: "pacifico";
+}
