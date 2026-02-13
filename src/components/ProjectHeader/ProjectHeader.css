@@ -1,0 +1,56 @@
+#project-header {
+	@apply flex flex-col gap-8 pt-24 pb-6 mb-6
+    md:flex-row
+		lg:pb-12 lg:pt-28;
+}
+
+.project-header-text-container {
+	@apply flex flex-col gap-6
+		lg:gap-10;
+}
+
+.project-header-title {
+	font-family: "Inria Serif";
+	@apply text-4xl
+		sm:text-5xl
+		lg:text-6xl;
+}
+
+.project-header-paragraph {
+	font-family: "Inter";
+	@apply text-sm font-light
+		sm:text-base
+		lg:text-xl lg:w-[55%];
+}
+
+.project-header-chips-container {
+	@apply flex justify-between w-full
+    md:w-[70%];
+}
+
+.overivew-chip {
+	@apply flex flex-col;
+}
+
+.project-header-chip-title {
+	font-family: "Istok Web";
+	@apply text-[rgba(255,183,197,0.74)] font-light text-sm
+		sm:text-base
+		lg:text-xl;
+}
+
+.project-header-chip-title {
+	font-family: "Istok Web";
+}
+
+.project-header-chip-content {
+	@apply text-sm font-light break-words [word-break:break-word]
+    sm:text-base
+    lg:text-xl;
+}
+
+.project-header-chip-link {
+	@apply text-sm font-light break-words [word-break:break-word] underline hover:no-underline transition-all duration-200
+    sm:text-base
+    lg:text-xl;
+}

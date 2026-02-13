@@ -1,0 +1,41 @@
+.ui-elements-subsection {
+	@apply grid grid-cols-1 gap-4
+		lg:grid-cols-10 lg:gap-10 lg:items-center;
+}
+
+.ui-elements-sub-section {
+	@apply flex flex-col mb-4;
+}
+
+.ui-elements-subsection-title {
+	@apply text-[#A9A9A9] text-lg
+		sm:text-xl
+		md:text-2xl
+		lg:col-span-3
+		xl:col-span-2;
+}
+
+.ui-elements-subsection-content {
+	@apply lg:col-span-7
+		xl:col-span-8;
+}
+
+.ui-elements-typography-fonts {
+	@apply flex flex-col gap-2 text-sm
+		sm:text-base sm:flex-row
+    md:text-xl md:gap-8
+		lg:gap-4
+		xl:justify-start xl:gap-8;
+}
+
+.ui-elements-color-samples {
+	@apply flex gap-4 mb-2
+		sm:mb-4;
+}
+
+.ui-elements-color-sample {
+	@apply w-10 h-10 rounded-full aspect-square border-[1px] border-[#2F2F2F]
+		sm:w-12 sm:h-12
+		md:w-14 md:h-14
+		lg:w-16 lg:h-16;
+}

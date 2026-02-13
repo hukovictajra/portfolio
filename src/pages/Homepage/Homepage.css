@@ -1,0 +1,437 @@
+/* @import "tailwindcss"; */
+.hero-video::-webkit-media-controls-start-playback-button {
+	display: none !important;
+	-webkit-appearance: none;
+}
+
+/* Natural falling leaf animation with swaying motion */
+@keyframes fall {
+	0% {
+		transform: translateY(0) translateX(0) rotate(0deg);
+		opacity: 0;
+	}
+
+	5% {
+		opacity: 0.6;
+	}
+
+	25% {
+		transform: translateY(calc(var(--fall-distance) * 0.25)) translateX(15px) rotate(90deg);
+	}
+
+	50% {
+		transform: translateY(calc(var(--fall-distance) * 0.5)) translateX(-20px) rotate(180deg);
+	}
+
+	75% {
+		transform: translateY(calc(var(--fall-distance) * 0.75)) translateX(25px) rotate(270deg);
+	}
+
+	95% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(var(--fall-distance)) translateX(-15px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+/* Slower, more gentle falling animation with different sway pattern */
+@keyframes fallSlow {
+	0% {
+		transform: translateY(0) translateX(0) rotate(0deg);
+		opacity: 0;
+	}
+
+	8% {
+		opacity: 1;
+	}
+
+	20% {
+		transform: translateY(calc(var(--fall-distance) * 0.2)) translateX(-12px) rotate(60deg);
+	}
+
+	40% {
+		transform: translateY(calc(var(--fall-distance) * 0.4)) translateX(18px) rotate(140deg);
+	}
+
+	60% {
+		transform: translateY(calc(var(--fall-distance) * 0.6)) translateX(-25px) rotate(220deg);
+	}
+
+	80% {
+		transform: translateY(calc(var(--fall-distance) * 0.8)) translateX(20px) rotate(300deg);
+	}
+
+	92% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(var(--fall-distance)) translateX(8px) rotate(360deg);
+		opacity: 0;
+	}
+}
+
+.leaf {
+	position: absolute;
+	pointer-events: none;
+	user-select: none;
+	animation-name: fall;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	will-change: transform, opacity;
+	background-image: url("images/cherryblossom.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 1;
+}
+
+.leaf-slow {
+	position: absolute;
+	pointer-events: none;
+	user-select: none;
+	animation-name: fallSlow;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	will-change: transform, opacity;
+	background-image: url("images/cherryblossom.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	filter: drop-shadow(0 0 2px rgba(255, 182, 193, 0.5));
+	z-index: 1;
+}
+
+/* Ensure all sections have proper z-index above leaves */
+.section {
+	position: relative;
+	z-index: 10;
+}
+
+/* Hero Overlay */
+#hero {
+	@apply w-full h-screen relative overflow-hidden;
+}
+
+.hero-video {
+	@apply w-full h-full object-cover;
+}
+
+.hero-backdrop {
+	@apply absolute inset-0 bg-black opacity-50 h-full;
+}
+
+.hero-container {
+	@apply absolute inset-0 flex flex-col items-center justify-center text-center z-10;
+}
+
+.hero-title {
+	@apply text-3xl font-medium italic mb-4 px-6 py-2 rounded-md
+		sm:text-4xl
+		md:text-5xl
+		xl:text-6xl;
+}
+
+.hero-subtitle-container {
+	@apply flex flex-wrap flex-col justify-center gap-2
+		xs:flex-row xs:gap-0;
+}
+
+.hero-subtitle-item {
+	@apply text-white text-base font-normal leading-none tracking-[0.6px] px-4 py-1 rounded
+		sm:text-xl;
+}
+
+/* About */
+#about {
+	@apply font-[Inter] relative;
+}
+
+.about-quote-container {
+	@apply py-8
+		md:py-10
+		xl:py-12;
+}
+
+.about-quote-text {
+	@apply text-lg text-center break-keep whitespace-normal leading-relaxed
+		xs:text-xl
+		sm:text-2xl
+		md:text-left
+		lg:text-3xl
+		xl:text-4xl;
+}
+
+.about-info-container {
+	@apply grid gap-10 items-start border-t border-b border-[#232323]
+		md:grid-cols-2;
+}
+
+.about-info-text-container {
+	@apply pt-6 h-full flex flex-col justify-start 
+		md:justify-center;
+}
+
+.about-info-text-title {
+	font-family: "Inria Serif";
+	@apply text-2xl font-semibold italic mb-6 text-left
+		sm:mb-8
+		lg:mb-10
+		xl:text-4xl;
+}
+
+.about-info-text-paragraph-container {
+	@apply flex flex-col gap-4 mb-8
+	lg:mb-10
+	xl:gap-8;
+}
+
+.about-info-text-paragraph {
+	font-family: "Inria Serif";
+	@apply text-sm font-light leading-6
+		xs:text-base
+		lg:text-lg
+		xl:text-2xl;
+}
+
+.about-info-text-footer-paragraph {
+	font-family: "Inria Serif";
+	@apply text-base italic font-bold leading-6
+		xs:text-lg
+		md:mb-12
+		xl:text-2xl xl:mb-10;
+}
+
+.about-info-image-container {
+	@apply w-full h-full flex pb-8
+		md:pb-0;
+}
+
+.about-info-image-container img {
+	@apply h-full w-full object-cover pb-0
+		md:self-center;
+}
+
+/* Design Projects */
+
+#design-projects {
+	@apply font-[Inter] relative;
+}
+
+.design-projects-section-title {
+	@apply text-xl mb-6 text-left
+		sm:mb-8
+		md:text-2xl
+		lg:text-4xl lg:mb-10;
+}
+
+.design-projects-container {
+	@apply grid grid-cols-1 md:grid-cols-2 gap-8
+		sm:gap-12;
+}
+
+.design-project-card {
+	@apply flex flex-col gap-2 cursor-none
+		lg:gap-4;
+	position: relative;
+}
+
+.design-project-image-container {
+	@apply w-full aspect-square bg-gray-100 flex items-center justify-center overflow-hidden max-h-[180px]
+		xs:max-h-[220px]
+		md:max-h-[250px]
+		lg:max-h-[300px]
+		xl:max-h-[350px]
+		2xl:max-h-[400px];
+}
+
+.design-project-image {
+	@apply w-full h-full object-cover;
+}
+
+.design-project-pill-container {
+	@apply flex gap-4
+	md:gap-2
+	lg:gap-4;
+}
+
+.design-project-pill {
+	@apply text-[10px] px-4 py-[2px] border border-white
+		md:text-xs
+		lg:text-sm lg:px-6
+		xl:text-base;
+}
+
+.design-project-card-title-container {
+	@apply flex flex-col;
+}
+
+.design-project-title {
+	@apply text-lg font-medium m-0 block
+		lg:text-2xl
+		xl:text-3xl;
+}
+
+.design-project-subtitle {
+	@apply text-sm font-extralight m-0 block
+		lg:text-lg
+		xl:text-xl;
+}
+
+.design-project-view-more-container {
+	@apply border-b border-[#232323] pb-6;
+}
+
+.design-projects-view-more {
+	@apply flex items-center justify-center gap-1 w-max
+		md:justify-start
+		lg:gap-2;
+}
+
+.design-projects-view-more-text {
+	font-family: "Istok Web";
+	@apply text-xl md:text-2xl lg:text-3xl;
+	position: relative; /* Needed for ::after */
+	display: inline-block;
+}
+
+/* Animated underline on hover */
+.design-projects-view-more-text::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: rgba(237, 127, 149, 0.8);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease-in-out;
+}
+
+.design-projects-view-more:hover .design-projects-view-more-text::after {
+	transform: scaleX(1);
+}
+
+.design-projects-view-more-icon {
+	@apply h-4 w-4 lg:h-6 lg:w-6;
+}
+
+/* Quote */
+
+.homepage-line {
+	@apply border-[1px] border-[#2F2F2F];
+}
+
+#quote {
+	@apply py-5
+		xl:py-5;
+}
+
+.quote-container {
+	@apply flex flex-col gap-4 border-t-[1px] border-b-[1px] border-[#2F2F2F] py-5
+		xl:py-10;
+}
+
+.quote-text {
+	font-family: "Inria Serif";
+	@apply text-lg font-light text-center
+		xs:text-xl
+		md:text-2xl md:text-left
+		lg:text-3xl;
+}
+
+.quote-author {
+	font-family: "Inria Serif";
+	@apply italic text-base text-[#B1B1B1] self-end leading-[120%]
+		xs:text-lg
+		md:text-xl
+		lg:text-2xl;
+}
+
+#qna {
+	@apply mt-10;
+}
+
+.qna-accordion-container {
+	@apply border-t border-[#2F2F2F];
+}
+
+.qna-accordion-container:last-child {
+	@apply border-b border-[#2F2F2F];
+}
+
+.qna-accordion-header {
+	@apply w-full flex justify-between items-center py-3 text-left;
+}
+
+.qna-accordion-header-title {
+	@apply text-base font-medium
+		lg:text-2xl;
+}
+
+.qna-accordion-header-plus {
+	@apply text-xl transition-transform duration-300
+		lg:text-3xl;
+}
+
+.qna-accordion-content {
+	overflow: hidden;
+	transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out, padding 0.3s ease-out;
+	@apply text-gray-300 text-sm
+		lg:text-lg
+		xl:text-xl;
+}
+
+.qna-accordion-open {
+	max-height: 200px;
+	opacity: 1;
+	@apply pb-5;
+}
+
+.qna-accordion-closed {
+	max-height: 0;
+	opacity: 0;
+	@apply pb-0;
+}
+
+.qna-accordion-button span:last-child {
+	transition: transform 0.3s ease-out;
+}
+
+.qna-accordion-button:hover span:last-child {
+	transform: scale(1.1);
+}
+
+/* LWT - Lets work together */
+#lwt {
+}
+
+.lwt-image {
+	@apply w-full h-full object-cover;
+}
+
+/* Smooth transitions for hoverable elements */
+.design-project-card,
+.gallery-item,
+.navbar-navigation-item,
+.mobile-menu-item,
+.hero-subtitle-item,
+.qna-accordion-button {
+	transition: transform 0.2s ease;
+}
+
+.design-project-card:hover,
+.gallery-item:hover {
+	transform: translateY(-2px);
+}
+
+/* Optional: Add cursor interaction hints */
+[data-cursor-text] {
+	cursor: none;
+}

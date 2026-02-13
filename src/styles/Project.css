@@ -1,0 +1,41 @@
+.section {
+	@apply pb-10 px-4
+		2xs:px-6
+		xs:px-8
+    xl:px-16;
+}
+
+.text-section {
+	@apply grid grid-cols-1 gap-y-4
+    md:grid-cols-12 md:gap-x-12;
+}
+
+.section-title {
+	font-family: "Inria Serif";
+	@apply text-2xl font-bold
+		sm:text-3xl
+    md:col-span-3 md:text-2xl
+		lg:text-3xl
+    xl:col-span-2;
+}
+
+.section-content {
+	font-family: "Inter";
+	@apply text-sm font-extralight
+    sm:text-base
+		md:col-span-9
+		lg:text-xl
+    xl:col-span-10;
+}
+
+.section-multi-content {
+	@apply flex flex-col gap-4
+		lg:gap-8
+		xl:gap-10;
+}
+
+.section-topbar {
+	@apply mt-4 pt-4 border-t-[1px] border-[#232323]
+		md:mt-6 md:pt-8
+		xl:mt-10 xl:pt-12;
+}

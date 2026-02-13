@@ -1,0 +1,13 @@
+#goal {
+	@apply flex flex-col gap-4 w-full
+		md:flex-row md:items-center md:gap-8;
+}
+
+.goal-image {
+	@apply md:w-1/2;
+}
+
+.goal-content-container {
+	@apply flex flex-col gap-2 
+		md:w-1/2;
+}

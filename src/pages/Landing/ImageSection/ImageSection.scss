@@ -1,9 +1,0 @@
-@import "src/styles/constants.scss";
-
-#image-section {
-	@apply w-[70vw] max-w-[70%] grid grid-cols-1 gap-4 overflow-y-scroll;
-
-	@screen lg {
-		@apply w-[100vw] max-w-[100%] justify-center
-	}
-}

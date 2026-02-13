@@ -1,0 +1,11 @@
+#wireframing {
+	@apply flex flex-col gap-8;
+}
+
+#wireframing-image img {
+	@apply w-full;
+}
+
+#wireframing-image {
+	@apply w-full pb-10;
+}

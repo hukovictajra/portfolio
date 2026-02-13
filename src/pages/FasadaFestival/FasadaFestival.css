@@ -1,0 +1,19 @@
+#fasada-festival .project-header-chips-container {
+	@apply md:w-[50%];
+}
+
+.bar-fasada-lists {
+	@apply flex flex-col gap-4
+    lg:gap-6
+    xl:flex-row xl:gap-20;
+}
+
+.bar-fasda-left {
+	@apply w-full 
+    xl:w-1/2;
+}
+
+.bar-fasada-right {
+	@apply w-full 
+    xl:w-1/2;
+}
