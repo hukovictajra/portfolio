@@ -8,6 +8,7 @@ import { FasadaFestival } from "./pages/FasadaFestival/FasadaFestival";
 import { MontazaTehnike } from "./pages/MontazaTehnike/MontazaTehnike";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { MelodicMix } from "./pages/MelodicMix/MelodicMix";
+import { BehindTheSwan } from "./pages/BehindTheSwan/BehindTheSwan";
 import { CustomCursor } from "./components/CustomCursor";
 import { createHashHistory } from "history";
 
@@ -36,6 +37,7 @@ export function App() {
 				<Vitta path="/vitta" />
 				<Dashboard path="/dashboard" />
 				<MelodicMix path="/melodic-mix" />
+				<BehindTheSwan path="/behind-the-swan" />
 				<Homepage default />
 			</Router>
 

@@ -371,7 +371,7 @@
 }
 
 .qna-accordion-header-title {
-	@apply text-base font-medium
+	@apply text-base font-medium cursor-none
 		lg:text-2xl;
 }
 
@@ -398,6 +398,10 @@
 	max-height: 0;
 	opacity: 0;
 	@apply pb-0;
+}
+
+.qna-accordion-button {
+		cursor: none !important;
 }
 
 .qna-accordion-button span:last-child {
@@ -435,3 +439,4 @@
 [data-cursor-text] {
 	cursor: none;
 }
+

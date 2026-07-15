@@ -104,6 +104,10 @@ function initializeGallery() {
 	function startAutoScroll() {
 		if (!shouldInfiniteScroll) return; // Don't auto-scroll if all images are visible
 
+		// Don't start auto-scroll if modal is open
+		const modal = document.getElementById("gallery-modal");
+		if (modal && modal.classList.contains("active")) return;
+
 		if (autoScrollInterval) {
 			clearInterval(autoScrollInterval);
 		}
@@ -182,7 +186,7 @@ function initializeGallery() {
 	}
 
 	// Initialize modal functionality
-	initializeModal(shouldInfiniteScroll);
+	initializeModal(shouldInfiniteScroll, startAutoScroll, stopAutoScroll);
 
 	// Only start auto-scroll if infinite scroll is enabled
 	if (shouldInfiniteScroll) {
@@ -192,7 +196,7 @@ function initializeGallery() {
 }
 
 // Initialize modal functionality
-function initializeModal(shouldInfiniteScroll) {
+function initializeModal(shouldInfiniteScroll, startAutoScroll, stopAutoScroll) {
 	const modal = document.getElementById("gallery-modal");
 	const modalImage = document.getElementById("gallery-modal-image");
 	const modalImageContainer = document.querySelector(".gallery-modal-image-container");
@@ -278,6 +282,7 @@ function initializeModal(shouldInfiniteScroll) {
 	});
 
 	function openModal(index) {
+		if (stopAutoScroll) stopAutoScroll();
 		currentModalIndex = index;
 		resetZoom();
 		updateModalContent();
@@ -289,6 +294,7 @@ function initializeModal(shouldInfiniteScroll) {
 		modal.classList.remove("active");
 		document.body.style.overflow = ""; // Restore scrolling
 		resetZoom();
+		if (startAutoScroll) startAutoScroll();
 	}
 
 	function showPrevImage() {

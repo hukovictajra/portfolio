@@ -14,6 +14,7 @@
     "history": "^5.3.0",
     "preact": "^10.19.3",
     "preact-router": "^4.1.2",
+    "react-pageflip": "^2.0.3",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {

@@ -1,0 +1,190 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.booklet-container {
+		@apply w-full flex flex-col items-center justify-center gap-8 py-12;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.booklet-wrapper {
+		@apply relative w-full flex items-center justify-center;
+		perspective: 2500px;
+		perspective-origin: center;
+		min-height: 600px;
+	}
+
+	.booklet-flipbook {
+		@apply mx-auto;
+		transform-style: preserve-3d;
+		box-shadow:
+			0 20px 60px rgba(0, 0, 0, 0.5),
+			0 10px 30px rgba(0, 0, 0, 0.3),
+			0 5px 15px rgba(0, 0, 0, 0.2);
+	}
+
+	.booklet-page {
+		@apply relative;
+		background: transparent;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.booklet-page-content {
+		@apply w-full h-full;
+	}
+
+	.booklet-page-image {
+		@apply w-full h-full;
+		display: block;
+		object-fit: contain;
+	}
+
+	.booklet-page-number {
+		@apply absolute bottom-4 right-4 text-white/40 text-sm font-light;
+	}
+
+	.booklet-controls {
+		@apply flex items-center justify-center gap-6 mt-8;
+	}
+
+	.booklet-button {
+		@apply bg-[rgba(255,183,197,0.1)] hover:bg-[rgba(255,183,197,0.2)] 
+			text-white p-3 rounded-full transition-all duration-300
+			border border-[rgba(255,183,197,0.3)] hover:border-[rgba(255,183,197,0.5)]
+			flex items-center justify-center;
+		min-width: 48px;
+		min-height: 48px;
+		cursor: pointer;
+	}
+
+	.booklet-button:hover {
+		transform: scale(1.05);
+	}
+
+	.booklet-button:active {
+		transform: scale(0.95);
+	}
+
+	.booklet-button svg {
+		@apply w-6 h-6;
+	}
+
+	.booklet-pagination {
+		@apply flex flex-col items-center gap-3;
+	}
+
+	.booklet-page-info {
+		@apply text-white/70 text-sm font-light tracking-wider;
+	}
+
+	.booklet-dots {
+		@apply flex items-center gap-2;
+	}
+
+	.booklet-dot {
+		@apply w-2 h-2 rounded-full transition-all duration-300;
+		background: rgba(255, 183, 197, 0.3);
+		border: none;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	.booklet-dot:hover {
+		@apply scale-125;
+		background: rgba(255, 183, 197, 0.5);
+	}
+
+	.booklet-dot.active {
+		@apply w-8;
+		background: rgba(255, 183, 197, 0.8);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.booklet-wrapper {
+			min-height: 500px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.booklet-container {
+			@apply py-8 gap-6;
+		}
+
+		.booklet-wrapper {
+			min-height: 450px;
+			@apply px-4;
+		}
+
+		.booklet-page-content {
+			padding: 0;
+		}
+
+		.booklet-controls {
+			@apply gap-4 mt-6;
+		}
+
+		.booklet-button {
+			min-width: 44px;
+			min-height: 44px;
+		}
+
+		.booklet-button svg {
+			@apply w-5 h-5;
+		}
+
+		.booklet-pagination {
+			@apply gap-2;
+		}
+
+		.booklet-page-info {
+			@apply text-xs;
+		}
+
+		.booklet-dots {
+			@apply gap-1.5;
+		}
+
+		.booklet-dot {
+			@apply w-1.5 h-1.5;
+		}
+
+		.booklet-dot.active {
+			@apply w-6;
+		}
+
+		.booklet-page-number {
+			@apply bottom-3 right-3 text-xs;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.booklet-wrapper {
+			min-height: 400px;
+		}
+
+		.booklet-page-content {
+			padding: 0;
+		}
+
+		.booklet-controls {
+			@apply gap-3;
+		}
+
+		.booklet-button {
+			min-width: 40px;
+			min-height: 40px;
+		}
+	}
+
+	/* Hide page numbers on very small screens */
+	@media (max-width: 375px) {
+		.booklet-page-number {
+			display: none;
+		}
+	}
+}

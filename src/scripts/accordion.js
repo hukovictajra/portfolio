@@ -1,4 +1,8 @@
 document.querySelectorAll(".qna-accordion-button").forEach((button, index) => {
+	// Add cursor-breakpoint class and data-label for custom cursor
+	button.classList.add("cursor-breakpoint");
+	button.setAttribute("data-label", "Click");
+	
 	button.addEventListener("click", () => {
 		const content = button.nextElementSibling;
 		const icon = button.querySelector(".qna-accordion-header-plus");

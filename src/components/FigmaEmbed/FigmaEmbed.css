@@ -1,0 +1,52 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.figma-embed-container {
+		@apply w-full flex items-center justify-center py-12;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.figma-embed-wrapper {
+		@apply w-full relative;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		height: 0;
+		overflow: hidden;
+		border-radius: 8px;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 183, 197, 0.2);
+	}
+
+	.figma-embed-iframe {
+		@apply absolute top-0 left-0 w-full h-full;
+		border: none;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 1024px) {
+		.figma-embed-container {
+			@apply py-10;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.figma-embed-container {
+			@apply py-8 px-4;
+		}
+
+		.figma-embed-wrapper {
+			border-radius: 6px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.figma-embed-container {
+			@apply py-6 px-2;
+		}
+
+		.figma-embed-wrapper {
+			border-radius: 4px;
+		}
+	}
+}

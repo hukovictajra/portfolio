@@ -6,24 +6,28 @@ import "./Navbar.css";
 const projects = [
 	{
 		name: "Vitta",
-		path: "vitta",
+		path: "vitta"
+	},
+	{
+		name: "Behind the Swan",
+		path: "behind-the-swan"
 	},
 	{
 		name: "Fasada Festival",
-		path: "fasada-festival",
+		path: "fasada-festival"
 	},
 	{
 		name: "Montaža Tehnike",
-		path: "montaza-tehnike",
+		path: "montaza-tehnike"
 	},
 	{
 		name: "Dashboard",
-		path: "dashboard",
+		path: "dashboard"
 	},
 	{
 		name: "Melodic Mix",
-		path: "melodic-mix",
-	},
+		path: "melodic-mix"
+	}
 ];
 
 export function Navbar() {
@@ -138,10 +142,18 @@ export function Navbar() {
 								))}
 							</div>
 						</div>
-						<a href="#qna" className="navbar-navigation-item" onClick={(e) => handleNavClick("/portfolio#qna", e)}>
+						<a
+							href="#qna"
+							className="navbar-navigation-item"
+							onClick={(e) => handleNavClick("/portfolio#qna", e)}
+						>
 							About
 						</a>
-						<a href="resume" className="navbar-navigation-item" onClick={(e) => handleNavClick("resume", e)}>
+						<a
+							href="resume"
+							className="navbar-navigation-item"
+							onClick={(e) => handleNavClick("resume", e)}
+						>
 							Resume
 						</a>
 						<a
@@ -193,7 +205,7 @@ export function Navbar() {
 					>
 						Projects
 					</a>
-					<div className="mobile-menu-projects">
+					{/* <div className="mobile-menu-projects">
 						{projects.map((project) => (
 							<a
 								key={project.path}
@@ -204,12 +216,20 @@ export function Navbar() {
 								{project.name}
 							</a>
 						))}
-					</div>
-					<a href="/portfolio#qna" className="mobile-menu-item" onClick={(e) => handleNavClick("/portfolio#qna", e)}>
+					</div> */}
+					<a
+						href="/portfolio#qna"
+						className="mobile-menu-item"
+						onClick={(e) => handleNavClick("/portfolio#qna", e)}
+					>
 						About
 					</a>
 
-					<a href="resume" className="mobile-menu-item" onClick={(e) => handleNavClick("resume", e)}>
+					<a
+						href="resume"
+						className="mobile-menu-item"
+						onClick={(e) => handleNavClick("resume", e)}
+					>
 						Resume
 					</a>
 					<a
