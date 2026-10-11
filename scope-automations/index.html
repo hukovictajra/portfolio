@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store Health Check — S.C.O.P.E ShopiProc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="6" fill="#0A0A0A"/>
+            <path d="M10 16.5c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="16.5" cy="17" r="2" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="sidebar__brand-text">
+          <strong>S.C.O.P.E</strong>
+          <span>ShopiProc</span>
+        </div>
+      </div>
+
+      <nav class="sidebar__nav">
+        <p class="sidebar__section-label">Overview</p>
+
+        <a href="#" class="nav-item">
+          <span class="nav-item__icon" aria-hidden="true">▦</span>
+          Dashboard
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+
+        <div class="nav-group nav-group--open">
+          <button type="button" class="nav-item nav-item--toggle" aria-expanded="true">
+            <span class="nav-item__icon" aria-hidden="true">⚙</span>
+            Product
+            <span class="nav-item__chevron nav-item__chevron--down" aria-hidden="true">›</span>
+          </button>
+          <div class="nav-sub">
+            <a href="#" class="nav-sub__item">Processor</a>
+            <a href="#" class="nav-sub__item nav-sub__item--active">Automations</a>
+            <a href="#" class="nav-sub__item">Shopify Flows</a>
+          </div>
+        </div>
+
+        <a href="#" class="nav-item">
+          <span class="nav-item__icon" aria-hidden="true">⌂</span>
+          Stores
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item__icon" aria-hidden="true">◎</span>
+          Users
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item__icon" aria-hidden="true">?</span>
+          Support
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-item__icon" aria-hidden="true">👥</span>
+          Admin
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__pinned">
+        <p class="sidebar__section-label">Pinned</p>
+        <a href="#" class="nav-item nav-item--pinned">
+          <span class="nav-item__icon" aria-hidden="true">📌</span>
+          Test Shop
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+        <a href="#" class="nav-item nav-item--pinned">
+          <span class="nav-item__icon" aria-hidden="true">📌</span>
+          Luxvogue
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+        <a href="#" class="nav-item nav-item--pinned">
+          <span class="nav-item__icon" aria-hidden="true">📌</span>
+          Stylvara
+          <span class="nav-item__chevron" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <a href="#" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Automations
+      </a>
+
+      <section class="detail-card">
+        <header class="detail-header">
+          <div class="detail-header__info">
+            <div class="detail-header__title-row">
+              <h1>Store Health Check</h1>
+              <span class="badge badge--active">Active</span>
+            </div>
+            <p class="detail-header__desc">Checks if the store is still active and valid</p>
+          </div>
+
+          <div class="detail-header__actions">
+            <button type="button" class="btn btn--secondary">Edit</button>
+            <button type="button" class="btn btn--secondary">Clone</button>
+            <button type="button" class="btn btn--primary">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 2.5v9l8-4.5-8-4.5z" fill="currentColor"/>
+              </svg>
+              Run Now
+            </button>
+            <div class="status-toggle">
+              <span>Status</span>
+              <button type="button" class="toggle toggle--on" id="statusToggle" aria-pressed="true" aria-label="Toggle automation status">
+                <span class="toggle__knob"></span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-card__icon" aria-hidden="true">🕐</div>
+            <div>
+              <p class="stat-card__label">Schedule</p>
+              <p class="stat-card__value">Daily at midnight</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card__icon stat-card__icon--code" aria-hidden="true">&lt;/&gt;</div>
+            <div>
+              <p class="stat-card__label">Cron</p>
+              <p class="stat-card__value stat-card__value--mono">0 0 * *</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card__icon" aria-hidden="true">📅</div>
+            <div>
+              <p class="stat-card__label">Last Run</p>
+              <p class="stat-card__value">Feb 24, 2026 at 00:00:00</p>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card__icon" aria-hidden="true">📅</div>
+            <div>
+              <p class="stat-card__label">Next Run</p>
+              <p class="stat-card__value">Feb 25, 2026 at 00:00:00</p>
+            </div>
+          </article>
+        </div>
+
+        <section class="panel">
+          <h2>Configuration</h2>
+          <pre class="code-block"><code>{
+  "disableUnhealthyStores": false,
+  "dryRun": false
+}</code></pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Shop Configuration</h2>
+            <button type="button" class="btn btn--secondary btn--sm">Edit Shops</button>
+          </div>
+          <div class="shop-field">
+            <span>Enable for</span>
+            <span class="shop-field__count">0 selected shops</span>
+          </div>
+        </section>
+      </section>
+
+      <section class="history-card">
+        <div class="history-header">
+          <h2>Run History</h2>
+          <div class="history-toolbar">
+            <label class="search-input">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <input type="search" id="runSearch" placeholder="Search runs..." />
+            </label>
+            <button type="button" class="icon-btn" aria-label="Refresh">↻</button>
+            <button type="button" class="icon-btn" aria-label="Filter">☰</button>
+          </div>
+        </div>
+
+        <div class="run-list" id="runList">
+          <article class="run-row run-row--expanded" data-run-id="1">
+            <button type="button" class="run-row__summary" aria-expanded="true">
+              <span class="badge badge--success">Success</span>
+              <span class="run-row__id">Run 6a0xq4CG8d</span>
+              <span class="run-row__date">
+                <span aria-hidden="true">📅</span>
+                Feb 27, 2026 | 00:00:00
+              </span>
+              <span class="run-row__actions">
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">⧉</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">↗</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">🔗</span>
+                <span class="run-row__chevron" aria-hidden="true">⌄</span>
+              </span>
+            </button>
+            <div class="run-row__details">
+              <div class="run-tabs">
+                <button type="button" class="run-tab run-tab--active">Logs</button>
+                <button type="button" class="run-tab">Config</button>
+                <button type="button" class="run-tab">Result</button>
+              </div>
+              <div class="log-list">
+                <div class="log-entry">
+                  <time>21 Feb 2026, 07:30:07</time>
+                  <span class="log-level log-level--info">INFO</span>
+                  <p>Checking health for store: Stylvara (ID: 4)</p>
+                </div>
+                <div class="log-entry">
+                  <time>23 Feb 2026, 07:30:07</time>
+                  <span class="log-level log-level--info">INFO</span>
+                  <p>Checking health for store: Stylvara (ID: 4)</p>
+                </div>
+                <div class="log-entry">
+                  <time>24 Feb 2026, 07:30:07</time>
+                  <span class="log-level log-level--info">INFO</span>
+                  <p>Checking health for store: Stylvara (ID: 4)</p>
+                </div>
+                <div class="log-entry">
+                  <time>25 Feb 2026, 07:30:07</time>
+                  <span class="log-level log-level--info">INFO</span>
+                  <p>Checking health for store: Stylvara (ID: 4)</p>
+                </div>
+              </div>
+              <div class="run-notes">
+                <strong>Run Notes</strong>
+                <p>Scheduled automation run</p>
+              </div>
+              <div class="run-footer">
+                <span class="run-footer__meta">Duration: 6m 35s | 176 enteries</span>
+                <div class="run-footer__actions">
+                  <button type="button" class="btn btn--secondary btn--sm">Download Logs</button>
+                  <button type="button" class="btn btn--secondary btn--sm">Download Metadata</button>
+                  <button type="button" class="btn btn--secondary btn--sm btn--danger">Delete</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="run-row" data-run-id="2">
+            <button type="button" class="run-row__summary" aria-expanded="false">
+              <span class="badge badge--success">Success</span>
+              <span class="run-row__id">Run 6a0xq4CG8d</span>
+              <span class="run-row__date">
+                <span aria-hidden="true">📅</span>
+                Feb 26, 2026 | 00:00:00
+              </span>
+              <span class="run-row__actions">
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">⧉</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">↗</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">🔗</span>
+                <span class="run-row__chevron" aria-hidden="true">⌄</span>
+              </span>
+            </button>
+            <div class="run-row__details" hidden>
+              <p class="run-row__placeholder">Logs available on expand.</p>
+            </div>
+          </article>
+
+          <article class="run-row" data-run-id="3">
+            <button type="button" class="run-row__summary" aria-expanded="false">
+              <span class="badge badge--success">Success</span>
+              <span class="run-row__id">Run 6a0xq4CG8d</span>
+              <span class="run-row__date">
+                <span aria-hidden="true">📅</span>
+                Feb 25, 2026 | 00:00:00
+              </span>
+              <span class="run-row__actions">
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">⧉</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">↗</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">🔗</span>
+                <span class="run-row__chevron" aria-hidden="true">⌄</span>
+              </span>
+            </button>
+            <div class="run-row__details" hidden>
+              <p class="run-row__placeholder">Logs available on expand.</p>
+            </div>
+          </article>
+
+          <article class="run-row" data-run-id="4">
+            <button type="button" class="run-row__summary" aria-expanded="false">
+              <span class="badge badge--success">Success</span>
+              <span class="run-row__id">Run 6a0xq4CG8d</span>
+              <span class="run-row__date">
+                <span aria-hidden="true">📅</span>
+                Feb 24, 2026 | 00:00:00
+              </span>
+              <span class="run-row__actions">
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">⧉</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">↗</span>
+                <span class="icon-btn icon-btn--ghost" aria-hidden="true">🔗</span>
+                <span class="run-row__chevron" aria-hidden="true">⌄</span>
+              </span>
+            </button>
+            <div class="run-row__details" hidden>
+              <p class="run-row__placeholder">Logs available on expand.</p>
+            </div>
+          </article>
+        </div>
+
+        <footer class="history-footer">
+          <span>Showing 7 runs</span>
+          <button type="button" class="btn btn--secondary btn--sm">Load more</button>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
